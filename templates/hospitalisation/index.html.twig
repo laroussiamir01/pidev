@@ -1,0 +1,44 @@
+{% extends 'base_front.html.twig' %}
+
+{% block title %}Hospitalisation index{% endblock %}
+{% block department %} service {% endblock %}
+{% block sejour %}
+    <h1>Hospitalisation index</h1>
+
+    <table class="table">
+    
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>DateEntrée</th>
+                <th>DateSortie</th>
+                <th>FraisSejour</th>
+                <th>IdHospitalisation</th>
+                <th>Service</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hospitalisation in hospitalisations %}
+            <tr>
+                <td>{{ hospitalisation.id }}</td>
+                <td>{{ hospitalisation.DateEntree ? hospitalisation.DateEntree|date('Y-m-d') : '' }}</td>
+                <td>{{ hospitalisation.DateSortie ? hospitalisation.DateSortie|date('Y-m-d') : '' }}</td>
+                <td>{{ hospitalisation.FraisSejour }}</td>
+                <td>{{ hospitalisation.idHospitalisation }}</td>
+                <td>{{ hospitalisation.service }}</td>
+                <td>
+                    <a href="{{ path('app_hospitalisation_show', {'id': hospitalisation.id}) }}">show</a>
+                    <a href="{{ path('app_hospitalisation_edit', {'id': hospitalisation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_hospitalisation_new') }}">Create new</a>
+{% endblock %}
