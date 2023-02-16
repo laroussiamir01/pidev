@@ -1,0 +1,43 @@
+
+{% extends 'front.html.twig' %}
+{% block list %}
+    <h1>liste des medecins</h1>
+    <title>liste des medecins</title>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_med</th>
+                <th>Prenom_med</th>
+                <th>Tel_med</th>
+                <th>Mail_med</th>
+                <th>Specialite</th>
+                <th>Diplome</th>
+                <th>Photo</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for medecin in medecins %}
+            <tr>
+                <td>{{ medecin.id }}</td>
+                <td>{{ medecin.nomMed }}</td>
+                <td>{{ medecin.prenomMed }}</td>
+                <td>{{ medecin.telMed }}</td>
+                <td>{{ medecin.mailMed }}</td>
+                <td>{{ medecin.specialite }}</td>
+                <td>{{ medecin.diplome }}</td>
+                <td>{{ medecin.photo }}</td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   
+{% endblock %}
