@@ -1,0 +1,39 @@
+{% extends 'front.html.twig' %}
+
+
+
+{% block body %}
+    <h1>Labo : </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Bloc</th>
+                <th>Mail</th>
+                <th>Tell</th>
+                <th>Img</th>
+                <th>Med</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for labo in labos %}
+            <tr>
+                <td>{{ labo.id }}</td>
+                <td>{{ labo.nom }}</td>
+                <td>{{ labo.bloc }}</td>
+                <td>{{ labo.mail }}</td>
+                <td>{{ labo.tell }}</td>
+                <td>{{ labo.img }}</td>
+                <td>{{ labo.med }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

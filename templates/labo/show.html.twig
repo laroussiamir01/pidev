@@ -1,0 +1,44 @@
+{% extends 'back.html.twig' %}
+
+{% block edit %}
+    <h1>Labo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ labo.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ labo.nom }}</td>
+            </tr>
+            <tr>
+                <th>Bloc</th>
+                <td>{{ labo.bloc }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ labo.mail }}</td>
+            </tr>
+            <tr>
+                <th>Tell</th>
+                <td>{{ labo.tell }}</td>
+            </tr>
+            <tr>
+                <th>Img</th>
+                <td>{{ labo.img }}</td>
+            </tr>
+            <tr>
+                <th>Med</th>
+                <td>{{ labo.med }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_labo_index') }}">back to list</a>
+
+    <a href="{{ path('app_labo_edit', {'id': labo.id}) }}">edit</a>
+
+    {{ include('labo/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'back.html.twig' %}
+
+{% block edit %}
+    <h1>Labo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Bloc</th>
+                <th>Mail</th>
+                <th>Tell</th>
+                <th>Img</th>
+                <th>Med</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for labo in labos %}
+            <tr>
+                <td>{{ labo.id }}</td>
+                <td>{{ labo.nom }}</td>
+                <td>{{ labo.bloc }}</td>
+                <td>{{ labo.mail }}</td>
+                <td>{{ labo.tell }}</td>
+                <td>{{ labo.img }}</td>
+                <td>{{ labo.med }}</td>
+                <td>
+                    <a href="{{ path('app_labo_show', {'id': labo.id}) }}">show</a>
+                    <a href="{{ path('app_labo_edit', {'id': labo.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_labo_new') }}">Create new</a>
+{% endblock %}

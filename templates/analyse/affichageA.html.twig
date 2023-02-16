@@ -1,0 +1,60 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}
+  Les Analyse :
+{% endblock %}
+
+{% block body %}
+  <h1>
+    Analyse 
+  </h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Id
+        </th>
+        <th>
+          Date
+        </th>
+        <th>
+          Resultat
+        </th>
+        <th>
+          Image
+        </th>
+        <th>
+          Prix
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for analyse in analyses %}
+        <tr>
+          <td>
+            {{ analyse.id }}
+          </td>
+          <td>
+            {{ analyse.date }}
+          </td>
+          <td>
+            {{ analyse.resultat }}
+          </td>
+          <td>
+            {{ analyse.image }}
+          </td>
+          <td>
+            {{ analyse.prix }}
+          </td>
+        </tr>
+      {% else %}
+        <tr>
+          <td colspan="6">
+            no records found
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

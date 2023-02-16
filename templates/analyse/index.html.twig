@@ -1,0 +1,90 @@
+{% extends 'back.html.twig' %}
+
+{% block edit %}
+  <h1>
+    Analyse index
+  </h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Id
+        </th>
+        <th>
+          Date
+        </th>
+        <th>
+          Resultat
+        </th>
+        <th>
+          Image
+        </th>
+        <th>
+          Prix
+        </th>
+        <th>
+         Labo
+        </th>
+
+        <th>
+          actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for analyse in analyses %}
+        <tr>
+          <td>
+            {{ analyse.id }}
+          </td>
+          <td>
+            {{ analyse.date }}
+          </td>
+          <td>
+            {{ analyse.resultat }}
+          </td>
+          <td>
+            {{ analyse.image }}
+          </td>
+          <td>
+            {{ analyse.prix }}
+          </td>
+           <td>
+            {{ analyse.labo }}
+          </td>
+          <td>
+            <a href="{{
+              path(
+                'app_analyse_show',
+                {
+                  id: analyse.id
+                }
+              )
+              }}">
+              show
+            </a>
+            <a href="{{
+              path(
+                'app_analyse_edit',
+                {
+                  id: analyse.id
+                }
+              )
+              }}">
+              edit
+            </a>
+          </td>
+        </tr>
+      {% else %}
+        <tr>
+          <td colspan="6">
+            no records found
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{{ path('app_analyse_new') }}">Create new</a>
+{% endblock %}
