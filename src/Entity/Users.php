@@ -19,7 +19,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
-    #[Assert\NotBlank(message:"first name is required")]
+    #[Assert\NotBlank(message:"Email name is required")]
     #[Assert\Email(message:"The email '{{ value }}' is not a valid email ")]
     private ?string $email = null;
 
@@ -34,12 +34,14 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:"first name is required")]
+    #[Assert\NotBlank(message:"first name name is required")]
     private ?string $Nom_user = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:"first name is required")]
+    #[Assert\NotBlank(message:"last name name is required")]
     private ?string $Prenom_user = null;
+
+   
 
     public function getId(): ?int
     {

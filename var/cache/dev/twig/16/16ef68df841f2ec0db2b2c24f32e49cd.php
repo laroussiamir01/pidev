@@ -86,6 +86,10 @@ class __TwigTemplate_cc8dad99751df2023a96150b2dcda3b6 extends Template
 
         // line 6
         echo "    <h1>Users index</h1>
+    <a href=\"";
+        // line 7
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+        echo "\">logout</a> 
 
     <table class=\"table\">
         <thead>
@@ -101,45 +105,45 @@ class __TwigTemplate_cc8dad99751df2023a96150b2dcda3b6 extends Template
         </thead>
         <tbody>
         ";
-        // line 21
+        // line 22
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 21, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 22, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
-            // line 22
+            // line 23
             echo "            <tr>
                 <td>";
-            // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 23), "html", null, true);
-            echo "</td>
-                <td>";
             // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "email", [], "any", false, false, false, 24), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 24), "html", null, true);
             echo "</td>
                 <td>";
             // line 25
-            ((twig_get_attribute($this->env, $this->source, $context["user"], "roles", [], "any", false, false, false, 25)) ? (print (twig_escape_filter($this->env, json_encode(twig_get_attribute($this->env, $this->source, $context["user"], "roles", [], "any", false, false, false, 25)), "html", null, true))) : (print ("")));
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "email", [], "any", false, false, false, 25), "html", null, true);
             echo "</td>
                 <td>";
             // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "password", [], "any", false, false, false, 26), "html", null, true);
+            ((twig_get_attribute($this->env, $this->source, $context["user"], "roles", [], "any", false, false, false, 26)) ? (print (twig_escape_filter($this->env, json_encode(twig_get_attribute($this->env, $this->source, $context["user"], "roles", [], "any", false, false, false, 26)), "html", null, true))) : (print ("")));
             echo "</td>
                 <td>";
             // line 27
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "NomUser", [], "any", false, false, false, 27), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "password", [], "any", false, false, false, 27), "html", null, true);
             echo "</td>
                 <td>";
             // line 28
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "PrenomUser", [], "any", false, false, false, 28), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "NomUser", [], "any", false, false, false, 28), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "PrenomUser", [], "any", false, false, false, 29), "html", null, true);
             echo "</td>
                 <td>
                     <a href=\"";
-            // line 30
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_users_show", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 30)]), "html", null, true);
+            // line 31
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_users_show", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 31)]), "html", null, true);
             echo "\">show</a>
                     <a href=\"";
-            // line 31
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_users_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 31)]), "html", null, true);
+            // line 32
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_users_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 32)]), "html", null, true);
             echo "\">edit</a>
                 </td>
             </tr>
@@ -147,7 +151,7 @@ class __TwigTemplate_cc8dad99751df2023a96150b2dcda3b6 extends Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 35
+            // line 36
             echo "            <tr>
                 <td colspan=\"7\">no records found</td>
             </tr>
@@ -156,19 +160,15 @@ class __TwigTemplate_cc8dad99751df2023a96150b2dcda3b6 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 40
         echo "        </tbody>
     </table>
 
-    <a href=\"";
-        // line 42
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_users_new");
-        echo "\">Create new</a>
-    <a href=\"";
-        // line 43
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
-        echo "\">logout</a>
-
+    ";
+        // line 44
+        echo "   ";
+        // line 45
+        echo "
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -190,7 +190,7 @@ class __TwigTemplate_cc8dad99751df2023a96150b2dcda3b6 extends Template
 
     public function getDebugInfo()
     {
-        return array (  169 => 43,  165 => 42,  160 => 39,  151 => 35,  142 => 31,  138 => 30,  133 => 28,  129 => 27,  125 => 26,  121 => 25,  117 => 24,  113 => 23,  110 => 22,  105 => 21,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  171 => 45,  169 => 44,  164 => 40,  155 => 36,  146 => 32,  142 => 31,  137 => 29,  133 => 28,  129 => 27,  125 => 26,  121 => 25,  117 => 24,  114 => 23,  109 => 22,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -201,6 +201,7 @@ class __TwigTemplate_cc8dad99751df2023a96150b2dcda3b6 extends Template
 
 {% block body %}
     <h1>Users index</h1>
+    <a href=\"{{ path('app_logout') }}\">logout</a> 
 
     <table class=\"table\">
         <thead>
@@ -236,10 +237,10 @@ class __TwigTemplate_cc8dad99751df2023a96150b2dcda3b6 extends Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_users_new') }}\">Create new</a>
-    <a href=\"{{ path('app_logout') }}\">logout</a>
+    {#}<a href=\"{{ path('app_users_new') }}\">Create new</a> {#}
+   {#} <a href=\"{{ path('app_logout') }}\">logout</a> {#}
 
 {% endblock %}
-", "users/index.html.twig", "C:\\Users\\Asus store\\form\\templates\\users\\index.html.twig");
+", "users/index.html.twig", "C:\\Users\\Asus store\\Documents\\GitHub\\pidev\\templates\\users\\index.html.twig");
     }
 }

@@ -33,7 +33,7 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "base-front.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +45,7 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "home/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "home/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("base-front.html.twig", "home/index.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -91,10 +91,7 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
 </style>
 
 <div class=\"example-wrapper\">
-    <h1>Hello ";
-        // line 12
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 12, $this->source); })()), "html", null, true);
-        echo "! ✅</h1>
+    <h1>Tu as deconnecté! ✅</h1>
     <ul>
      <a href=\"";
         // line 14
@@ -128,12 +125,12 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
 
     public function getDebugInfo()
     {
-        return array (  105 => 15,  101 => 14,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  102 => 15,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'base-front.html.twig' %}
 
 {% block title %}Hello HomeController!{% endblock %}
 
@@ -144,7 +141,7 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
 </style>
 
 <div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Tu as deconnecté! ✅</h1>
     <ul>
      <a href=\"{{ path('app_login') }}\">login</a> <br>
     <a href=\"{{ path('app_register') }}\">Register</a>
@@ -152,6 +149,6 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
     </ul>
 </div>
 {% endblock %}
-", "home/index.html.twig", "C:\\Users\\Asus store\\form\\templates\\home\\index.html.twig");
+", "home/index.html.twig", "C:\\Users\\Asus store\\Documents\\GitHub\\pidev\\templates\\home\\index.html.twig");
     }
 }

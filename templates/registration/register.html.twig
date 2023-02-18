@@ -3,17 +3,30 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+<section class="container">
+   <div class="row">
+      <div class="col">
+       <h1>Register</h1>
 
-    {{ form_start(registrationForm) }}
-      {{ form_row(registrationForm.Prenom_user) }}
+     {{form_start(registrationForm,{'attr':{'novalidate' : 'novalidate'}} )}}
+     <fieldset class="mb-3">
+       <legend>Mon identité</legend>
+        {{ form_row(registrationForm.Prenom_user) }}
         {{ form_row(registrationForm.Nom_user) }}
         {{ form_row(registrationForm.email) }}
+     </fieldset>
+      
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn btn-primary my-3">M'inscrir</button>
+        <a href="{{path('app_login')}}" class="btn btn-seconday my-3">Me connecté</a></li>
     {{ form_end(registrationForm) }}
+
+      </div>
+   </div>
+</section>
+   
 {% endblock %}
