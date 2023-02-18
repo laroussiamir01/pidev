@@ -33,7 +33,7 @@ class __TwigTemplate_559b0ac0df39479558519b44f6781b83 extends Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base.html.twig";
+        return "base-front.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +45,7 @@ class __TwigTemplate_559b0ac0df39479558519b44f6781b83 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "user/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "user/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("base-front.html.twig", "user/index.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -206,7 +206,7 @@ class __TwigTemplate_559b0ac0df39479558519b44f6781b83 extends Template
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'base-front.html.twig' %}
 
 {% block title %}User index{% endblock %}
 
@@ -247,6 +247,6 @@ class __TwigTemplate_559b0ac0df39479558519b44f6781b83 extends Template
 
     <a href=\"{{ path('app_user_new') }}\">Create new</a>
 {% endblock %}
-", "user/index.html.twig", "C:\\Users\\Asus store\\form\\templates\\user\\index.html.twig");
+", "user/index.html.twig", "C:\\Users\\Asus store\\Documents\\GitHub\\pidev\\templates\\user\\index.html.twig");
     }
 }

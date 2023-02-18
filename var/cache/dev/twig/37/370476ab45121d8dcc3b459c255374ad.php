@@ -91,7 +91,7 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
 </style>
 
 <div class=\"example-wrapper\">
-    <h1>Tu as deconnecté! ✅</h1>
+    <h1>Home! ✅</h1>
     <ul>
      <a href=\"";
         // line 14
@@ -141,7 +141,7 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
 </style>
 
 <div class=\"example-wrapper\">
-    <h1>Tu as deconnecté! ✅</h1>
+    <h1>Home! ✅</h1>
     <ul>
      <a href=\"{{ path('app_login') }}\">login</a> <br>
     <a href=\"{{ path('app_register') }}\">Register</a>

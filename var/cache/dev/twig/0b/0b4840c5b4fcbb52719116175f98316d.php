@@ -298,9 +298,11 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         </li>
 
                         <li>
-                            <a class=\"dropdown-item d-flex align-items-center\" href=\"users-profile.html\">
+                            <a class=\"dropdown-item d-flex align-items-center\" href=\"\">
                                 <i class=\"bi bi-person\"></i>
-                                <span>My Profile</span>
+                                <span>Mon compte</span>
+                                
+
                             </a>
                         </li>
                         <li>
@@ -308,7 +310,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         </li>
 
                         <li>
-                            <a class=\"dropdown-item d-flex align-items-center\" href=\"users-profile.html\">
+                            <a class=\"dropdown-item d-flex align-items-center\" href=\"app_users_edit\">
                                 <i class=\"bi bi-gear\"></i>
                                 <span>Account Settings</span>
                             </a>
@@ -328,7 +330,10 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         </li>
 
                         <li>
-                            <a class=\"dropdown-item d-flex align-items-center\" href=\"#\">
+                            <a class=\"dropdown-item d-flex align-items-center\" href=\"";
+        // line 283
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+        echo "\">
                                 <i class=\"bi bi-box-arrow-right\"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -609,9 +614,9 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         
                
               ";
-        // line 561
+        // line 563
         $this->displayBlock('body', $context, $blocks);
-        // line 562
+        // line 564
         echo "  
 
            
@@ -783,7 +788,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     }
 
-    // line 561
+    // line 563
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -813,7 +818,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     public function getDebugInfo()
     {
-        return array (  787 => 561,  775 => 44,  769 => 41,  765 => 40,  761 => 39,  757 => 38,  753 => 37,  749 => 36,  745 => 35,  741 => 34,  738 => 33,  728 => 32,  716 => 30,  710 => 27,  706 => 26,  702 => 25,  698 => 24,  694 => 23,  690 => 22,  686 => 21,  683 => 20,  673 => 19,  654 => 8,  615 => 562,  613 => 561,  285 => 236,  257 => 211,  240 => 197,  223 => 183,  98 => 61,  81 => 46,  78 => 32,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
+        return array (  792 => 563,  780 => 44,  774 => 41,  770 => 40,  766 => 39,  762 => 38,  758 => 37,  754 => 36,  750 => 35,  746 => 34,  743 => 33,  733 => 32,  721 => 30,  715 => 27,  711 => 26,  707 => 25,  703 => 24,  699 => 23,  695 => 22,  691 => 21,  688 => 20,  678 => 19,  659 => 8,  620 => 564,  618 => 563,  335 => 283,  285 => 236,  257 => 211,  240 => 197,  223 => 183,  98 => 61,  81 => 46,  78 => 32,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -1068,9 +1073,11 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         </li>
 
                         <li>
-                            <a class=\"dropdown-item d-flex align-items-center\" href=\"users-profile.html\">
+                            <a class=\"dropdown-item d-flex align-items-center\" href=\"\">
                                 <i class=\"bi bi-person\"></i>
-                                <span>My Profile</span>
+                                <span>Mon compte</span>
+                                
+
                             </a>
                         </li>
                         <li>
@@ -1078,7 +1085,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         </li>
 
                         <li>
-                            <a class=\"dropdown-item d-flex align-items-center\" href=\"users-profile.html\">
+                            <a class=\"dropdown-item d-flex align-items-center\" href=\"app_users_edit\">
                                 <i class=\"bi bi-gear\"></i>
                                 <span>Account Settings</span>
                             </a>
@@ -1098,7 +1105,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         </li>
 
                         <li>
-                            <a class=\"dropdown-item d-flex align-items-center\" href=\"#\">
+                            <a class=\"dropdown-item d-flex align-items-center\" href=\"{{path('app_logout')}}\">
                                 <i class=\"bi bi-box-arrow-right\"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -1408,6 +1415,6 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
 </body>
 
-</html>", "base.html.twig", "C:\\Users\\Asus store\\form\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\Users\\Asus store\\Documents\\GitHub\\pidev\\templates\\base.html.twig");
     }
 }
