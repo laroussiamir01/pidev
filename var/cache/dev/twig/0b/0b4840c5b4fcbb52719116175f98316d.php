@@ -612,14 +612,27 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     <main id=\"main\" class=\"main\">
 
         
-               
-              ";
-        // line 563
-        $this->displayBlock('body', $context, $blocks);
-        // line 564
-        echo "  
-
-           
+               ";
+        // line 562
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 562, $this->source); })()), "user", [], "any", false, false, false, 562)) {
+            // line 563
+            echo "              ";
+            $this->displayBlock('body', $context, $blocks);
+            // line 566
+            echo "  
+";
+        } else {
+            // line 568
+            echo "    <div class=\"mb-3\"><center>
+        Vous n êtes connecté(e) , <a href=\"";
+            // line 569
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\">Connect</a></center>
+    </div>
+    ";
+        }
+        // line 572
+        echo "           
        
 
     </main>
@@ -798,6 +811,10 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
+        // line 564
+        echo "              
+              
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -818,7 +835,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     public function getDebugInfo()
     {
-        return array (  792 => 563,  780 => 44,  774 => 41,  770 => 40,  766 => 39,  762 => 38,  758 => 37,  754 => 36,  750 => 35,  746 => 34,  743 => 33,  733 => 32,  721 => 30,  715 => 27,  711 => 26,  707 => 25,  703 => 24,  699 => 23,  695 => 22,  691 => 21,  688 => 20,  678 => 19,  659 => 8,  620 => 564,  618 => 563,  335 => 283,  285 => 236,  257 => 211,  240 => 197,  223 => 183,  98 => 61,  81 => 46,  78 => 32,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
+        return array (  815 => 564,  805 => 563,  793 => 44,  787 => 41,  783 => 40,  779 => 39,  775 => 38,  771 => 37,  767 => 36,  763 => 35,  759 => 34,  756 => 33,  746 => 32,  734 => 30,  728 => 27,  724 => 26,  720 => 25,  716 => 24,  712 => 23,  708 => 22,  704 => 21,  701 => 20,  691 => 19,  672 => 8,  635 => 572,  629 => 569,  626 => 568,  622 => 566,  619 => 563,  617 => 562,  335 => 283,  285 => 236,  257 => 211,  240 => 197,  223 => 183,  98 => 61,  81 => 46,  78 => 32,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -1384,10 +1401,16 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     <main id=\"main\" class=\"main\">
 
         
-               
+               {% if app.user %}
               {% block body %}
+              
+              
 {% endblock %}  
-
+{% else %}
+    <div class=\"mb-3\"><center>
+        Vous n êtes connecté(e) , <a href=\"{{ path('app_login') }}\">Connect</a></center>
+    </div>
+    {% endif %}
            
        
 

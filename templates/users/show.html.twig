@@ -17,7 +17,18 @@
             </tr>
             <tr>
                 <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+              {#}  <td>{{ user.roles ? user.roles|json_encode : '' }}</td> {#}
+               <td>
+                       {% for role in user.roles %}
+                            {% if role == "ROLE_USER" %}
+                                Utilisateur
+                            {% elseif role == "ROLE_EDITOR" %}
+                                Editeur
+                            {% elseif role == "ROLE_ADMIN" %}
+                                Administrateur
+                            {% endif %}
+                        {% endfor %}
+                    </td>
             </tr>
             <tr>
                 <th>Password</th>
@@ -37,6 +48,8 @@
     <a href="{{ path('app_users_index') }}">back to list</a>
 
     <a href="{{ path('app_users_edit', {'id': user.id}) }}">edit</a>
+
+    <li><a href="{{path('app_reclamation_index')}}">Reclamation</a></li>
 
     {{ include('users/_delete_form.html.twig') }}
 {% endblock %}

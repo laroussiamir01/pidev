@@ -96,30 +96,32 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
             </tr>
         </thead>
         <tbody>
+
+
         ";
-        // line 17
+        // line 19
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["reclamations"]) || array_key_exists("reclamations", $context) ? $context["reclamations"] : (function () { throw new RuntimeError('Variable "reclamations" does not exist.', 17, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["reclamations"]) || array_key_exists("reclamations", $context) ? $context["reclamations"] : (function () { throw new RuntimeError('Variable "reclamations" does not exist.', 19, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["reclamation"]) {
-            // line 18
+            // line 20
             echo "            <tr>
                 <td>";
-            // line 19
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 19), "html", null, true);
+            // line 21
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 21), "html", null, true);
             echo "</td>
                 <td>";
-            // line 20
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "message", [], "any", false, false, false, 20), "html", null, true);
-            echo "</td>
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "message", [], "any", false, false, false, 22), "html", null, true);
+            echo "</td> 
                 <td>
                     <a href=\"";
-            // line 22
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_show", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 22)]), "html", null, true);
+            // line 24
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_show", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 24)]), "html", null, true);
             echo "\">show</a>
                     <a href=\"";
-            // line 23
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 23)]), "html", null, true);
+            // line 25
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 25)]), "html", null, true);
             echo "\">edit</a>
                 </td>
             </tr>
@@ -127,7 +129,7 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 27
+            // line 29
             echo "            <tr>
                 <td colspan=\"3\">no records found</td>
             </tr>
@@ -136,12 +138,12 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reclamation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 33
         echo "        </tbody>
     </table>
 
     <a href=\"";
-        // line 34
+        // line 36
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_new");
         echo "\">Create new</a>
 ";
@@ -165,7 +167,7 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
 
     public function getDebugInfo()
     {
-        return array (  145 => 34,  140 => 31,  131 => 27,  122 => 23,  118 => 22,  113 => 20,  109 => 19,  106 => 18,  101 => 17,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  147 => 36,  142 => 33,  133 => 29,  124 => 25,  120 => 24,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -186,10 +188,12 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
             </tr>
         </thead>
         <tbody>
+
+
         {% for reclamation in reclamations %}
             <tr>
                 <td>{{ reclamation.id }}</td>
-                <td>{{ reclamation.message }}</td>
+                <td>{{ reclamation.message }}</td> 
                 <td>
                     <a href=\"{{ path('app_reclamation_show', {'id': reclamation.id}) }}\">show</a>
                     <a href=\"{{ path('app_reclamation_edit', {'id': reclamation.id}) }}\">edit</a>

@@ -46,7 +46,7 @@ class __TwigTemplate_3fec47d5f57aee093cc83af17c572aaf extends Template
         // line 2
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 2, $this->source); })()), 'widget');
         echo "
-    ";
+     ";
         // line 4
         echo "    <button class=\"btn\">";
         echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 4, $this->source); })()), "Save")) : ("Save")), "html", null, true);
@@ -83,7 +83,7 @@ class __TwigTemplate_3fec47d5f57aee093cc83af17c572aaf extends Template
     {
         return new Source("{{form_start(form,{'attr':{'novalidate' : 'novalidate'}} )}}
     {{ form_widget(form) }}
-    {#}  {{ form_row(form.roles) }} {#}
+     {#} {{ form_row(form.roles) }} {#}
     <button class=\"btn\">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 ", "users/_form.html.twig", "C:\\Users\\Asus store\\Documents\\GitHub\\pidev\\templates\\users\\_form.html.twig");

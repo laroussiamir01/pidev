@@ -559,10 +559,16 @@
     <main id="main" class="main">
 
         
-               
+               {% if app.user %}
               {% block body %}
+              
+              
 {% endblock %}  
-
+{% else %}
+    <div class="mb-3"><center>
+        Vous n êtes connecté(e) , <a href="{{ path('app_login') }}">Connect</a></center>
+    </div>
+    {% endif %}
            
        
 

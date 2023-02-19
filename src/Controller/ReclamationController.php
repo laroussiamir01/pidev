@@ -40,6 +40,7 @@ class ReclamationController extends AbstractController
         ]);
     }
 
+
     #[Route('/{id}', name: 'app_reclamation_show', methods: ['GET'])]
     public function show(Reclamation $reclamation): Response
     {

@@ -71,6 +71,7 @@
             {% if app.user %}
             <li><a href="#">Mon compte</a></li>
             <li><a href="{{path('app_logout')}}">Me deconnecté</a></li>
+            <li><a href="{{path('app_reclamation_index')}}">Reclamation</a></li>
             {% else %}
               <li><a href="{{path('app_register')}}">M'inscrir</a></li>
               <li><a href="{{path('app_login')}}">Me connecté</a></li>
@@ -136,8 +137,12 @@
   </section><!-- End Hero -->
 
   <main id="main">
+  
 {% block body %}
- {% endblock %}  
+
+
+ {% endblock %} 
+ 
     <!-- ======= Featured Services Section ======= -->
     <section id="featured-services" class="featured-services">
       <div class="container" data-aos="fade-up">
