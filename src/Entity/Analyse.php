@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use App\Repository\AnalyseRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AnalyseRepository::class)]
+#[ORM\AttributeOverrides]
 class Analyse
 {
     #[ORM\Id]
@@ -14,15 +16,26 @@ class Analyse
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:"la date d'analyse est obligatoire")]
+    #[Assert\Date(message:"date doit etre : YYYY-MM-DD ")]
+
     private ?string $date = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:"Resultat d'analyse est obligatoire")]
+    #[Assert\Length(min:10,minMessage:"resultat non valide")]
+
     private ?string $resultat = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:"image de resultat est obligatoire")]
+    //insertion image
     private ?string $image = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message:"donner prix d'analyse !! ")]
+    #[Assert\Positive(message:"prix doit etre positif")]
+
     private ?float $prix = null;
 
     #[ORM\ManyToOne(inversedBy: 'analyses')]

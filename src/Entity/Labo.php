@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\LaboRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\LaboRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: LaboRepository::class)]
+
 class Labo
 {
     #[ORM\Id]
@@ -16,25 +19,40 @@ class Labo
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:"Donner le Nom du Labo")]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:"le bloc est obligatoire")]
+    #[Assert\Length(min:1,max:1,minMessage:" Bloc n'exist pas ",maxMessage:" Bloc n'exist pas ")]
+
     private ?string $bloc = null;
 
-
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:"E-mail est obligatoire")]
+    #[Assert\Email(message:"E-mail est obligatoire")]
+
     private ?string $mail = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message:"Numero de telephone est obligatoire")]
+    #[Assert\Length(min:8,max:8,minMessage:"Numero indisponible",maxMessage:"Numero indisponible")]
+
     private ?int $tell = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:"image de resultat est obligatoire")]
+    //insertion imageee
     private ?string $img = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message:"le nom de medecin-chef est obligatoire")]
+    #[Assert\Length(min:10,max:100,minMessage:"Nom NON valide ",maxMessage:"Nom NON valide")]
+
     private ?string $med = null;
 
     #[ORM\OneToMany(mappedBy: 'labo', targetEntity: Analyse::class)]
+
     private Collection $analyses;
 
     public function __construct()
@@ -70,7 +88,6 @@ class Labo
 
         return $this;
     }
-
 
     public function getMail(): ?string
     {
@@ -149,6 +166,7 @@ class Labo
 
         return $this;
     }
+
     public function __toString()
     {
         return $this->nom;
