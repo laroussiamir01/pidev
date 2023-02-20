@@ -16,20 +16,31 @@ class Event
     #[ORM\Id]
    // #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Assert\NotBlank(message:"Id is required")]
+    #[Assert\NotBlank(message:" entrer votre ID")]
     private ?int $id_event = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:"name is required")]
+    #[Assert\NotBlank(message:" entrer votre NOM" )] 
+    #[Assert\Length(min:3 , minMessage : "Le nom doit contenir au moins {{ limit }} caractères")]
+    #[Assert\Regex(
+        pattern:"/^[a-zA-Z]+$/i",
+        message:"Nom dois etre des lettres"
+        )]
     private ?string $Nom_event = null;
+   
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     #[Assert\NotBlank(message:"date is required")]
+    #[Assert\GreaterThanOrEqual("Date_d_event", message: "Veuillez saisir une date supérieure à la date d'aujourd'hui ")]
     private ?\DateTimeInterface $Date_d_event = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     #[Assert\NotBlank(message:"date fin name is required")]
+    #[Assert\GreaterThanOrEqual(propertyPath:"Date_f_event", message: "Veuillez saisir une date supérieure à la date debut ")]
+
     private ?\DateTimeInterface $Date_f_event = null;
+
+    
 
     #[ORM\OneToMany(mappedBy: 'Events', targetEntity: Dons::class, orphanRemoval: true)]
     private Collection $dons;
