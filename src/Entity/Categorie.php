@@ -13,7 +13,7 @@ class Categorie
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id_cat = null;
 
     #[ORM\Column(length: 255)]
     private ?string $Nom = null;
@@ -28,7 +28,14 @@ class Categorie
 
     public function getId(): ?int
     {
-        return $this->id;
+        return $this->id_cat;
+        
+    }
+    public function setId(int $id_cat): self
+    {
+        $this->id_cat = $id_cat;
+
+        return $this;
     }
 
     public function getNom(): ?string

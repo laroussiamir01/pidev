@@ -13,7 +13,7 @@ class Dons
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id_don = null;
 
     #[ORM\ManyToOne(inversedBy: 'dons')]
     private ?Categorie $cat = null;
@@ -21,10 +21,20 @@ class Dons
     #[ORM\ManyToOne(inversedBy: 'Dons')]
     private ?Etats $etats = null;
 
+    #[ORM\ManyToOne(inversedBy: 'dons')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Event $Events = null;
+
 
     public function getId(): ?int
     {
-        return $this->id;
+        return $this->id_don;
+    }
+    public function setId(int $id_don): self
+    {
+        $this->id_don = $id_don;
+
+        return $this;
     }
 
     public function getCat(): ?Categorie
@@ -47,6 +57,18 @@ class Dons
     public function setEtats(?Etats $etats): self
     {
         $this->etats = $etats;
+
+        return $this;
+    }
+
+    public function getEvents(): ?Event
+    {
+        return $this->Events;
+    }
+
+    public function setEvents(?Event $Events): self
+    {
+        $this->Events = $Events;
 
         return $this;
     }

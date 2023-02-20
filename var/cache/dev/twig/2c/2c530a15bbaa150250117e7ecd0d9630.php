@@ -33,7 +33,7 @@ class __TwigTemplate_70fdd9a483aad5d20fedadcb39a39256 extends Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base-front.html.twig";
+        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +45,7 @@ class __TwigTemplate_70fdd9a483aad5d20fedadcb39a39256 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "event/edit.html.twig"));
 
-        $this->parent = $this->loadTemplate("base-front.html.twig", "event/edit.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "event/edit.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -127,7 +127,7 @@ class __TwigTemplate_70fdd9a483aad5d20fedadcb39a39256 extends Template
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base-front.html.twig' %}
+        return new Source("{% extends 'base.html.twig' %}
 
 {% block title %}Edit Event{% endblock %}
 
@@ -140,6 +140,6 @@ class __TwigTemplate_70fdd9a483aad5d20fedadcb39a39256 extends Template
 
     {{ include('event/_delete_form.html.twig') }}
 {% endblock %}
-", "event/edit.html.twig", "C:\\Users\\tasnim\\piproject\\templates\\event\\edit.html.twig");
+", "event/edit.html.twig", "C:\\Users\\tasnim\\Documents\\GitHub\\pidev\\templates\\event\\edit.html.twig");
     }
 }

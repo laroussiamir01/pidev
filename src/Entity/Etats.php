@@ -13,7 +13,7 @@ class Etats
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id_etat = null;
 
     #[ORM\Column(length: 255)]
     private ?string $Nom_etat = null;
@@ -29,7 +29,13 @@ class Etats
 
     public function getId(): ?int
     {
-        return $this->id;
+        return $this->id_etat;
+    }
+    public function setId(int $id_etat): self
+    {
+        $this->id_etat = $id_etat;
+
+        return $this;
     }
 
     public function getNomEtat(): ?string

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EventRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -28,6 +30,14 @@ class Event
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     #[Assert\NotBlank(message:"date fin name is required")]
     private ?\DateTimeInterface $Date_f_event = null;
+
+    #[ORM\OneToMany(mappedBy: 'Events', targetEntity: Dons::class, orphanRemoval: true)]
+    private Collection $dons;
+
+    public function __construct()
+    {
+        $this->dons = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -73,6 +83,36 @@ class Event
     public function setDateFEvent(\DateTimeInterface $Date_f_event): self
     {
         $this->Date_f_event = $Date_f_event;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Dons>
+     */
+    public function getDons(): Collection
+    {
+        return $this->dons;
+    }
+
+    public function addDon(Dons $don): self
+    {
+        if (!$this->dons->contains($don)) {
+            $this->dons->add($don);
+            $don->setEvents($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDon(Dons $don): self
+    {
+        if ($this->dons->removeElement($don)) {
+            // set the owning side to null (unless already changed)
+            if ($don->getEvents() === $this) {
+                $don->setEvents(null);
+            }
+        }
 
         return $this;
     }
