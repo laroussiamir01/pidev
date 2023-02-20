@@ -32,15 +32,30 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank(message:"password name name is required")]
+    #[Assert\Regex(
+    pattern: "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/",
+    message:"The password must contain at least one lowercase letter, one uppercase letter, one number and one special character."
+    )] 
     
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message:"first name name is required")]
+    #[Assert\Length(min:3 , minMessage : "Le nom doit contenir au moins {{ limit }} caractères")]
+    #[Assert\Regex(
+        pattern:"/^[a-zA-Z]+$/i",
+        message:"Nom dois etre des lettres"
+        )] 
     private ?string $Nom_user = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message:"last name name is required")]
+    #[Assert\Length(min:3 , minMessage : "Le Prenom doit contenir au moins {{ limit }} caractères")]
+    #[Assert\Regex(
+        pattern:"/^[a-zA-Z]+$/i",
+        message:"Prenom dois etre des lettres"
+        )] 
     private ?string $Prenom_user = null;
 
     #[ORM\OneToMany(mappedBy: 'users', targetEntity: Reclamation::class, orphanRemoval: true)]

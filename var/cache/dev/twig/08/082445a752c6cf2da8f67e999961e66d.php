@@ -136,18 +136,19 @@ class __TwigTemplate_6926915dbbff15cee27bb5d4ff48374f extends Template
     ";
         // line 35
         echo "
-        <div class=\"checkbox mb-3\">
+         <div class=\"checkbox mb-3\">
             <label>
                 <input type=\"checkbox\" name=\"_remember_me\"> Remember me
             </label>
-        </div>
+        </div> 
+        
     
 
     <button class=\"btn btn-lg btn-primary mt-3\" type=\"submit\">
         Me connecter
     </button>
     <a href=\"";
-        // line 46
+        // line 47
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
         echo "\" class=\"btn btn-secondary mt-3\">M'inscrir</a></li>
 </form>
@@ -179,7 +180,7 @@ class __TwigTemplate_6926915dbbff15cee27bb5d4ff48374f extends Template
 
     public function getDebugInfo()
     {
-        return array (  151 => 46,  138 => 35,  132 => 29,  124 => 24,  119 => 21,  111 => 18,  107 => 16,  105 => 15,  102 => 14,  98 => 12,  96 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  152 => 47,  138 => 35,  132 => 29,  124 => 24,  119 => 21,  111 => 18,  107 => 16,  105 => 15,  102 => 14,  98 => 12,  96 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -219,11 +220,12 @@ class __TwigTemplate_6926915dbbff15cee27bb5d4ff48374f extends Template
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
         See https://symfony.com/doc/current/security/remember_me.html#}
 
-        <div class=\"checkbox mb-3\">
+         <div class=\"checkbox mb-3\">
             <label>
                 <input type=\"checkbox\" name=\"_remember_me\"> Remember me
             </label>
-        </div>
+        </div> 
+        
     
 
     <button class=\"btn btn-lg btn-primary mt-3\" type=\"submit\">

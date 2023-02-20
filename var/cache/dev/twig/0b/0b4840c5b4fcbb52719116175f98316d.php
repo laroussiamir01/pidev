@@ -357,16 +357,19 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         <ul class=\"sidebar-nav\" id=\"sidebar-nav\">
 
             <li class=\"nav-item\">
-                <a class=\"nav-link \" href=\"index.html\">
+                <a class=\"nav-link \" href=\"";
+        // line 307
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_index");
+        echo "\">
                     <i class=\"bi bi-grid\"></i>
-                    <span>Dashboard</span>
+                    <span>Reclamation</span>
                 </a>
             </li>
             <!-- End Dashboard Nav -->
 
             <li class=\"nav-item\">
                 <a class=\"nav-link collapsed\" data-bs-target=\"#components-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-                    <i class=\"bi bi-menu-button-wide\"></i><span>Components</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+                    <i class=\"bi bi-menu-button-wide\"></i><span>Dashboard</span><i class=\"bi bi-chevron-down ms-auto\"></i>
                 </a>
                 <ul id=\"components-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
                     <li>
@@ -835,7 +838,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     public function getDebugInfo()
     {
-        return array (  815 => 564,  805 => 563,  793 => 44,  787 => 41,  783 => 40,  779 => 39,  775 => 38,  771 => 37,  767 => 36,  763 => 35,  759 => 34,  756 => 33,  746 => 32,  734 => 30,  728 => 27,  724 => 26,  720 => 25,  716 => 24,  712 => 23,  708 => 22,  704 => 21,  701 => 20,  691 => 19,  672 => 8,  635 => 572,  629 => 569,  626 => 568,  622 => 566,  619 => 563,  617 => 562,  335 => 283,  285 => 236,  257 => 211,  240 => 197,  223 => 183,  98 => 61,  81 => 46,  78 => 32,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
+        return array (  818 => 564,  808 => 563,  796 => 44,  790 => 41,  786 => 40,  782 => 39,  778 => 38,  774 => 37,  770 => 36,  766 => 35,  762 => 34,  759 => 33,  749 => 32,  737 => 30,  731 => 27,  727 => 26,  723 => 25,  719 => 24,  715 => 23,  711 => 22,  707 => 21,  704 => 20,  694 => 19,  675 => 8,  638 => 572,  632 => 569,  629 => 568,  625 => 566,  622 => 563,  620 => 562,  362 => 307,  335 => 283,  285 => 236,  257 => 211,  240 => 197,  223 => 183,  98 => 61,  81 => 46,  78 => 32,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -1146,16 +1149,16 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         <ul class=\"sidebar-nav\" id=\"sidebar-nav\">
 
             <li class=\"nav-item\">
-                <a class=\"nav-link \" href=\"index.html\">
+                <a class=\"nav-link \" href=\"{{path('app_reclamation_index')}}\">
                     <i class=\"bi bi-grid\"></i>
-                    <span>Dashboard</span>
+                    <span>Reclamation</span>
                 </a>
             </li>
             <!-- End Dashboard Nav -->
 
             <li class=\"nav-item\">
                 <a class=\"nav-link collapsed\" data-bs-target=\"#components-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-                    <i class=\"bi bi-menu-button-wide\"></i><span>Components</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+                    <i class=\"bi bi-menu-button-wide\"></i><span>Dashboard</span><i class=\"bi bi-chevron-down ms-auto\"></i>
                 </a>
                 <ul id=\"components-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
                     <li>

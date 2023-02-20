@@ -5,20 +5,25 @@ namespace App\Controller;
 use App\Entity\Users;
 use App\Form\UsersType;
 use App\Repository\UsersRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/users')]
 class UsersController extends AbstractController
 {
     #[Route('/', name: 'app_users_index', methods: ['GET'])]
-    public function index(UsersRepository $usersRepository): Response
+    public function index(UsersRepository $usersRepository,Session $session): Response
     {
+       // $utilisateur = $this->getUser();
+       // if($utilisateur && in_array('ROLE_ADMIN', $utilisateur->getRoles())){ 
         return $this->render('users/index.html.twig', [
             'users' => $usersRepository->findAll(),
-        ]);
+        ]);    //}
+     //   $session->set("message", "Vous n'avez pas le droit d'acceder à la page admin vous avez été redirigé sur cette page");
+     //   return $this->redirectToRoute('app_home');
     }
 
     #[Route('/new', name: 'app_users_new', methods: ['GET', 'POST'])]

@@ -91,6 +91,7 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
         <thead>
             <tr>
                 <th>Id</th>
+                <th>UserId</th>
                 <th>Message</th>
                 <th>actions</th>
             </tr>
@@ -99,29 +100,33 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
 
 
         ";
-        // line 19
+        // line 20
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["reclamations"]) || array_key_exists("reclamations", $context) ? $context["reclamations"] : (function () { throw new RuntimeError('Variable "reclamations" does not exist.', 19, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["reclamations"]) || array_key_exists("reclamations", $context) ? $context["reclamations"] : (function () { throw new RuntimeError('Variable "reclamations" does not exist.', 20, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["reclamation"]) {
-            // line 20
+            // line 21
             echo "            <tr>
                 <td>";
-            // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 21), "html", null, true);
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 22), "html", null, true);
             echo "</td>
                 <td>";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "message", [], "any", false, false, false, 22), "html", null, true);
-            echo "</td> 
+            // line 23
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "users", [], "any", false, false, false, 23), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 24
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "message", [], "any", false, false, false, 24), "html", null, true);
+            echo "</td>  
                 <td>
                     <a href=\"";
-            // line 24
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_show", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 24)]), "html", null, true);
+            // line 26
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_show", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 26)]), "html", null, true);
             echo "\">show</a>
                     <a href=\"";
-            // line 25
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 25)]), "html", null, true);
+            // line 27
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 27)]), "html", null, true);
             echo "\">edit</a>
                 </td>
             </tr>
@@ -129,7 +134,7 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 29
+            // line 31
             echo "            <tr>
                 <td colspan=\"3\">no records found</td>
             </tr>
@@ -138,12 +143,12 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reclamation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 33
+        // line 35
         echo "        </tbody>
     </table>
 
     <a href=\"";
-        // line 36
+        // line 38
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_new");
         echo "\">Create new</a>
 ";
@@ -167,7 +172,7 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
 
     public function getDebugInfo()
     {
-        return array (  147 => 36,  142 => 33,  133 => 29,  124 => 25,  120 => 24,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  152 => 38,  147 => 35,  138 => 31,  129 => 27,  125 => 26,  120 => 24,  116 => 23,  112 => 22,  109 => 21,  104 => 20,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -183,6 +188,7 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
         <thead>
             <tr>
                 <th>Id</th>
+                <th>UserId</th>
                 <th>Message</th>
                 <th>actions</th>
             </tr>
@@ -193,7 +199,8 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
         {% for reclamation in reclamations %}
             <tr>
                 <td>{{ reclamation.id }}</td>
-                <td>{{ reclamation.message }}</td> 
+                <td>{{ reclamation.users }}</td>
+                <td>{{ reclamation.message }}</td>  
                 <td>
                     <a href=\"{{ path('app_reclamation_show', {'id': reclamation.id}) }}\">show</a>
                     <a href=\"{{ path('app_reclamation_edit', {'id': reclamation.id}) }}\">edit</a>

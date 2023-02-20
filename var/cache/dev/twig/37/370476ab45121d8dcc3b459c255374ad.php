@@ -92,16 +92,25 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
 
 <div class=\"example-wrapper\">
     <h1>Home! ✅</h1>
-    <ul>
-     <a href=\"";
-        // line 14
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
-        echo "\">login</a> <br>
-    <a href=\"";
-        // line 15
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
-        echo "\">Register</a>
-        
+    ";
+        // line 13
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 13, $this->source); })()), "user", [], "any", false, false, false, 13)) {
+            // line 14
+            echo "     <div class=\"mb-3\">
+         
+             Vous etes connecte comme ";
+            // line 16
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 16, $this->source); })()), "user", [], "any", false, false, false, 16), "userIdentifier", [], "any", false, false, false, 16), "html", null, true);
+            echo " ";
+            // line 17
+            echo "        </div>
+    ";
+        }
+        // line 19
+        echo "    <ul>
+  ";
+        // line 22
+        echo "        
     </ul>
 </div>
 ";
@@ -125,7 +134,7 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
 
     public function getDebugInfo()
     {
-        return array (  102 => 15,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  113 => 22,  110 => 19,  106 => 17,  103 => 16,  99 => 14,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -142,9 +151,15 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
 
 <div class=\"example-wrapper\">
     <h1>Home! ✅</h1>
+    {% if app.user %}
+     <div class=\"mb-3\">
+         
+             Vous etes connecte comme {{ app.user.userIdentifier }} {#}<a href=\"{{ path('app_logout') }}\">Logout</a> {#}
+        </div>
+    {% endif %}
     <ul>
-     <a href=\"{{ path('app_login') }}\">login</a> <br>
-    <a href=\"{{ path('app_register') }}\">Register</a>
+  {#    <a href=\"{{ path('app_login') }}\">login</a> <br>
+    <a href=\"{{ path('app_register') }}\">Register</a> #}
         
     </ul>
 </div>
