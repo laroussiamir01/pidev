@@ -85,7 +85,7 @@ class __TwigTemplate_efb79a1763a0af606c816c67a1032963 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Fournisseur index</h1>
+        echo "    <h1>Fournisseur </h1>
 
     <table class=\"table\">
         <thead>
@@ -179,7 +179,7 @@ class __TwigTemplate_efb79a1763a0af606c816c67a1032963 extends Template
 {% block title %}Fournisseur index{% endblock %}
 
 {% block body %}
-    <h1>Fournisseur index</h1>
+    <h1>Fournisseur </h1>
 
     <table class=\"table\">
         <thead>
@@ -210,6 +210,6 @@ class __TwigTemplate_efb79a1763a0af606c816c67a1032963 extends Template
 
     <a href=\"{{ path('app_fournisseur_new') }}\">Create new</a>
 {% endblock %}
-", "fournisseur/index.html.twig", "C:\\Users\\fadi1\\pidev\\templates\\fournisseur\\index.html.twig");
+", "fournisseur/index.html.twig", "C:\\Users\\fadi1\\Documents\\GitHub\\pidev\\templates\\fournisseur\\index.html.twig");
     }
 }

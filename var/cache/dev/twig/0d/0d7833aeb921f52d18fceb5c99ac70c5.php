@@ -90,14 +90,14 @@ class __TwigTemplate_da2ddb922e4ce1e55df86890b79f0085 extends Template
     <table class=\"table\">
         <tbody>
             <tr>
-                <th>Id_f</th>
+                <th>Id fournisseur</th>
                 <td>";
         // line 12
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["fournisseur"]) || array_key_exists("fournisseur", $context) ? $context["fournisseur"] : (function () { throw new RuntimeError('Variable "fournisseur" does not exist.', 12, $this->source); })()), "id_F", [], "any", false, false, false, 12), "html", null, true);
         echo "</td>
             </tr>
             <tr>
-                <th>Nom_f</th>
+                <th>Nom fournisseur</th>
                 <td>";
         // line 16
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["fournisseur"]) || array_key_exists("fournisseur", $context) ? $context["fournisseur"] : (function () { throw new RuntimeError('Variable "fournisseur" does not exist.', 16, $this->source); })()), "nomF", [], "any", false, false, false, 16), "html", null, true);
@@ -156,11 +156,11 @@ class __TwigTemplate_da2ddb922e4ce1e55df86890b79f0085 extends Template
     <table class=\"table\">
         <tbody>
             <tr>
-                <th>Id_f</th>
+                <th>Id fournisseur</th>
                 <td>{{ fournisseur.id_F }}</td>
             </tr>
             <tr>
-                <th>Nom_f</th>
+                <th>Nom fournisseur</th>
                 <td>{{ fournisseur.nomF }}</td>
             </tr>
         </tbody>
@@ -172,6 +172,6 @@ class __TwigTemplate_da2ddb922e4ce1e55df86890b79f0085 extends Template
 
     {{ include('fournisseur/_delete_form.html.twig') }}
 {% endblock %}
-", "fournisseur/show.html.twig", "C:\\Users\\fadi1\\pidev\\templates\\fournisseur\\show.html.twig");
+", "fournisseur/show.html.twig", "C:\\Users\\fadi1\\Documents\\GitHub\\pidev\\templates\\fournisseur\\show.html.twig");
     }
 }

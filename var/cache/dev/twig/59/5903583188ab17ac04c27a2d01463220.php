@@ -140,10 +140,7 @@ class __TwigTemplate_e68198fb62772d4b3351789e08552a6c extends Template
             // line 26
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_materiel_controller_back_edit", ["id_mat" => twig_get_attribute($this->env, $this->source, $context["materiel"], "id_mat", [], "any", false, false, false, 26)]), "html", null, true);
             echo "\">edit</a>
-                    <a href=\"";
-            // line 27
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_materiel_controller_back_delete", ["id_mat" => twig_get_attribute($this->env, $this->source, $context["materiel"], "id_mat", [], "any", false, false, false, 27)]), "html", null, true);
-            echo "\">delete</a>
+                   
                     
                 </td>
             </tr>
@@ -202,7 +199,7 @@ class __TwigTemplate_e68198fb62772d4b3351789e08552a6c extends Template
 
     public function getDebugInfo()
     {
-        return array (  182 => 41,  176 => 37,  168 => 35,  163 => 32,  145 => 27,  141 => 26,  136 => 24,  132 => 23,  128 => 22,  124 => 21,  121 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  179 => 41,  173 => 37,  165 => 35,  160 => 32,  141 => 26,  136 => 24,  132 => 23,  128 => 22,  124 => 21,  121 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -233,7 +230,7 @@ class __TwigTemplate_e68198fb62772d4b3351789e08552a6c extends Template
                 <td>{{ materiel.prixAchat }}</td>
                 <td>
                     <a href=\"{{ path('app_materiel_controller_back_edit', {'id_mat': materiel.id_mat}) }}\">edit</a>
-                    <a href=\"{{ path('app_materiel_controller_back_delete', {'id_mat': materiel.id_mat}) }}\">delete</a>
+                   
                     
                 </td>
             </tr>
@@ -249,6 +246,6 @@ class __TwigTemplate_e68198fb62772d4b3351789e08552a6c extends Template
 
     <a href=\"{{ path('app_materiel_controller_back_new') }}\">Create new</a>
 {% endblock %}
-", "materiel_controller_back/show.html.twig", "C:\\Users\\fadi1\\pidev\\templates\\materiel_controller_back\\show.html.twig");
+", "materiel_controller_back/show.html.twig", "C:\\Users\\fadi1\\Documents\\GitHub\\pidev\\templates\\materiel_controller_back\\show.html.twig");
     }
 }

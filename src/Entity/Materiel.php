@@ -15,15 +15,29 @@ class Materiel
     private ?int $id_mat = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:" remplir ce champ")]
-    private ?string $libelle = null;
+    #[Assert\NotBlank(message:" veuillez ecrire la libelle")]
+    #[ Assert\Length([
+        'min' => 3,
+        'max' => 20,
+        'minMessage' => 'La libelle doit comporter au moins {{ limit }} caractères  ',
+        'maxMessage' => 'La libelle doit comporter au plus {{ limit }} caractères '
+    ])]
+        private ?string $libelle = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:" remplir ce champ")]
+    #[Assert\NotBlank(message:" veuillez ecrire le type")]
+    #[ Assert\Length([
+        'min' => 3,
+        'max' => 20,
+        'minMessage' => 'Le type doit comporter au moins {{ limit }} caractères  ',
+        'maxMessage' => 'Le type doit comporter au plus {{ limit }} caractères '
+    ])]
     private ?string $type = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank(message:" remplir ce champ")]
+    #[Assert\NotBlank(message:"veuillez ecrire le prix")]
+    #[ Assert\GreaterThan(0)]
+   
     private ?float $prix_achat = null;
 
     public function getId_mat(): ?int

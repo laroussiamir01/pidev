@@ -16,7 +16,14 @@ class MaterielControllerBackController extends AbstractController
     #[Route('/', name: 'app_materiel_controller_back_index', methods: ['GET'])]
     public function index(MaterielRepository $materielRepository): Response
     {
-        return $this->render('materiel_controller_back/index.html.twig', [
+        return $this->render('materiel_controller_back/show.html.twig', [
+            'materiels' => $materielRepository->findAll(),
+        ]);
+    }
+    #[Route('/show', name: 'app_materiel_controller_back_show', methods: ['GET'])]
+    public function show(MaterielRepository $materielRepository): Response
+    {
+        return $this->render('materiel_controller_back/show.html.twig', [
             'materiels' => $materielRepository->findAll(),
         ]);
     }
@@ -47,13 +54,7 @@ class MaterielControllerBackController extends AbstractController
         ]);
     }
 
-    #[Route('/show', name: 'app_materiel_controller_back_show', methods: ['GET'])]
-    public function show(MaterielRepository $materielRepository): Response
-    {
-        return $this->render('materiel_controller_back/show.html.twig', [
-            'materiels' => $materielRepository->findAll(),
-        ]);
-    }
+   
 
     #[Route('/{id_mat}/edit', name: 'app_materiel_controller_back_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Materiel $materiel, MaterielRepository $materielRepository): Response

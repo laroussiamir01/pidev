@@ -84,6 +84,6 @@ class __TwigTemplate_c2960fa37966401e94f64ddbb4b90778 extends Template
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
-", "fournisseur/_form.html.twig", "C:\\Users\\fadi1\\pidev\\templates\\fournisseur\\_form.html.twig");
+", "fournisseur/_form.html.twig", "C:\\Users\\fadi1\\Documents\\GitHub\\pidev\\templates\\fournisseur\\_form.html.twig");
     }
 }

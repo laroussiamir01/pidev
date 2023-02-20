@@ -49,7 +49,7 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
   <meta charset=\"utf-8\">
   <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">
 
-  <title>Medicio Bootstrap Template -";
+  <title> SauVies ";
         // line 8
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
@@ -1230,7 +1230,7 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo " Index";
+        echo " ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -1283,7 +1283,7 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
   <meta charset=\"utf-8\">
   <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">
 
-  <title>Medicio Bootstrap Template -{% block title %} Index{% endblock %}</title>
+  <title> SauVies {% block title %} {% endblock %}</title>
   <meta content=\"\" name=\"description\">
   <meta content=\"\" name=\"keywords\">
 
@@ -2288,6 +2288,6 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
 
 </body>
 
-</html>", "base-front.html.twig", "C:\\Users\\fadi1\\pidev\\templates\\base-front.html.twig");
+</html>", "base-front.html.twig", "C:\\Users\\fadi1\\Documents\\GitHub\\pidev\\templates\\base-front.html.twig");
     }
 }

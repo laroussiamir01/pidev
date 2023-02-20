@@ -374,119 +374,12 @@ class __TwigTemplate_617a4830f29d867c76a8cc9961cd7fb5 extends Template
               <i class=\"bi bi-circle\"></i><span>Alerts</span>
             </a>
           </li>
-          <li>
-            <a href=\"components-accordion.html\">
-              <i class=\"bi bi-circle\"></i><span>Accordion</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-badges.html\">
-              <i class=\"bi bi-circle\"></i><span>Badges</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-breadcrumbs.html\">
-              <i class=\"bi bi-circle\"></i><span>Breadcrumbs</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-buttons.html\">
-              <i class=\"bi bi-circle\"></i><span>Buttons</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-cards.html\">
-              <i class=\"bi bi-circle\"></i><span>Cards</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-carousel.html\">
-              <i class=\"bi bi-circle\"></i><span>Carousel</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-list-group.html\">
-              <i class=\"bi bi-circle\"></i><span>List group</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-modal.html\">
-              <i class=\"bi bi-circle\"></i><span>Modal</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-tabs.html\">
-              <i class=\"bi bi-circle\"></i><span>Tabs</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-pagination.html\">
-              <i class=\"bi bi-circle\"></i><span>Pagination</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-progress.html\">
-              <i class=\"bi bi-circle\"></i><span>Progress</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-spinners.html\">
-              <i class=\"bi bi-circle\"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-tooltips.html\">
-              <i class=\"bi bi-circle\"></i><span>Tooltips</span>
-            </a>
-          </li>
+          
         </ul>
       </li><!-- End Components Nav -->
 
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" data-bs-target=\"#forms-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-journal-text\"></i><span>Forms</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-        </a>
-        <ul id=\"forms-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-          <li>
-            <a href=\"forms-elements.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Elements</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"forms-layouts.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Layouts</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"forms-editors.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Editors</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"forms-validation.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Validation</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
 
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" data-bs-target=\"#tables-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-layout-text-window-reverse\"></i><span>Tables</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-        </a>
-        <ul id=\"tables-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-          <li>
-            <a href=\"tables-general.html\">
-              <i class=\"bi bi-circle\"></i><span>General Tables</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"tables-data.html\">
-              <i class=\"bi bi-circle\"></i><span>Data Tables</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Tables Nav -->
+      
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#charts-nav\" data-bs-toggle=\"collapse\" href=\"#\">
@@ -511,37 +404,7 @@ class __TwigTemplate_617a4830f29d867c76a8cc9961cd7fb5 extends Template
         </ul>
       </li><!-- End Charts Nav -->
 
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" data-bs-target=\"#icons-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-gem\"></i><span>Icons</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-        </a>
-        <ul id=\"icons-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-          <li>
-            <a href=\"icons-bootstrap.html\">
-              <i class=\"bi bi-circle\"></i><span>Bootstrap Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"icons-remix.html\">
-              <i class=\"bi bi-circle\"></i><span>Remix Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"icons-boxicons.html\">
-              <i class=\"bi bi-circle\"></i><span>Boxicons</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Icons Nav -->
-
-      <li class=\"nav-heading\">Pages</li>
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"users-profile.html\">
-          <i class=\"bi bi-person\"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
+      
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" href=\"pages-faq.html\">
@@ -571,19 +434,7 @@ class __TwigTemplate_617a4830f29d867c76a8cc9961cd7fb5 extends Template
         </a>
       </li><!-- End Login Page Nav -->
 
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-error-404.html\">
-          <i class=\"bi bi-dash-circle\"></i>
-          <span>Error 404</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-blank.html\">
-          <i class=\"bi bi-file-earmark\"></i>
-          <span>Blank</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
+     
 
     </ul>
 
@@ -593,9 +444,9 @@ class __TwigTemplate_617a4830f29d867c76a8cc9961cd7fb5 extends Template
         
                
               ";
-        // line 506
+        // line 357
         $this->displayBlock('body', $context, $blocks);
-        // line 511
+        // line 362
         echo "  
 
            
@@ -625,41 +476,41 @@ class __TwigTemplate_617a4830f29d867c76a8cc9961cd7fb5 extends Template
 
   <!-- Vendor JS Files -->
   <script src=\"";
-        // line 539
+        // line 390
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back-office/assets/vendor/apexcharts/apexcharts.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 540
+        // line 391
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back-office/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 541
+        // line 392
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back-office/assets/vendor/chart.js/chart.umd.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 542
+        // line 393
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back-office/assets/vendor/echarts/echarts.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 543
+        // line 394
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back-office/assets/vendor/quill/quill.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 544
+        // line 395
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back-office/assets/vendor/simple-datatables/simple-datatables.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 545
+        // line 396
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back-office/assets/vendor/tinymce/tinymce.min.js"), "html", null, true);
         echo "\"></script>
   <script src=\"";
-        // line 546
+        // line 397
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back-office/assets/vendor/php-email-form/validate.js"), "html", null, true);
         echo "\"></script>
 
   <!-- Template Main JS File -->
   <script src=\"";
-        // line 549
+        // line 400
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("back-office/assets/js/main.js"), "html", null, true);
         echo "\"></script>
 
@@ -693,7 +544,7 @@ class __TwigTemplate_617a4830f29d867c76a8cc9961cd7fb5 extends Template
 
     }
 
-    // line 506
+    // line 357
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -703,7 +554,7 @@ class __TwigTemplate_617a4830f29d867c76a8cc9961cd7fb5 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 507
+        // line 358
         echo "
 
 
@@ -729,7 +580,7 @@ class __TwigTemplate_617a4830f29d867c76a8cc9961cd7fb5 extends Template
 
     public function getDebugInfo()
     {
-        return array (  707 => 507,  697 => 506,  678 => 8,  663 => 549,  657 => 546,  653 => 545,  649 => 544,  645 => 543,  641 => 542,  637 => 541,  633 => 540,  629 => 539,  599 => 511,  597 => 506,  296 => 208,  256 => 171,  239 => 157,  121 => 42,  106 => 30,  100 => 27,  96 => 26,  92 => 25,  88 => 24,  84 => 23,  80 => 22,  76 => 21,  66 => 14,  62 => 13,  54 => 8,  45 => 1,);
+        return array (  558 => 358,  548 => 357,  529 => 8,  514 => 400,  508 => 397,  504 => 396,  500 => 395,  496 => 394,  492 => 393,  488 => 392,  484 => 391,  480 => 390,  450 => 362,  448 => 357,  296 => 208,  256 => 171,  239 => 157,  121 => 42,  106 => 30,  100 => 27,  96 => 26,  92 => 25,  88 => 24,  84 => 23,  80 => 22,  76 => 21,  66 => 14,  62 => 13,  54 => 8,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -1021,119 +872,12 @@ class __TwigTemplate_617a4830f29d867c76a8cc9961cd7fb5 extends Template
               <i class=\"bi bi-circle\"></i><span>Alerts</span>
             </a>
           </li>
-          <li>
-            <a href=\"components-accordion.html\">
-              <i class=\"bi bi-circle\"></i><span>Accordion</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-badges.html\">
-              <i class=\"bi bi-circle\"></i><span>Badges</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-breadcrumbs.html\">
-              <i class=\"bi bi-circle\"></i><span>Breadcrumbs</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-buttons.html\">
-              <i class=\"bi bi-circle\"></i><span>Buttons</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-cards.html\">
-              <i class=\"bi bi-circle\"></i><span>Cards</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-carousel.html\">
-              <i class=\"bi bi-circle\"></i><span>Carousel</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-list-group.html\">
-              <i class=\"bi bi-circle\"></i><span>List group</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-modal.html\">
-              <i class=\"bi bi-circle\"></i><span>Modal</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-tabs.html\">
-              <i class=\"bi bi-circle\"></i><span>Tabs</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-pagination.html\">
-              <i class=\"bi bi-circle\"></i><span>Pagination</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-progress.html\">
-              <i class=\"bi bi-circle\"></i><span>Progress</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-spinners.html\">
-              <i class=\"bi bi-circle\"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-tooltips.html\">
-              <i class=\"bi bi-circle\"></i><span>Tooltips</span>
-            </a>
-          </li>
+          
         </ul>
       </li><!-- End Components Nav -->
 
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" data-bs-target=\"#forms-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-journal-text\"></i><span>Forms</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-        </a>
-        <ul id=\"forms-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-          <li>
-            <a href=\"forms-elements.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Elements</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"forms-layouts.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Layouts</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"forms-editors.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Editors</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"forms-validation.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Validation</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
 
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" data-bs-target=\"#tables-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-layout-text-window-reverse\"></i><span>Tables</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-        </a>
-        <ul id=\"tables-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-          <li>
-            <a href=\"tables-general.html\">
-              <i class=\"bi bi-circle\"></i><span>General Tables</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"tables-data.html\">
-              <i class=\"bi bi-circle\"></i><span>Data Tables</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Tables Nav -->
+      
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#charts-nav\" data-bs-toggle=\"collapse\" href=\"#\">
@@ -1158,37 +902,7 @@ class __TwigTemplate_617a4830f29d867c76a8cc9961cd7fb5 extends Template
         </ul>
       </li><!-- End Charts Nav -->
 
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" data-bs-target=\"#icons-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-gem\"></i><span>Icons</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-        </a>
-        <ul id=\"icons-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-          <li>
-            <a href=\"icons-bootstrap.html\">
-              <i class=\"bi bi-circle\"></i><span>Bootstrap Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"icons-remix.html\">
-              <i class=\"bi bi-circle\"></i><span>Remix Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"icons-boxicons.html\">
-              <i class=\"bi bi-circle\"></i><span>Boxicons</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Icons Nav -->
-
-      <li class=\"nav-heading\">Pages</li>
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"users-profile.html\">
-          <i class=\"bi bi-person\"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
+      
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" href=\"pages-faq.html\">
@@ -1218,19 +932,7 @@ class __TwigTemplate_617a4830f29d867c76a8cc9961cd7fb5 extends Template
         </a>
       </li><!-- End Login Page Nav -->
 
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-error-404.html\">
-          <i class=\"bi bi-dash-circle\"></i>
-          <span>Error 404</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-blank.html\">
-          <i class=\"bi bi-file-earmark\"></i>
-          <span>Blank</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
+     
 
     </ul>
 
@@ -1286,6 +988,6 @@ class __TwigTemplate_617a4830f29d867c76a8cc9961cd7fb5 extends Template
 
 </body>
 
-</html>", "base-back.html.twig", "C:\\Users\\fadi1\\pidev\\templates\\base-back.html.twig");
+</html>", "base-back.html.twig", "C:\\Users\\fadi1\\Documents\\GitHub\\pidev\\templates\\base-back.html.twig");
     }
 }

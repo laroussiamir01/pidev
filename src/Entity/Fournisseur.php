@@ -15,7 +15,15 @@ class Fournisseur
     private ?int $id_f = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:" remplir ce champ")]
+    #[Assert\NotBlank(message:"veuillez ecrire le nom")]
+    #[ Assert\Length([
+        'min' => 3,
+        'max' => 10,
+        'minMessage' => 'Le nom de fournisseur doit comporter au moins {{ limit }} caractères  ',
+        'maxMessage' => 'Le nom de fournisseur doit comporter au plus {{ limit }} caractères '
+    ])]
+   
+
     private ?string $nom_f = null;
 
     public function getId_f(): ?int

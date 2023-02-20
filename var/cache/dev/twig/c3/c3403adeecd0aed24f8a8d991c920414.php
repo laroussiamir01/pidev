@@ -65,7 +65,6 @@ class __TwigTemplate_0aabdc1d43e116cfd7c3f1d1a094691a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Affichage Materiel ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -94,7 +93,7 @@ class __TwigTemplate_0aabdc1d43e116cfd7c3f1d1a094691a extends Template
                 <th>Libelle</th>
                 <th>Type</th>
                 <th>Prix achat</th>
-                <th>actions</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -163,14 +162,14 @@ class __TwigTemplate_0aabdc1d43e116cfd7c3f1d1a094691a extends Template
 
     public function getDebugInfo()
     {
-        return array (  141 => 32,  132 => 28,  123 => 24,  119 => 23,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  140 => 32,  131 => 28,  122 => 24,  118 => 23,  114 => 22,  110 => 21,  107 => 20,  102 => 19,  87 => 6,  77 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base-front.html.twig' %}
 
-{% block title %}Affichage Materiel {% endblock %}
+{% block title %}{% endblock %}
 
 {% block body %}
     <h1>Materiel </h1>
@@ -182,7 +181,7 @@ class __TwigTemplate_0aabdc1d43e116cfd7c3f1d1a094691a extends Template
                 <th>Libelle</th>
                 <th>Type</th>
                 <th>Prix achat</th>
-                <th>actions</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -205,6 +204,6 @@ class __TwigTemplate_0aabdc1d43e116cfd7c3f1d1a094691a extends Template
     
 {% endblock %}
 
-", "materiel_controller_back/show_front.html.twig", "C:\\Users\\fadi1\\pidev\\templates\\materiel_controller_back\\show_front.html.twig");
+", "materiel_controller_back/show_front.html.twig", "C:\\Users\\fadi1\\Documents\\GitHub\\pidev\\templates\\materiel_controller_back\\show_front.html.twig");
     }
 }

@@ -94,7 +94,7 @@ class __TwigTemplate_d79532ce08a5fae1386c3d71270d651c extends Template
 
     <a href=\"";
         // line 10
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_materiel_controller_back_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_materiel_controller_back_show");
         echo "\">back to list</a>
 ";
         
@@ -131,8 +131,8 @@ class __TwigTemplate_d79532ce08a5fae1386c3d71270d651c extends Template
 
     {{ include('materiel_controller_back/_form.html.twig') }}
 
-    <a href=\"{{ path('app_materiel_controller_back_index') }}\">back to list</a>
+    <a href=\"{{ path('app_materiel_controller_back_show') }}\">back to list</a>
 {% endblock %}
-", "materiel_controller_back/new.html.twig", "C:\\Users\\fadi1\\pidev\\templates\\materiel_controller_back\\new.html.twig");
+", "materiel_controller_back/new.html.twig", "C:\\Users\\fadi1\\Documents\\GitHub\\pidev\\templates\\materiel_controller_back\\new.html.twig");
     }
 }
