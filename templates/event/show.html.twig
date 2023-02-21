@@ -8,20 +8,20 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id_event</th>
+                <th>Id</th>
                 <td>{{ event.id }}</td>
             </tr>
             <tr>
-                <th>Nom_event</th>
-                <td>{{ event.NomEvent }}</td>
+                <th>Nom</th>
+                <td>{{ event.nom }}</td>
             </tr>
             <tr>
-                <th>Date_d_event</th>
-                <td>{{ event.DateDEvent ? event.DateDEvent|date('Y-m-d') : '' }}</td>
+                <th>DateDebut</th>
+                <td>{{ event.DateDebut ? event.DateDebut|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Date_f_event</th>
-                <td>{{ event.DateFEvent ? event.DateFEvent|date('Y-m-d') : '' }}</td>
+                <th>DateFin</th>
+                <td>{{ event.DateFin ? event.DateFin|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
     </table>

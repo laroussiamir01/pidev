@@ -14,10 +14,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Event
 {
     #[ORM\Id]
-   // #[ORM\GeneratedValue]
+    #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Assert\NotBlank(message:" entrer votre ID")]
-    private ?int $id_event = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message:" entrer votre NOM" )] 
@@ -26,23 +25,19 @@ class Event
         pattern:"/^[a-zA-Z]+$/i",
         message:"Nom dois etre des lettres"
         )]
-    private ?string $Nom_event = null;
-   
+    private ?string $nom = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     #[Assert\NotBlank(message:"date is required")]
-    #[Assert\GreaterThanOrEqual("Date_d_event", message: "Veuillez saisir une date supérieure à la date d'aujourd'hui ")]
-    private ?\DateTimeInterface $Date_d_event = null;
+    #[Assert\GreaterThanOrEqual("today", message: "Veuillez saisir une date supérieure à la date d'aujourd'hui ")]
+    private ?\DateTimeInterface $DateDebut = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     #[Assert\NotBlank(message:"date fin name is required")]
-    #[Assert\GreaterThanOrEqual(propertyPath:"Date_f_event", message: "Veuillez saisir une date supérieure à la date debut ")]
+    #[Assert\GreaterThanOrEqual(propertyPath:"DateDebut", message: "Veuillez saisir une date supérieure à la date debut ")]
+    private ?\DateTimeInterface $DateFin = null;
 
-    private ?\DateTimeInterface $Date_f_event = null;
-
-    
-
-    #[ORM\OneToMany(mappedBy: 'Events', targetEntity: Dons::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'Events', targetEntity: Don::class, orphanRemoval:true)]
     private Collection $dons;
 
     public function __construct()
@@ -52,61 +47,54 @@ class Event
 
     public function getId(): ?int
     {
-        return $this->id_event;
+        return $this->id;
     }
 
-    public function setId(int $id_event): self
+    public function getNom(): ?string
     {
-        $this->id_event = $id_event;
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
 
         return $this;
     }
 
-    public function getNomEvent(): ?string
+    public function getDateDebut(): ?\DateTimeInterface
     {
-        return $this->Nom_event;
+        return $this->DateDebut;
     }
 
-    public function setNomEvent(string $Nom_event): self
+    public function setDateDebut(\DateTimeInterface $DateDebut): self
     {
-        $this->Nom_event = $Nom_event;
+        $this->DateDebut = $DateDebut;
 
         return $this;
     }
 
-    public function getDateDEvent(): ?\DateTimeInterface
+    public function getDateFin(): ?\DateTimeInterface
     {
-        return $this->Date_d_event;
+        return $this->DateFin;
     }
 
-    public function setDateDEvent(\DateTimeInterface $Date_d_event): self
+    public function setDateFin(\DateTimeInterface $DateFin): self
     {
-        $this->Date_d_event = $Date_d_event;
-
-        return $this;
-    }
-
-    public function getDateFEvent(): ?\DateTimeInterface
-    {
-        return $this->Date_f_event;
-    }
-
-    public function setDateFEvent(\DateTimeInterface $Date_f_event): self
-    {
-        $this->Date_f_event = $Date_f_event;
+        $this->DateFin = $DateFin;
 
         return $this;
     }
 
     /**
-     * @return Collection<int, Dons>
+     * @return Collection<int, Don>
      */
     public function getDons(): Collection
     {
         return $this->dons;
     }
 
-    public function addDon(Dons $don): self
+    public function addDon(Don $don): self
     {
         if (!$this->dons->contains($don)) {
             $this->dons->add($don);
@@ -116,7 +104,7 @@ class Event
         return $this;
     }
 
-    public function removeDon(Dons $don): self
+    public function removeDon(Don $don): self
     {
         if ($this->dons->removeElement($don)) {
             // set the owning side to null (unless already changed)

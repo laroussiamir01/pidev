@@ -140,6 +140,6 @@ class __TwigTemplate_70fdd9a483aad5d20fedadcb39a39256 extends Template
 
     {{ include('event/_delete_form.html.twig') }}
 {% endblock %}
-", "event/edit.html.twig", "C:\\Users\\tasnim\\Documents\\GitHub\\pidev\\templates\\event\\edit.html.twig");
+", "event/edit.html.twig", "C:\\Users\\tasnim\\PiDev\\templates\\event\\edit.html.twig");
     }
 }

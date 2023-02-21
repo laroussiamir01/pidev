@@ -79,6 +79,6 @@ class __TwigTemplate_c854b22c51135f2b88d444582c1e0804 extends Template
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ event.id) }}\">
     <button class=\"btn\">Delete</button>
 </form>
-", "event/_delete_form.html.twig", "C:\\Users\\Asus store\\testpi\\templates\\event\\_delete_form.html.twig");
+", "event/_delete_form.html.twig", "C:\\Users\\tasnim\\PiDev\\templates\\event\\_delete_form.html.twig");
     }
 }

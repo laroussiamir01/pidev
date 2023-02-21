@@ -8,10 +8,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id_event</th>
-                <th>Nom_event</th>
-                <th>Date_d_event</th>
-                <th>Date_f_event</th>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                <th>don</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,9 +20,9 @@
         {% for event in events %}
             <tr>
                 <td>{{ event.id }}</td>
-                <td>{{ event.NomEvent }}</td>
-                <td>{{ event.DateDEvent ? event.DateDEvent|date('Y-m-d') : '' }}</td>
-                <td>{{ event.DateFEvent ? event.DateFEvent|date('Y-m-d') : '' }}</td>
+                <td>{{ event.nom }}</td>
+                <td>{{ event.DateDebut ? event.DateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ event.DateFin ? event.DateFin|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('app_event_show', {'id': event.id}) }}">show</a>
                     <a href="{{ path('app_event_edit', {'id': event.id}) }}">edit</a>
