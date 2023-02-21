@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Form\UsersType;
 use App\Entity\Reclamation;
+use App\Entity\Users;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,9 +17,14 @@ class ReclamationType extends AbstractType
     {
         $builder
             ->add('message')
-           ->add('users')
-       //    ->add('users',UsersType::class,[
-     //      'label' => 'message'  ]);
+            ->add('users' , EntityType::class,[
+                'class' => Users::class ,
+                'choice_label'=>'email'
+                ])
+           
+       /*  ->add('users',EntityType::class, [
+        'class' => Users::class,
+          'label' => 'message'  ]); */
 
         ;
     }

@@ -22,15 +22,16 @@ class ReclamationController extends AbstractController
     }
 
     #[Route('/new', name: 'app_reclamation_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ReclamationRepository $reclamationRepository): Response
+    public function new(Request $request, ReclamationRepository $reclamationRepository, ): Response
     {
         $reclamation = new Reclamation();
         $form = $this->createForm(ReclamationType::class, $reclamation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $reclamationRepository->save($reclamation, true);
-
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($reclamation);
+            $em->flush();
             return $this->redirectToRoute('app_reclamation_index', [], Response::HTTP_SEE_OTHER);
         }
 

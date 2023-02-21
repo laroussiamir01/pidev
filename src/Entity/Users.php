@@ -59,6 +59,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $Prenom_user = null;
 
     #[ORM\OneToMany(mappedBy: 'users', targetEntity: Reclamation::class, orphanRemoval: true)]
+    
     private Collection $reclamations;
 
     public function __construct()

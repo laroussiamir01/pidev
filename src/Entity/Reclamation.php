@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ReclamationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ReclamationRepository::class)]
 class Reclamation
@@ -14,6 +15,11 @@ class Reclamation
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Length(min:5, max:255 , minMessage : "Le message doit contenir au moins {{ limit }} caractères")]
+    #[Assert\Regex(
+        pattern:"/^[a-zA-Z]+$/i",
+        message:"Nom dois etre des lettres"
+        )]
     private ?string $message = null;
 
     #[ORM\ManyToOne(inversedBy: 'reclamations')]

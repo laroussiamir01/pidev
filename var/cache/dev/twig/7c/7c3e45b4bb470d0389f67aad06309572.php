@@ -33,7 +33,7 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base-front.html.twig";
+        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +45,7 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "reclamation/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base-front.html.twig", "reclamation/index.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "reclamation/index.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -91,9 +91,9 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
         <thead>
             <tr>
                 <th>Id</th>
-                <th>UserId</th>
                 <th>Message</th>
                 <th>actions</th>
+                <th>user email</th>
             </tr>
         </thead>
         <tbody>
@@ -113,12 +113,9 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
             echo "</td>
                 <td>";
             // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "users", [], "any", false, false, false, 23), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "message", [], "any", false, false, false, 24), "html", null, true);
-            echo "</td>  
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "message", [], "any", false, false, false, 23), "html", null, true);
+            echo "</td> 
+                 
                 <td>
                     <a href=\"";
             // line 26
@@ -129,12 +126,16 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "id", [], "any", false, false, false, 27)]), "html", null, true);
             echo "\">edit</a>
                 </td>
+                <td>";
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reclamation"], "users", [], "any", false, false, false, 29), "email", [], "any", false, false, false, 29), "html", null, true);
+            echo "</td>
             </tr>
         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 31
+            // line 32
             echo "            <tr>
                 <td colspan=\"3\">no records found</td>
             </tr>
@@ -143,12 +144,12 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reclamation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 36
         echo "        </tbody>
     </table>
 
     <a href=\"";
-        // line 38
+        // line 39
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_new");
         echo "\">Create new</a>
 ";
@@ -172,12 +173,12 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
 
     public function getDebugInfo()
     {
-        return array (  152 => 38,  147 => 35,  138 => 31,  129 => 27,  125 => 26,  120 => 24,  116 => 23,  112 => 22,  109 => 21,  104 => 20,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  153 => 39,  148 => 36,  139 => 32,  131 => 29,  126 => 27,  122 => 26,  116 => 23,  112 => 22,  109 => 21,  104 => 20,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base-front.html.twig' %}
+        return new Source("{% extends 'base.html.twig' %}
 
 {% block title %}Reclamation index{% endblock %}
 
@@ -188,9 +189,9 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
         <thead>
             <tr>
                 <th>Id</th>
-                <th>UserId</th>
                 <th>Message</th>
                 <th>actions</th>
+                <th>user email</th>
             </tr>
         </thead>
         <tbody>
@@ -199,12 +200,13 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
         {% for reclamation in reclamations %}
             <tr>
                 <td>{{ reclamation.id }}</td>
-                <td>{{ reclamation.users }}</td>
-                <td>{{ reclamation.message }}</td>  
+                <td>{{ reclamation.message }}</td> 
+                 
                 <td>
                     <a href=\"{{ path('app_reclamation_show', {'id': reclamation.id}) }}\">show</a>
                     <a href=\"{{ path('app_reclamation_edit', {'id': reclamation.id}) }}\">edit</a>
                 </td>
+                <td>{{ reclamation.users.email }}</td>
             </tr>
         {% else %}
             <tr>
