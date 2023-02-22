@@ -100,7 +100,7 @@ class __TwigTemplate_6926915dbbff15cee27bb5d4ff48374f extends Template
         }
         // line 14
         echo "
-    ";
+     ";
         // line 15
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 15, $this->source); })()), "user", [], "any", false, false, false, 15)) {
             // line 16
@@ -115,8 +115,9 @@ class __TwigTemplate_6926915dbbff15cee27bb5d4ff48374f extends Template
         </div>
     ";
         }
-        // line 21
-        echo "
+        // line 20
+        echo " 
+
     <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
     <label for=\"inputEmail\">Email</label>
     <input type=\"email\" value=\"";
@@ -180,7 +181,7 @@ class __TwigTemplate_6926915dbbff15cee27bb5d4ff48374f extends Template
 
     public function getDebugInfo()
     {
-        return array (  152 => 47,  138 => 35,  132 => 29,  124 => 24,  119 => 21,  111 => 18,  107 => 16,  105 => 15,  102 => 14,  98 => 12,  96 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  153 => 47,  139 => 35,  133 => 29,  125 => 24,  119 => 20,  111 => 18,  107 => 16,  105 => 15,  102 => 14,  98 => 12,  96 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -199,12 +200,12 @@ class __TwigTemplate_6926915dbbff15cee27bb5d4ff48374f extends Template
        <div class=\"alert alert-danger\"> Email ou mot de passe invalide </div>
     {% endif %}
 
-    {% if app.user %}
+     {% if app.user %}
         <div class=\"mb-3\">
          
              Vous etes connecte comme {{ app.user.userIdentifier }}, <a href=\"{{ path('app_logout') }}\">Logout</a>
         </div>
-    {% endif %}
+    {% endif %} 
 
     <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
     <label for=\"inputEmail\">Email</label>

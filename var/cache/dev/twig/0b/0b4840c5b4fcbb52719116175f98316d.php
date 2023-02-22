@@ -51,7 +51,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     <meta charset=\"utf-8\">
     <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">
 
-    <title>Dashboard - NiceAdmin ";
+    <title>Dashboard - Admin ";
         // line 8
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
@@ -298,13 +298,22 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         </li>
 
                         <li>
-                            <a class=\"dropdown-item d-flex align-items-center\" href=\"\">
+                        ";
+        // line 251
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 251, $this->source); })()), "user", [], "any", false, false, false, 251)) {
+            // line 252
+            echo "                            <a class=\"dropdown-item d-flex align-items-center\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_users_index");
+            echo "\"> 
                                 <i class=\"bi bi-person\"></i>
                                 <span>Mon compte</span>
                                 
 
                             </a>
-                        </li>
+                             ";
+        }
+        // line 259
+        echo "                        </li>
                         <li>
                             <hr class=\"dropdown-divider\">
                         </li>
@@ -331,7 +340,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
                         <li>
                             <a class=\"dropdown-item d-flex align-items-center\" href=\"";
-        // line 283
+        // line 285
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
         echo "\">
                                 <i class=\"bi bi-box-arrow-right\"></i>
@@ -358,7 +367,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
             <li class=\"nav-item\">
                 <a class=\"nav-link \" href=\"";
-        // line 307
+        // line 309
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_index");
         echo "\">
                     <i class=\"bi bi-grid\"></i>
@@ -569,7 +578,10 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
             <!-- End Contact Page Nav -->
 
             <li class=\"nav-item\">
-                <a class=\"nav-link collapsed\" href=\"pages-register.html\">
+                <a class=\"nav-link collapsed\" href=\"";
+        // line 518
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
+        echo "\">
                     <i class=\"bi bi-card-list\"></i>
                     <span>Register</span>
                 </a>
@@ -577,7 +589,10 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
             <!-- End Register Page Nav -->
 
             <li class=\"nav-item\">
-                <a class=\"nav-link collapsed\" href=\"pages-login.html\">
+                <a class=\"nav-link collapsed\" href=\"";
+        // line 526
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+        echo "\">
                     <i class=\"bi bi-box-arrow-in-right\"></i>
                     <span>Login</span>
                 </a>
@@ -616,25 +631,25 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
         
                ";
-        // line 562
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 562, $this->source); })()), "user", [], "any", false, false, false, 562)) {
-            // line 563
+        // line 564
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 564, $this->source); })()), "user", [], "any", false, false, false, 564)) {
+            // line 565
             echo "              ";
             $this->displayBlock('body', $context, $blocks);
-            // line 566
+            // line 568
             echo "  
 ";
         } else {
-            // line 568
+            // line 570
             echo "    <div class=\"mb-3\"><center>
         Vous n êtes connecté(e) , <a href=\"";
-            // line 569
+            // line 571
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Connect</a></center>
     </div>
     ";
         }
-        // line 572
+        // line 574
         echo "           
        
 
@@ -804,7 +819,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     }
 
-    // line 563
+    // line 565
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -814,7 +829,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 564
+        // line 566
         echo "              
               
 ";
@@ -838,7 +853,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     public function getDebugInfo()
     {
-        return array (  818 => 564,  808 => 563,  796 => 44,  790 => 41,  786 => 40,  782 => 39,  778 => 38,  774 => 37,  770 => 36,  766 => 35,  762 => 34,  759 => 33,  749 => 32,  737 => 30,  731 => 27,  727 => 26,  723 => 25,  719 => 24,  715 => 23,  711 => 22,  707 => 21,  704 => 20,  694 => 19,  675 => 8,  638 => 572,  632 => 569,  629 => 568,  625 => 566,  622 => 563,  620 => 562,  362 => 307,  335 => 283,  285 => 236,  257 => 211,  240 => 197,  223 => 183,  98 => 61,  81 => 46,  78 => 32,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
+        return array (  833 => 566,  823 => 565,  811 => 44,  805 => 41,  801 => 40,  797 => 39,  793 => 38,  789 => 37,  785 => 36,  781 => 35,  777 => 34,  774 => 33,  764 => 32,  752 => 30,  746 => 27,  742 => 26,  738 => 25,  734 => 24,  730 => 23,  726 => 22,  722 => 21,  719 => 20,  709 => 19,  690 => 8,  653 => 574,  647 => 571,  644 => 570,  640 => 568,  637 => 565,  635 => 564,  594 => 526,  583 => 518,  371 => 309,  344 => 285,  316 => 259,  305 => 252,  303 => 251,  285 => 236,  257 => 211,  240 => 197,  223 => 183,  98 => 61,  81 => 46,  78 => 32,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -850,7 +865,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     <meta charset=\"utf-8\">
     <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">
 
-    <title>Dashboard - NiceAdmin {%block title%}Index{%endblock%}</title>
+    <title>Dashboard - Admin {%block title%}Index{%endblock%}</title>
     <meta content=\"\" name=\"description\">
     <meta content=\"\" name=\"keywords\">
 
@@ -1093,12 +1108,14 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         </li>
 
                         <li>
-                            <a class=\"dropdown-item d-flex align-items-center\" href=\"\">
+                        {% if app.user %}
+                            <a class=\"dropdown-item d-flex align-items-center\" href=\"{{ path('app_users_index') }}\"> 
                                 <i class=\"bi bi-person\"></i>
                                 <span>Mon compte</span>
                                 
 
                             </a>
+                             {% endif %}
                         </li>
                         <li>
                             <hr class=\"dropdown-divider\">
@@ -1358,7 +1375,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
             <!-- End Contact Page Nav -->
 
             <li class=\"nav-item\">
-                <a class=\"nav-link collapsed\" href=\"pages-register.html\">
+                <a class=\"nav-link collapsed\" href=\"{{path('app_register')}}\">
                     <i class=\"bi bi-card-list\"></i>
                     <span>Register</span>
                 </a>
@@ -1366,7 +1383,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
             <!-- End Register Page Nav -->
 
             <li class=\"nav-item\">
-                <a class=\"nav-link collapsed\" href=\"pages-login.html\">
+                <a class=\"nav-link collapsed\" href=\"{{path('app_login')}}\">
                     <i class=\"bi bi-box-arrow-in-right\"></i>
                     <span>Login</span>
                 </a>

@@ -15,11 +15,12 @@ class Reclamation
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\Length(min:5, max:255 , minMessage : "Le message doit contenir au moins {{ limit }} caractères")]
-    #[Assert\Regex(
+    #[Assert\NotBlank(message:"Entrer votre Reclamation")]
+    #[Assert\Length(min:5, max:255 , minMessage : "La Reclamation doit contenir au moins {{ limit }} caractères")]
+   /*  #[Assert\Regex(
         pattern:"/^[a-zA-Z]+$/i",
         message:"Nom dois etre des lettres"
-        )]
+        )] */
     private ?string $message = null;
 
     #[ORM\ManyToOne(inversedBy: 'reclamations')]

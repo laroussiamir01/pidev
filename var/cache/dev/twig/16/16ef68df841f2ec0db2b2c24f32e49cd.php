@@ -129,7 +129,7 @@ class __TwigTemplate_cc8dad99751df2023a96150b2dcda3b6 extends Template
             // line 31
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "email", [], "any", false, false, false, 31), "html", null, true);
             echo "</td>
-               ";
+                ";
             // line 33
             echo "                 <td>
                        ";
@@ -203,9 +203,11 @@ $context["role"] == "ROLE_ADMIN")) {
         echo "        </tbody>
     </table>
 
-    ";
-        // line 62
-        echo "   ";
+    <a href=\"";
+        // line 61
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_users_new");
+        echo "\">Create new</a> 
+   ";
         // line 63
         echo "
 ";
@@ -229,7 +231,7 @@ $context["role"] == "ROLE_ADMIN")) {
 
     public function getDebugInfo()
     {
-        return array (  210 => 63,  208 => 62,  203 => 58,  194 => 54,  185 => 50,  181 => 49,  176 => 47,  172 => 46,  168 => 45,  164 => 43,  158 => 42,  154 => 40,  152 => 39,  149 => 38,  147 => 37,  144 => 36,  141 => 35,  137 => 34,  134 => 33,  130 => 31,  126 => 30,  123 => 29,  118 => 28,  102 => 14,  100 => 13,  97 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  212 => 63,  208 => 61,  203 => 58,  194 => 54,  185 => 50,  181 => 49,  176 => 47,  172 => 46,  168 => 45,  164 => 43,  158 => 42,  154 => 40,  152 => 39,  149 => 38,  147 => 37,  144 => 36,  141 => 35,  137 => 34,  134 => 33,  130 => 31,  126 => 30,  123 => 29,  118 => 28,  102 => 14,  100 => 13,  97 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -265,7 +267,7 @@ $context["role"] == "ROLE_ADMIN")) {
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
-               {#} <td>{{ user.roles ? user.roles|json_encode : '' }}</td>   {#}
+                {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td>    #}
                  <td>
                        {% for role in user.roles %}
                             {% if role == \"ROLE_USER\" %}
@@ -294,7 +296,7 @@ $context["role"] == "ROLE_ADMIN")) {
         </tbody>
     </table>
 
-    {#}<a href=\"{{ path('app_users_new') }}\">Create new</a> {#}
+    <a href=\"{{ path('app_users_new') }}\">Create new</a> 
    {#} <a href=\"{{ path('app_logout') }}\">logout</a> {#}
 
 {% endblock %}

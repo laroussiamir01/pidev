@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dashboard - NiceAdmin {%block title%}Index{%endblock%}</title>
+    <title>Dashboard - Admin {%block title%}Index{%endblock%}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -248,12 +248,14 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="">
+                        {% if app.user %}
+                            <a class="dropdown-item d-flex align-items-center" href="{{ path('app_users_index') }}"> 
                                 <i class="bi bi-person"></i>
                                 <span>Mon compte</span>
                                 
 
                             </a>
+                             {% endif %}
                         </li>
                         <li>
                             <hr class="dropdown-divider">
@@ -513,7 +515,7 @@
             <!-- End Contact Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-register.html">
+                <a class="nav-link collapsed" href="{{path('app_register')}}">
                     <i class="bi bi-card-list"></i>
                     <span>Register</span>
                 </a>
@@ -521,7 +523,7 @@
             <!-- End Register Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-login.html">
+                <a class="nav-link collapsed" href="{{path('app_login')}}">
                     <i class="bi bi-box-arrow-in-right"></i>
                     <span>Login</span>
                 </a>

@@ -29,7 +29,7 @@
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
-               {#} <td>{{ user.roles ? user.roles|json_encode : '' }}</td>   {#}
+                {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td>    #}
                  <td>
                        {% for role in user.roles %}
                             {% if role == "ROLE_USER" %}
@@ -58,7 +58,7 @@
         </tbody>
     </table>
 
-    {#}<a href="{{ path('app_users_new') }}">Create new</a> {#}
+    <a href="{{ path('app_users_new') }}">Create new</a> 
    {#} <a href="{{ path('app_logout') }}">logout</a> {#}
 
 {% endblock %}
