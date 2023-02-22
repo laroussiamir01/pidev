@@ -117,27 +117,21 @@ class __TwigTemplate_8063dc863d1dc59eae35efd5270fe7e8 extends Template
         ((twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 24, $this->source); })()), "DateFin", [], "any", false, false, false, 24)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 24, $this->source); })()), "DateFin", [], "any", false, false, false, 24), "Y-m-d"), "html", null, true))) : (print ("")));
         echo "</td>
             </tr>
-            <th>Nom don</th>
-                <td>";
-        // line 27
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 27, $this->source); })()), "dons", [], "any", false, false, false, 27), "nom", [], "any", false, false, false, 27), "html", null, true);
-        echo "</td>
-            </tr>
         </tbody>
     </table>
 
     <a href=\"";
-        // line 32
+        // line 29
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_index");
         echo "\">back to list</a>
 
     <a href=\"";
-        // line 34
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 34, $this->source); })()), "id", [], "any", false, false, false, 34)]), "html", null, true);
+        // line 31
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 31, $this->source); })()), "id", [], "any", false, false, false, 31)]), "html", null, true);
         echo "\">edit</a>
 
     ";
-        // line 36
+        // line 33
         echo twig_include($this->env, $context, "event/_delete_form.html.twig");
         echo "
 ";
@@ -161,7 +155,7 @@ class __TwigTemplate_8063dc863d1dc59eae35efd5270fe7e8 extends Template
 
     public function getDebugInfo()
     {
-        return array (  141 => 36,  136 => 34,  131 => 32,  123 => 27,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  135 => 33,  130 => 31,  125 => 29,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -191,9 +185,6 @@ class __TwigTemplate_8063dc863d1dc59eae35efd5270fe7e8 extends Template
                 <th>DateFin</th>
                 <td>{{ event.DateFin ? event.DateFin|date('Y-m-d') : '' }}</td>
             </tr>
-            <th>Nom don</th>
-                <td>{{ event.dons.nom }}</td>
-            </tr>
         </tbody>
     </table>
 
@@ -203,6 +194,6 @@ class __TwigTemplate_8063dc863d1dc59eae35efd5270fe7e8 extends Template
 
     {{ include('event/_delete_form.html.twig') }}
 {% endblock %}
-", "event/show.html.twig", "C:\\Users\\tasnim\\PiDev\\templates\\event\\show.html.twig");
+", "event/show.html.twig", "C:\\Users\\tasnim\\Documents\\GitHub\\pidev\\templates\\event\\show.html.twig");
     }
 }

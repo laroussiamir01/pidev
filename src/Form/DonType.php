@@ -15,12 +15,12 @@ class DonType extends AbstractType
     {
         $builder
             ->add('nom')
+            ->add('montant')
             //->add('Events')
-            ->add('Events' , EntityType::class,[
-                'class' => Event::class ,
-                'choice_label'=>'nom'
-                ])
-        ;
+            ->add('Events', EntityType::class, [
+                'class' => Event::class,
+                'choice_label' => 'nom'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

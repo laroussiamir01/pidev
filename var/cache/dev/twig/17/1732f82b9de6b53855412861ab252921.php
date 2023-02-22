@@ -133,6 +133,6 @@ class __TwigTemplate_2edc9bed66da5c5a3950d4cc58a79071 extends Template
 
     <a href=\"{{ path('app_event_index') }}\">back to list</a>
 {% endblock %}
-", "event/new.html.twig", "C:\\Users\\tasnim\\PiDev\\templates\\event\\new.html.twig");
+", "event/new.html.twig", "C:\\Users\\tasnim\\Documents\\GitHub\\pidev\\templates\\event\\new.html.twig");
     }
 }

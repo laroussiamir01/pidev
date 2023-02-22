@@ -15,16 +15,20 @@ class Don
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:" entrer votre NOM" )] 
+    #[Assert\NotBlank(message:" entrer le NOM du don " )] 
     #[Assert\Length(min:3 , minMessage : "Le nom doit contenir au moins {{ limit }} caractères")]
-    #[Assert\Regex(
-        pattern:"/^[a-zA-Z]+$/i",
-        message:"Nom dois etre des lettres"
-        )]
+   
     private ?string $nom = null;
 
     #[ORM\ManyToOne(inversedBy: 'dons')]
     private ?Event $Events = null;
+
+    #[ORM\Column]
+    #[Assert\NotBlank(message:" entrer le montant " )] 
+
+    #[Assert\GreaterThan(0, message: "le montant doit etre positif ")]
+
+    private ?int $montant = null;
 
     public function getId(): ?int
     {
@@ -51,6 +55,18 @@ class Don
     public function setEvents(?Event $Events): self
     {
         $this->Events = $Events;
+
+        return $this;
+    }
+
+    public function getMontant(): ?int
+    {
+        return $this->montant;
+    }
+
+    public function setMontant(int $montant): self
+    {
+        $this->montant = $montant;
 
         return $this;
     }

@@ -3,13 +3,14 @@
 {% block title %}Don index{% endblock %}
 
 {% block body %}
-    <h1>Don index</h1>
+    <h1>Dons</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
+                <th>Montant</th>
                 <th>event</th>
                 <th>actions</th>
             </tr>
@@ -19,6 +20,7 @@
             <tr>
                 <td>{{ don.id }}</td>
                 <td>{{ don.nom }}</td>
+                <td>{{ don.montant }}</td>
                  <td>{{ don.events.nom }}</td>
                 <td>
                     <a href="{{ path('app_don_show', {'id': don.id}) }}">show</a>

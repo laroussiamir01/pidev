@@ -19,12 +19,9 @@ class Event
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message:" entrer votre NOM" )] 
+    #[Assert\NotBlank(message:" entrer le NOM de l'evenement" )] 
     #[Assert\Length(min:3 , minMessage : "Le nom doit contenir au moins {{ limit }} caractères")]
-    #[Assert\Regex(
-        pattern:"/^[a-zA-Z]+$/i",
-        message:"Nom dois etre des lettres"
-        )]
+   
     private ?string $nom = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
