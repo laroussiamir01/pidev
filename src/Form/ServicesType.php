@@ -16,10 +16,11 @@ class ServicesType extends AbstractType
         $builder
             ->add('type', ChoiceType::class, [
                 'choices' => [
-                    'Cardiology' => 'cardiology',
-                    'Neurology' => 'neurology',
-                    'Hepatology' => 'hepatology',
-                    'Pediatrics' => 'pediatrics',
+                    'Cardiologie' => 'cardiologie',
+                    'Neurologie' => 'neurologie',
+                    'Hepatologie' => 'hepatologie',
+                    'Pediatrie' => 'pediatrie',
+                    'Urgence' => 'Urgence',
                 ],
                 'required' => true,
                 'placeholder' => 'Choose a status',
@@ -33,7 +34,7 @@ class ServicesType extends AbstractType
                 'required' => true,
                 'placeholder' => 'Choose a status',
             ])
-            
+            ->add('prix')
         ;
     }
 

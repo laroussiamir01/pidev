@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\HospitalisationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Mime\Message;
@@ -11,6 +13,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: HospitalisationRepository::class)]
 class Hospitalisation
 {
+     
+
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy:"AUTO")]
     #[ORM\Column]
@@ -25,18 +29,22 @@ class Hospitalisation
     #[Assert\GreaterThanOrEqual(propertyPath:"dateEntree", message:"La date de sortie doit être postérieure ou égale à la date d'entrée")]
     private ?\DateTimeInterface $DateSortie = null;
 
-    #[ORM\Column]
-    #[Assert\NotNull(message:"price  is required")]
-    #[Assert\Regex(pattern:"/^\d+(\.\d{1,2})?$/", message:"Price must be a valid decimal number")]
-    private ?float $FraisSejour = null;
+  
 
     #[ORM\Column]
     #[Assert\NotNull(message:"id   is required")]
     private ?int $idHospitalisation = null;
 
-    #[ORM\Column(length: 255)]
-    #[Assert\NotNull(message:"Choose a service")]
-    private ?string $service = null;
+    #[ORM\ManyToOne(inversedBy: 'hospitalisations')]
+    #[Assert\NotBlank(message:"service  is required")]
+    private ?Services $service = null;
+
+  
+
+    
+  
+
+    
 
     public function getId(): ?int
     {
@@ -67,17 +75,7 @@ class Hospitalisation
         return $this;
     }
 
-    public function getFraisSejour(): ?float
-    {
-        return $this->FraisSejour;
-    }
-
-    public function setFraisSejour(float $FraisSejour): self
-    {
-        $this->FraisSejour = $FraisSejour;
-
-        return $this;
-    }
+   
 
     public function getIdHospitalisation(): ?int
     {
@@ -91,15 +89,22 @@ class Hospitalisation
         return $this;
     }
 
-    public function getService(): ?string
+    public function getService(): ?Services
     {
         return $this->service;
     }
 
-    public function setService(string $service): self
+    public function setService(?Services $service): self
     {
         $this->service = $service;
 
         return $this;
     }
+
+   
+
+
+
+  
+    
 }

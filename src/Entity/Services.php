@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use App\Repository\ServicesRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Mime\Message;
@@ -10,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: ServicesRepository::class)]
 class Services
 {
+
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy:"AUTO")]
     #[ORM\Column]
@@ -28,6 +30,22 @@ class Services
     #[Assert\NotBlank(message:"Chef service is required")]
     private ?string $Chef_service = null;
 
+    #[ORM\Column]
+    #[Assert\Regex(pattern:"/^\d+(\.\d{1,2})?$/", message:"Price must be a valid decimal number")]
+    #[Assert\NotNull(message:"prix is required")]
+    private ?float $prix = null;
+
+    #[ORM\OneToMany(mappedBy: 'service', targetEntity: Hospitalisation::class)]
+    private Collection $hospitalisations;
+
+    public function __construct()
+    {
+        $this->hospitalisations = new ArrayCollection();
+    }
+
+   
+
+   
     
 
 
@@ -71,4 +89,52 @@ class Services
 
         return $this;
     }
+
+    public function getPrix(): ?float
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(float $prix): self
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Hospitalisation>
+     */
+    public function getHospitalisations(): Collection
+    {
+        return $this->hospitalisations;
+    }
+
+    public function addHospitalisation(Hospitalisation $hospitalisation): self
+    {
+        if (!$this->hospitalisations->contains($hospitalisation)) {
+            $this->hospitalisations->add($hospitalisation);
+            $hospitalisation->setService($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHospitalisation(Hospitalisation $hospitalisation): self
+    {
+        if ($this->hospitalisations->removeElement($hospitalisation)) {
+            // set the owning side to null (unless already changed)
+            if ($hospitalisation->getService() === $this) {
+                $hospitalisation->setService(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toString()
+    {
+        return $this->type;
+    }
+
+
 }

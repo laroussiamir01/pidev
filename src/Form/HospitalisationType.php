@@ -3,10 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Hospitalisation;
+use App\Entity\Services;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 class HospitalisationType extends AbstractType
 {
@@ -15,18 +18,10 @@ class HospitalisationType extends AbstractType
         $builder
             ->add('DateEntree')
             ->add('DateSortie')
-            ->add('FraisSejour')
+            ->add('service')
             ->add('idHospitalisation')
-            ->add('service',ChoiceType::class, [
-                'choices' => [
-                    'Cardiology' => 'cardiology',
-                    'Neurology' => 'neurology',
-                    'Hepatology' => 'hepatology',
-                    'Pediatrics' => 'pediatrics',
-                ],
-                'required' => true,
-                'placeholder' => 'Choose a status',
-            ])
+            
+        
         ;
     }
 
