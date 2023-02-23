@@ -152,6 +152,10 @@ class __TwigTemplate_6926915dbbff15cee27bb5d4ff48374f extends Template
         // line 47
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
         echo "\" class=\"btn btn-secondary mt-3\">M'inscrir</a></li>
+    <a href=\"";
+        // line 48
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forgot_password_request");
+        echo "\" class=\"btn btn-secondary mt-3\">Mot de passe oublié?</a></li>
 </form>
 
       </div>
@@ -181,7 +185,7 @@ class __TwigTemplate_6926915dbbff15cee27bb5d4ff48374f extends Template
 
     public function getDebugInfo()
     {
-        return array (  153 => 47,  139 => 35,  133 => 29,  125 => 24,  119 => 20,  111 => 18,  107 => 16,  105 => 15,  102 => 14,  98 => 12,  96 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  157 => 48,  153 => 47,  139 => 35,  133 => 29,  125 => 24,  119 => 20,  111 => 18,  107 => 16,  105 => 15,  102 => 14,  98 => 12,  96 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -233,6 +237,7 @@ class __TwigTemplate_6926915dbbff15cee27bb5d4ff48374f extends Template
         Me connecter
     </button>
     <a href=\"{{path('app_register')}}\" class=\"btn btn-secondary mt-3\">M'inscrir</a></li>
+    <a href=\"{{path('app_forgot_password_request')}}\" class=\"btn btn-secondary mt-3\">Mot de passe oublié?</a></li>
 </form>
 
       </div>

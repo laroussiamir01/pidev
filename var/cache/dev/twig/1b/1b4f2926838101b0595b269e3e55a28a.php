@@ -135,11 +135,13 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
   <header id=\"header\" class=\"fixed-top\">
     <div class=\"container d-flex align-items-center\">
 
-      <a href=\"\" class=\"logo me-auto\"><img src=\"";
+     ";
         // line 58
+        echo "<img src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets1/img/logo.png"), "html", null, true);
-        echo "\" alt=\"\"></a>
-      <!-- Uncomment below if you prefer to use an image logo -->
+        echo "\" style =\"width:120px;height:120px;\" alt=\"\">";
+        // line 59
+        echo "      <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <h1 class=\"logo me-auto\"><a href=\"index.html\">Medicio</a></h1> -->
 
       <nav id=\"navbar\" class=\"navbar order-last order-lg-0\">
@@ -159,7 +161,7 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
             <li><a href=\"";
             // line 73
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
-            echo "\">Me deconnecté</a></li>
+            echo "\">Me deconnecter</a></li>
             <li><a href=\"";
             // line 74
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_index");
@@ -174,7 +176,7 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
               <li><a href=\"";
             // line 78
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
-            echo "\">Me connecté</a></li>
+            echo "\">Me connecter</a></li>
             ";
         }
         // line 80
@@ -1289,7 +1291,7 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
 
     public function getDebugInfo()
     {
-        return array (  1269 => 143,  1259 => 142,  1240 => 8,  1225 => 1009,  1219 => 1006,  1215 => 1005,  1211 => 1004,  1207 => 1003,  1203 => 1002,  1199 => 1001,  874 => 681,  868 => 680,  862 => 679,  856 => 678,  850 => 677,  844 => 676,  838 => 675,  832 => 674,  798 => 643,  777 => 625,  756 => 607,  735 => 589,  705 => 562,  689 => 549,  673 => 536,  657 => 523,  641 => 510,  609 => 481,  600 => 475,  591 => 469,  582 => 463,  428 => 312,  326 => 213,  256 => 145,  254 => 142,  228 => 119,  216 => 110,  204 => 101,  181 => 80,  176 => 78,  171 => 77,  165 => 74,  161 => 73,  158 => 72,  156 => 71,  140 => 58,  109 => 30,  103 => 27,  99 => 26,  95 => 25,  91 => 24,  87 => 23,  83 => 22,  79 => 21,  75 => 20,  66 => 14,  62 => 13,  54 => 8,  45 => 1,);
+        return array (  1271 => 143,  1261 => 142,  1242 => 8,  1227 => 1009,  1221 => 1006,  1217 => 1005,  1213 => 1004,  1209 => 1003,  1205 => 1002,  1201 => 1001,  876 => 681,  870 => 680,  864 => 679,  858 => 678,  852 => 677,  846 => 676,  840 => 675,  834 => 674,  800 => 643,  779 => 625,  758 => 607,  737 => 589,  707 => 562,  691 => 549,  675 => 536,  659 => 523,  643 => 510,  611 => 481,  602 => 475,  593 => 469,  584 => 463,  430 => 312,  328 => 213,  258 => 145,  256 => 142,  230 => 119,  218 => 110,  206 => 101,  183 => 80,  178 => 78,  173 => 77,  167 => 74,  163 => 73,  160 => 72,  158 => 71,  144 => 59,  140 => 58,  109 => 30,  103 => 27,  99 => 26,  95 => 25,  91 => 24,  87 => 23,  83 => 22,  79 => 21,  75 => 20,  66 => 14,  62 => 13,  54 => 8,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -1351,7 +1353,7 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
   <header id=\"header\" class=\"fixed-top\">
     <div class=\"container d-flex align-items-center\">
 
-      <a href=\"\" class=\"logo me-auto\"><img src=\"{{asset('assets1/img/logo.png')}}\" alt=\"\"></a>
+     {#  <a href=\"\" class=\"logo me-auto\"> #}<img src=\"{{asset('assets1/img/logo.png')}}\" style =\"width:120px;height:120px;\" alt=\"\">{# </a> #}
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <h1 class=\"logo me-auto\"><a href=\"index.html\">Medicio</a></h1> -->
 
@@ -1366,12 +1368,12 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
             <ul>
             {% if app.user %}
             <li><a href=\"#\">Mon compte</a></li>
-            <li><a href=\"{{path('app_logout')}}\">Me deconnecté</a></li>
+            <li><a href=\"{{path('app_logout')}}\">Me deconnecter</a></li>
             <li><a href=\"{{path('app_reclamation_index')}}\">Reclamation</a></li>
        
             {% else %}
               <li><a href=\"{{path('app_register')}}\">M'inscrir</a></li>
-              <li><a href=\"{{path('app_login')}}\">Me connecté</a></li>
+              <li><a href=\"{{path('app_login')}}\">Me connecter</a></li>
             {% endif %}
             </ul>
           </li>

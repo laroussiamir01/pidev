@@ -103,13 +103,18 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 16, $this->source); })()), "user", [], "any", false, false, false, 16), "userIdentifier", [], "any", false, false, false, 16), "html", null, true);
             echo " ";
             // line 17
+            echo "               <a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_users_show", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 17, $this->source); })()), "user", [], "any", false, false, false, 17), "id", [], "any", false, false, false, 17)]), "html", null, true);
+            echo "\"> Mon compte</a>
+             ";
+            // line 19
             echo "        </div>
     ";
         }
-        // line 19
+        // line 21
         echo "    <ul>
   ";
-        // line 22
+        // line 24
         echo "        
     </ul>
 </div>
@@ -134,7 +139,7 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
 
     public function getDebugInfo()
     {
-        return array (  113 => 22,  110 => 19,  106 => 17,  103 => 16,  99 => 14,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  118 => 24,  115 => 21,  111 => 19,  106 => 17,  103 => 16,  99 => 14,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -155,6 +160,8 @@ class __TwigTemplate_e659c89bac579917d9616ff1e4278d4c extends Template
      <div class=\"mb-3\">
          
              Vous etes connecte comme {{ app.user.userIdentifier }} {#}<a href=\"{{ path('app_logout') }}\">Logout</a> {#}
+               <a href=\"{{ path('app_users_show', {'id': app.user.id }) }}\"> Mon compte</a>
+             {#  {{ path('app_users_delete', {'id': user.id}) }} #}
         </div>
     {% endif %}
     <ul>

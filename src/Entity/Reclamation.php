@@ -17,10 +17,10 @@ class Reclamation
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message:"Entrer votre Reclamation")]
     #[Assert\Length(min:5, max:255 , minMessage : "La Reclamation doit contenir au moins {{ limit }} caractères")]
-   /*  #[Assert\Regex(
+    /* #[Assert\Regex(
         pattern:"/^[a-zA-Z]+$/i",
         message:"Nom dois etre des lettres"
-        )] */
+        )]  */
     private ?string $message = null;
 
     #[ORM\ManyToOne(inversedBy: 'reclamations')]

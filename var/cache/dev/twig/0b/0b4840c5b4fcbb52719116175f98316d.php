@@ -92,14 +92,15 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     <header id=\"header\" class=\"header fixed-top d-flex align-items-center\">
 
         <div class=\"d-flex align-items-center justify-content-between\">
-            <a href=\"\" class=\"logo d-flex align-items-center\">
-                <img src=\"";
+            ";
         // line 61
+        echo "                <img src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/logo.png"), "html", null, true);
-        echo "\" alt=\"\">
-                <span class=\"d-none d-lg-block\">NiceAdmin</span>
-            </a>
-            <i class=\"bi bi-list toggle-sidebar-btn\"></i>
+        echo "\"style =\"width:120px;height:120px; alt=\"\">
+                <span class=\"d-none d-lg-block\">Admin SauVies</span>
+           ";
+        // line 64
+        echo "            <i class=\"bi bi-list toggle-sidebar-btn\"></i>
         </div>
         <!-- End Logo -->
 
@@ -659,7 +660,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     <!-- ======= Footer ======= -->
     <footer id=\"footer\" class=\"footer\">
         <div class=\"copyright\">
-            &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Admin SauVies</span></strong>. All Rights Reserved
         </div>
         <div class=\"credits\">
             <!-- All the links in the footer should remain intact. -->
@@ -853,7 +854,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     public function getDebugInfo()
     {
-        return array (  833 => 566,  823 => 565,  811 => 44,  805 => 41,  801 => 40,  797 => 39,  793 => 38,  789 => 37,  785 => 36,  781 => 35,  777 => 34,  774 => 33,  764 => 32,  752 => 30,  746 => 27,  742 => 26,  738 => 25,  734 => 24,  730 => 23,  726 => 22,  722 => 21,  719 => 20,  709 => 19,  690 => 8,  653 => 574,  647 => 571,  644 => 570,  640 => 568,  637 => 565,  635 => 564,  594 => 526,  583 => 518,  371 => 309,  344 => 285,  316 => 259,  305 => 252,  303 => 251,  285 => 236,  257 => 211,  240 => 197,  223 => 183,  98 => 61,  81 => 46,  78 => 32,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
+        return array (  834 => 566,  824 => 565,  812 => 44,  806 => 41,  802 => 40,  798 => 39,  794 => 38,  790 => 37,  786 => 36,  782 => 35,  778 => 34,  775 => 33,  765 => 32,  753 => 30,  747 => 27,  743 => 26,  739 => 25,  735 => 24,  731 => 23,  727 => 22,  723 => 21,  720 => 20,  710 => 19,  691 => 8,  654 => 574,  648 => 571,  645 => 570,  641 => 568,  638 => 565,  636 => 564,  595 => 526,  584 => 518,  372 => 309,  345 => 285,  317 => 259,  306 => 252,  304 => 251,  286 => 236,  258 => 211,  241 => 197,  224 => 183,  103 => 64,  97 => 61,  81 => 46,  78 => 32,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -917,10 +918,10 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     <header id=\"header\" class=\"header fixed-top d-flex align-items-center\">
 
         <div class=\"d-flex align-items-center justify-content-between\">
-            <a href=\"\" class=\"logo d-flex align-items-center\">
-                <img src=\"{{asset('assets/img/logo.png')}}\" alt=\"\">
-                <span class=\"d-none d-lg-block\">NiceAdmin</span>
-            </a>
+            {# <a href=\"\" class=\"logo d-flex align-items-center\"> #}
+                <img src=\"{{asset('assets/img/logo.png')}}\"style =\"width:120px;height:120px; alt=\"\">
+                <span class=\"d-none d-lg-block\">Admin SauVies</span>
+           {#  </a> #}
             <i class=\"bi bi-list toggle-sidebar-btn\"></i>
         </div>
         <!-- End Logo -->
@@ -1440,7 +1441,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     <!-- ======= Footer ======= -->
     <footer id=\"footer\" class=\"footer\">
         <div class=\"copyright\">
-            &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Admin SauVies</span></strong>. All Rights Reserved
         </div>
         <div class=\"credits\">
             <!-- All the links in the footer should remain intact. -->
