@@ -65,7 +65,7 @@ class __TwigTemplate_935239c32f4d0edb9b281ff7c5062c75 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Register";
+        echo "Incscription";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -88,7 +88,7 @@ class __TwigTemplate_935239c32f4d0edb9b281ff7c5062c75 extends Template
         echo "<section class=\"container\">
    <div class=\"row\">
       <div class=\"col\">
-       <h1>Register</h1>
+       <h1>Inscription</h1>
        ";
         // line 10
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 10, $this->source); })()), "user", [], "any", false, false, false, 10)) {
@@ -176,13 +176,13 @@ class __TwigTemplate_935239c32f4d0edb9b281ff7c5062c75 extends Template
     {
         return new Source("{% extends 'base-front.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Incscription{% endblock %}
 
 {% block body %}
 <section class=\"container\">
    <div class=\"row\">
       <div class=\"col\">
-       <h1>Register</h1>
+       <h1>Inscription</h1>
        {% if app.user %}
          <div class=\"mb-3\"><center>
         Vous etes connecte comme {{ app.user.userIdentifier }}, <a href=\"{{ path('app_logout') }}\">Logout</a>

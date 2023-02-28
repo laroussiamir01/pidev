@@ -92,11 +92,11 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     <header id=\"header\" class=\"header fixed-top d-flex align-items-center\">
 
         <div class=\"d-flex align-items-center justify-content-between\">
-            ";
+             ";
         // line 61
         echo "                <img src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/logo.png"), "html", null, true);
-        echo "\"style =\"width:120px;height:120px; alt=\"\">
+        echo "\" style =\"width:120px;height:120px\"; alt=\"\">
                 <span class=\"d-none d-lg-block\">Admin SauVies</span>
            ";
         // line 64
@@ -311,9 +311,10 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                                 
 
                             </a>
+                            
                              ";
         }
-        // line 259
+        // line 260
         echo "                        </li>
                         <li>
                             <hr class=\"dropdown-divider\">
@@ -341,7 +342,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
                         <li>
                             <a class=\"dropdown-item d-flex align-items-center\" href=\"";
-        // line 285
+        // line 286
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
         echo "\">
                                 <i class=\"bi bi-box-arrow-right\"></i>
@@ -368,7 +369,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
             <li class=\"nav-item\">
                 <a class=\"nav-link \" href=\"";
-        // line 309
+        // line 310
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_index");
         echo "\">
                     <i class=\"bi bi-grid\"></i>
@@ -580,7 +581,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
             <li class=\"nav-item\">
                 <a class=\"nav-link collapsed\" href=\"";
-        // line 518
+        // line 519
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
         echo "\">
                     <i class=\"bi bi-card-list\"></i>
@@ -591,7 +592,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
             <li class=\"nav-item\">
                 <a class=\"nav-link collapsed\" href=\"";
-        // line 526
+        // line 527
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
         echo "\">
                     <i class=\"bi bi-box-arrow-in-right\"></i>
@@ -632,25 +633,25 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
         
                ";
-        // line 564
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 564, $this->source); })()), "user", [], "any", false, false, false, 564)) {
-            // line 565
+        // line 565
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 565, $this->source); })()), "user", [], "any", false, false, false, 565)) {
+            // line 566
             echo "              ";
             $this->displayBlock('body', $context, $blocks);
-            // line 568
+            // line 569
             echo "  
 ";
         } else {
-            // line 570
+            // line 571
             echo "    <div class=\"mb-3\"><center>
         Vous n êtes connecté(e) , <a href=\"";
-            // line 571
+            // line 572
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Connect</a></center>
     </div>
     ";
         }
-        // line 574
+        // line 575
         echo "           
        
 
@@ -820,7 +821,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     }
 
-    // line 565
+    // line 566
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -830,7 +831,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 566
+        // line 567
         echo "              
               
 ";
@@ -854,7 +855,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     public function getDebugInfo()
     {
-        return array (  834 => 566,  824 => 565,  812 => 44,  806 => 41,  802 => 40,  798 => 39,  794 => 38,  790 => 37,  786 => 36,  782 => 35,  778 => 34,  775 => 33,  765 => 32,  753 => 30,  747 => 27,  743 => 26,  739 => 25,  735 => 24,  731 => 23,  727 => 22,  723 => 21,  720 => 20,  710 => 19,  691 => 8,  654 => 574,  648 => 571,  645 => 570,  641 => 568,  638 => 565,  636 => 564,  595 => 526,  584 => 518,  372 => 309,  345 => 285,  317 => 259,  306 => 252,  304 => 251,  286 => 236,  258 => 211,  241 => 197,  224 => 183,  103 => 64,  97 => 61,  81 => 46,  78 => 32,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
+        return array (  835 => 567,  825 => 566,  813 => 44,  807 => 41,  803 => 40,  799 => 39,  795 => 38,  791 => 37,  787 => 36,  783 => 35,  779 => 34,  776 => 33,  766 => 32,  754 => 30,  748 => 27,  744 => 26,  740 => 25,  736 => 24,  732 => 23,  728 => 22,  724 => 21,  721 => 20,  711 => 19,  692 => 8,  655 => 575,  649 => 572,  646 => 571,  642 => 569,  639 => 566,  637 => 565,  596 => 527,  585 => 519,  373 => 310,  346 => 286,  318 => 260,  306 => 252,  304 => 251,  286 => 236,  258 => 211,  241 => 197,  224 => 183,  103 => 64,  97 => 61,  81 => 46,  78 => 32,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -918,8 +919,8 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     <header id=\"header\" class=\"header fixed-top d-flex align-items-center\">
 
         <div class=\"d-flex align-items-center justify-content-between\">
-            {# <a href=\"\" class=\"logo d-flex align-items-center\"> #}
-                <img src=\"{{asset('assets/img/logo.png')}}\"style =\"width:120px;height:120px; alt=\"\">
+             {#}<a href=\"\" class=\"logo d-flex align-items-center\"> #}
+                <img src=\"{{asset('assets/img/logo.png')}}\" style =\"width:120px;height:120px\"; alt=\"\">
                 <span class=\"d-none d-lg-block\">Admin SauVies</span>
            {#  </a> #}
             <i class=\"bi bi-list toggle-sidebar-btn\"></i>
@@ -1116,6 +1117,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                                 
 
                             </a>
+                            
                              {% endif %}
                         </li>
                         <li>

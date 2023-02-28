@@ -10,17 +10,30 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Form\SearchType;
 
 #[Route('/users')]
 class UsersController extends AbstractController
 {
-    #[Route('/', name: 'app_users_index', methods: ['GET'])]
-    public function index(UsersRepository $usersRepository,Session $session): Response
+    #[Route('/', name: 'app_users_index')]
+    public function index(UsersRepository $usersRepository,Session $session,Request $request): Response
     {
        // $utilisateur = $this->getUser();
        // if($utilisateur && in_array('ROLE_ADMIN', $utilisateur->getRoles())){ 
+        $form=$this->createForm(SearchType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted()) {
+                      
+            $result = $usersRepository->findByNom($form->getData());
+            return $this->render(
+                'users/resultatRech.html.twig', array(
+                    "resultOfSearch" => $result,
+                    
+                    ));
+        }
         return $this->render('users/index.html.twig', [
             'users' => $usersRepository->findAll(),
+            "formSearch" => $form->createView() 
         ]);    //}
      //   $session->set("message", "Vous n'avez pas le droit d'acceder à la page admin vous avez été redirigé sur cette page");
      //   return $this->redirectToRoute('app_home');

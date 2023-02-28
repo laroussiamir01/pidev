@@ -80,4 +80,25 @@ class UsersRepository extends ServiceEntityRepository implements PasswordUpgrade
 //            ->getOneOrNullResult()
 //        ;
 //    }
+public function findByNom(Users $user): array
+   {      
+    $qb = $this->createQueryBuilder('p');
+
+    if ($user->getNomUser()) {
+        $qb->andWhere('p.Nom_user LIKE :Nom_user')
+            ->setParameter('Nom_user', '%'.$user->getNomUser().'%');
+    }
+
+    if ($user->getEmail()) {
+        $qb->andWhere('p.email LIKE :email')
+            ->setParameter('email', '%'.$user->getEmail().'%');
+    }
+
+    if ($user->getId()) {
+        $qb->andWhere('p.id = :id')
+            ->setParameter('id', $user->getId());
+    }
+
+    return $qb->getQuery()->getResult();
+}
 }

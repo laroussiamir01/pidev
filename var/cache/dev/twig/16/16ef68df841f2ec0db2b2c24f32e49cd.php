@@ -202,12 +202,30 @@ $context["role"] == "ROLE_ADMIN")) {
         // line 58
         echo "        </tbody>
     </table>
+    ";
+        // line 60
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formSearch"]) || array_key_exists("formSearch", $context) ? $context["formSearch"] : (function () { throw new RuntimeError('Variable "formSearch" does not exist.', 60, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate"]]);
+        echo "
+    ";
+        // line 61
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["formSearch"]) || array_key_exists("formSearch", $context) ? $context["formSearch"] : (function () { throw new RuntimeError('Variable "formSearch" does not exist.', 61, $this->source); })()), 'widget');
+        echo "
+     ";
+        // line 63
+        echo "    <button class=\"btn\">";
+        echo twig_escape_filter($this->env, ((array_key_exists("button_label", $context)) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 63, $this->source); })()), "Save")) : ("Save")), "html", null, true);
+        echo "</button>
+";
+        // line 64
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formSearch"]) || array_key_exists("formSearch", $context) ? $context["formSearch"] : (function () { throw new RuntimeError('Variable "formSearch" does not exist.', 64, $this->source); })()), 'form_end');
+        echo "
+
 
    ";
-        // line 61
+        // line 67
         echo " 
    ";
-        // line 63
+        // line 69
         echo "
 ";
         
@@ -230,7 +248,7 @@ $context["role"] == "ROLE_ADMIN")) {
 
     public function getDebugInfo()
     {
-        return array (  211 => 63,  208 => 61,  203 => 58,  194 => 54,  185 => 50,  181 => 49,  176 => 47,  172 => 46,  168 => 45,  164 => 43,  158 => 42,  154 => 40,  152 => 39,  149 => 38,  147 => 37,  144 => 36,  141 => 35,  137 => 34,  134 => 33,  130 => 31,  126 => 30,  123 => 29,  118 => 28,  102 => 14,  100 => 13,  97 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  229 => 69,  226 => 67,  220 => 64,  215 => 63,  211 => 61,  207 => 60,  203 => 58,  194 => 54,  185 => 50,  181 => 49,  176 => 47,  172 => 46,  168 => 45,  164 => 43,  158 => 42,  154 => 40,  152 => 39,  149 => 38,  147 => 37,  144 => 36,  141 => 35,  137 => 34,  134 => 33,  130 => 31,  126 => 30,  123 => 29,  118 => 28,  102 => 14,  100 => 13,  97 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -294,6 +312,12 @@ $context["role"] == "ROLE_ADMIN")) {
         {% endfor %}
         </tbody>
     </table>
+    {{form_start(formSearch,{'attr':{'novalidate' : 'novalidate'}} )}}
+    {{ form_widget(formSearch) }}
+     {#} {{ form_row(form.roles) }} {#}
+    <button class=\"btn\">{{ button_label|default('Save') }}</button>
+{{ form_end(formSearch) }}
+
 
    {#  <a href=\"{{ path('app_users_new') }}\">Create new</a> #} 
    {#} <a href=\"{{ path('app_logout') }}\">logout</a> {#}
