@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use App\Entity\Materiel;
 use App\Repository\FournisseurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -26,7 +26,7 @@ class Fournisseur
    
     private ?string $nom = null;
 
-    #[ORM\OneToMany(mappedBy: 'fournisseur', targetEntity: Materiel::class)]
+    #[ORM\OneToMany(mappedBy: 'Fournisseur', targetEntity: Materiel::class)]
     private Collection $Materiels;
 
     public function __construct()

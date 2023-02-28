@@ -38,6 +38,32 @@ class MaterielRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function findByNom(Materiel $materiel): array
+    {      
+     $qb = $this->createQueryBuilder('p');
+ 
+     if ($materiel->getLibelle()) {
+         $qb->andWhere('p.libelle LIKE :libelle')
+             ->setParameter('libelle', '%'.$materiel->getLibelle().'%');
+     }
+ 
+     if ($materiel->getType()) {
+         $qb->andWhere('p.type LIKE :type')
+             ->setParameter('type', '%'.$materiel->getType().'%');
+     }
+ 
+     if ($materiel->getPrix()) {
+         $qb->andWhere('p.prix = :prix')
+             ->setParameter('prix', $materiel->getPrix());
+     }
+     if ($materiel->getFournisseur()) {
+        $qb->andWhere('p.fournisseur = :fournisseur')
+            ->setParameter('fournisseur', $materiel->getFournisseur());
+    }
+     return $qb->getQuery()->getResult();
+ }
+
+
 
 //    /**
 //     * @return Materiel[] Returns an array of Materiel objects

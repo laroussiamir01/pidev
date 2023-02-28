@@ -1,23 +1,52 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\Fournisseur;
 use App\Entity\Materiel;
 use App\Form\MaterielType;
 use App\Repository\MaterielRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+use App\Form\SearchType;
+
 
 #[Route('/materiel')]
 class MaterielController extends AbstractController
 {
-    #[Route('/', name: 'app_materiel_index', methods: ['GET'])]
-    public function index(MaterielRepository $materielRepository): Response
-    {
+    #[Route('/', name: 'app_materiel_index')]
+    public function index(MaterielRepository $materielRepository,Request $request): Response
+    {            $materiel= $materielRepository->findAll();
+
+        
+       
         return $this->render('materiel/index.html.twig', [
-            'materiels' => $materielRepository->findAll(),
+            'materiels' => $materiel,
+        ]);
+    }
+
+    #[Route('/search', name: 'app_materiel_rech')]
+    public function search(MaterielRepository $materielRepository,Request $request): Response
+    {            $materiel= $materielRepository->findAll();
+
+        $form=$this->createForm(SearchType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+                      
+            $result = $materielRepository->findByNom($form->getData());
+            return $this->render(
+                'materiel/resultatRech.html.twig', array(
+                    "resultOfSearch" => $result,
+                   
+
+                    ));
+        }
+        return $this->render('materiel/search.html.twig', [
+            'materiels' => $materiel,
+            'SearchF' =>$form->createView(),
         ]);
     }
 
