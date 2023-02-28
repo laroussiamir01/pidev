@@ -97,7 +97,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         // line 61
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/logo.png"), "html", null, true);
         echo "\" alt=\"\">
-                <span class=\"d-none d-lg-block\">NiceAdmin</span>
+                <span class=\"d-none d-lg-block\">Admin SauVies</span>
             </a>
             <i class=\"bi bi-list toggle-sidebar-btn\"></i>
         </div>
@@ -749,7 +749,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         <div class=\"d-flex align-items-center justify-content-between\">
             <a href=\"\" class=\"logo d-flex align-items-center\">
                 <img src=\"{{asset('assets/img/logo.png')}}\" alt=\"\">
-                <span class=\"d-none d-lg-block\">NiceAdmin</span>
+                <span class=\"d-none d-lg-block\">Admin SauVies</span>
             </a>
             <i class=\"bi bi-list toggle-sidebar-btn\"></i>
         </div>
