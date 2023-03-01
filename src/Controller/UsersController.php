@@ -15,28 +15,39 @@ use App\Form\SearchType;
 #[Route('/users')]
 class UsersController extends AbstractController
 {
-    #[Route('/', name: 'app_users_index')]
-    public function index(UsersRepository $usersRepository,Session $session,Request $request): Response
+    #[Route('/', name: 'app_users_index', methods: ['GET'])]
+    public function index(UsersRepository $usersRepository,Session $session): Response
     {
        // $utilisateur = $this->getUser();
        // if($utilisateur && in_array('ROLE_ADMIN', $utilisateur->getRoles())){ 
+        return $this->render('users/index.html.twig', [
+            'users' => $usersRepository->findAll(),
+        ]);    //}
+     //   $session->set("message", "Vous n'avez pas le droit d'acceder à la page admin vous avez été redirigé sur cette page");
+     //   return $this->redirectToRoute('app_home');
+    }
+
+    #[Route('/search', name: 'app_users_rech')]
+    public function search(UsersRepository $usersRepository,Request $request): Response
+    {            $materiel= $usersRepository->findAll();
+
         $form=$this->createForm(SearchType::class);
         $form->handleRequest($request);
+
         if ($form->isSubmitted()) {
                       
             $result = $usersRepository->findByNom($form->getData());
             return $this->render(
                 'users/resultatRech.html.twig', array(
                     "resultOfSearch" => $result,
-                    
+                   
+
                     ));
         }
-        return $this->render('users/index.html.twig', [
+        return $this->render('users/search.html.twig', [
             'users' => $usersRepository->findAll(),
-            "formSearch" => $form->createView() 
-        ]);    //}
-     //   $session->set("message", "Vous n'avez pas le droit d'acceder à la page admin vous avez été redirigé sur cette page");
-     //   return $this->redirectToRoute('app_home');
+            "SearchF" => $form->createView() 
+        ]);
     }
 
     #[Route('/new', name: 'app_users_new', methods: ['GET', 'POST'])]
@@ -94,4 +105,6 @@ class UsersController extends AbstractController
 
         return $this->redirectToRoute('app_users_index', [], Response::HTTP_SEE_OTHER);
     }
+
+   
 }

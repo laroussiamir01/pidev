@@ -94,10 +94,11 @@ public function findByNom(Users $user): array
             ->setParameter('email', '%'.$user->getEmail().'%');
     }
 
-    if ($user->getId()) {
-        $qb->andWhere('p.id = :id')
-            ->setParameter('id', $user->getId());
-    }
+    /*  if ($user->getReclamations()) {
+        $qb->andWhere('p.reclamations = :reclamations')
+            ->setParameter('reclamations', $user->getReclamations());
+    }  */
+
 
     return $qb->getQuery()->getResult();
 }

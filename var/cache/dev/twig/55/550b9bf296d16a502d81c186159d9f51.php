@@ -208,7 +208,9 @@ $context["role"] == "ROLE_ADMIN")) {
         echo " 
    ";
         // line 63
-        echo "
+        echo "<a href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_users_index");
+        echo "\">retour </a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -297,7 +299,7 @@ $context["role"] == "ROLE_ADMIN")) {
 
    {#  <a href=\"{{ path('app_users_new') }}\">Create new</a> #} 
    {#} <a href=\"{{ path('app_logout') }}\">logout</a> {#}
-
+<a href=\"{{ path('app_users_index') }}\">retour </a>
 {% endblock %}
 ", "users/resultatRech.html.twig", "C:\\Users\\Asus store\\Documents\\GitHub\\pidev\\templates\\users\\resultatRech.html.twig");
     }
