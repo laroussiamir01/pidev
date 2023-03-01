@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20230222081357 extends AbstractMigration
+final class Version20230228151128 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,12 @@ final class Version20230222081357 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE don ADD montant INT NOT NULL');
+        $this->addSql('ALTER TABLE even_like CHANGE id id INT NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE don DROP montant');
+        $this->addSql('ALTER TABLE even_like CHANGE id id INT AUTO_INCREMENT NOT NULL');
     }
 }

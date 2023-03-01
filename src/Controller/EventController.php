@@ -9,6 +9,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
+
+use App\Entity\EvenLike;
+use App\Repository\EvenLikeRepository;
 
 #[Route('/event')]
 class EventController extends AbstractController
@@ -75,4 +80,31 @@ class EventController extends AbstractController
 
         return $this->redirectToRoute('app_event_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+  /**
+ * @Route("/{id}/like", name="event_like")
+ * 
+ * @param Event $event
+ * @param EntityManagerInterface $manager
+ * @param EvenLikeRepository $likesRepo
+ */
+public function like(Event $event, EntityManagerInterface $manager, EvenLikeRepository $likesRepo): Response
+{
+    $like = new EvenLike();
+    $like->setEvent($event);
+
+    $manager->persist($like);
+    $manager->flush();
+
+    $likesCount = $likesRepo->count(['event' => $event]);
+
+    return $this->json([
+        'code' => 200,
+        'message' => 'Like bien ajouté',
+        'likes' => $likesCount,
+    ]);
+}
+
+
 }

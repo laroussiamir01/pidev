@@ -101,5 +101,21 @@
         "symfony/phpunit-bridge": "^6.2",
         "symfony/stopwatch": "5.4.*",
         "symfony/web-profiler-bundle": "5.4.*"
-    }
+    },
+
+
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "fyneworks/star-rating",
+                "version": "4.11.0",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/fyneworks/star-rating",
+                    "reference": "4.11.0"
+                }
+            }
+        }
+    ]
 }

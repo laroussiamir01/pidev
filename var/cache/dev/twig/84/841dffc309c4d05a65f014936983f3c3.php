@@ -85,7 +85,9 @@ class __TwigTemplate_d16bc52e9b84f9ae3c29c0704f802410 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Evenement</h1>
+        echo " <script src=\"https://code.jquery.com/jquery-3.6.0.min.js\"></script>
+
+    <h1>Evenement</h1>
 
     <table class=\"table\">
         <thead>
@@ -99,45 +101,58 @@ class __TwigTemplate_d16bc52e9b84f9ae3c29c0704f802410 extends Template
         </thead>
         <tbody>
         ";
-        // line 19
+        // line 21
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 19, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 21, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["event"]) {
-            // line 20
+            // line 22
             echo "            <tr>
                 <td>";
-            // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 21), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "nom", [], "any", false, false, false, 22), "html", null, true);
-            echo "</td>
-                <td>";
             // line 23
-            ((twig_get_attribute($this->env, $this->source, $context["event"], "DateDebut", [], "any", false, false, false, 23)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "DateDebut", [], "any", false, false, false, 23), "Y-m-d"), "html", null, true))) : (print ("")));
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 23), "html", null, true);
             echo "</td>
                 <td>";
             // line 24
-            ((twig_get_attribute($this->env, $this->source, $context["event"], "DateFin", [], "any", false, false, false, 24)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "DateFin", [], "any", false, false, false, 24), "Y-m-d"), "html", null, true))) : (print ("")));
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "nom", [], "any", false, false, false, 24), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 25
+            ((twig_get_attribute($this->env, $this->source, $context["event"], "DateDebut", [], "any", false, false, false, 25)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "DateDebut", [], "any", false, false, false, 25), "Y-m-d"), "html", null, true))) : (print ("")));
+            echo "</td>
+                <td>";
+            // line 26
+            ((twig_get_attribute($this->env, $this->source, $context["event"], "DateFin", [], "any", false, false, false, 26)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "DateFin", [], "any", false, false, false, 26), "Y-m-d"), "html", null, true))) : (print ("")));
             echo "</td>
                 <td>
                     <a href=\"";
-            // line 26
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_show", ["id" => twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 26)]), "html", null, true);
+            // line 28
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_show", ["id" => twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 28)]), "html", null, true);
             echo "\">show</a>
                     <a href=\"";
-            // line 27
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 27)]), "html", null, true);
+            // line 29
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 29)]), "html", null, true);
             echo "\">edit</a>
+                    <td>
+                        <a href=\"";
+            // line 31
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event_like", ["id" => twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 31)]), "html", null, true);
+            echo "\" class=\"btn btn-link js-like\">
+                            <i class=\"far fa-thumbs-up\"></i>
+                            <span class=\"js-likes\">";
+            // line 33
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "likes", [], "any", false, false, false, 33)), "html", null, true);
+            echo "</span>
+                            <span class=\"js-label\">j'aime</span>
+                        </a>
+                    </td>
                 </td>
             </tr>
         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 31
+            // line 40
             echo "            <tr>
                 <td colspan=\"5\">no records found</td>
             </tr>
@@ -146,12 +161,32 @@ class __TwigTemplate_d16bc52e9b84f9ae3c29c0704f802410 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['event'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 44
         echo "        </tbody>
     </table>
+  <script>
+        \$(function() {
+            \$('a.js-like').on('click', function(e) {
+                e.preventDefault();
+                var \$link = \$(this);
+
+                \$.ajax({
+                    url: \$link.attr('href'),
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        \$link.find('.js-likes').html(data.likes);
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
 
     <a href=\"";
-        // line 38
+        // line 67
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_new");
         echo "\">Create new</a>
 ";
@@ -175,7 +210,7 @@ class __TwigTemplate_d16bc52e9b84f9ae3c29c0704f802410 extends Template
 
     public function getDebugInfo()
     {
-        return array (  155 => 38,  150 => 35,  141 => 31,  132 => 27,  128 => 26,  123 => 24,  119 => 23,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  190 => 67,  165 => 44,  156 => 40,  144 => 33,  139 => 31,  134 => 29,  130 => 28,  125 => 26,  121 => 25,  117 => 24,  113 => 23,  110 => 22,  105 => 21,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -185,6 +220,8 @@ class __TwigTemplate_d16bc52e9b84f9ae3c29c0704f802410 extends Template
 {% block title %}Event index{% endblock %}
 
 {% block body %}
+ <script src=\"https://code.jquery.com/jquery-3.6.0.min.js\"></script>
+
     <h1>Evenement</h1>
 
     <table class=\"table\">
@@ -207,6 +244,13 @@ class __TwigTemplate_d16bc52e9b84f9ae3c29c0704f802410 extends Template
                 <td>
                     <a href=\"{{ path('app_event_show', {'id': event.id}) }}\">show</a>
                     <a href=\"{{ path('app_event_edit', {'id': event.id}) }}\">edit</a>
+                    <td>
+                        <a href=\"{{ path('event_like', {'id': event.id}) }}\" class=\"btn btn-link js-like\">
+                            <i class=\"far fa-thumbs-up\"></i>
+                            <span class=\"js-likes\">{{ event.likes | length }}</span>
+                            <span class=\"js-label\">j'aime</span>
+                        </a>
+                    </td>
                 </td>
             </tr>
         {% else %}
@@ -216,9 +260,33 @@ class __TwigTemplate_d16bc52e9b84f9ae3c29c0704f802410 extends Template
         {% endfor %}
         </tbody>
     </table>
+  <script>
+        \$(function() {
+            \$('a.js-like').on('click', function(e) {
+                e.preventDefault();
+                var \$link = \$(this);
+
+                \$.ajax({
+                    url: \$link.attr('href'),
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        \$link.find('.js-likes').html(data.likes);
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
 
     <a href=\"{{ path('app_event_new') }}\">Create new</a>
 {% endblock %}
-", "event/index.html.twig", "C:\\Users\\tasnim\\Documents\\GitHub\\pidev\\templates\\event\\index.html.twig");
+
+
+  
+
+", "event/index.html.twig", "D:\\Downloads\\pidev\\pidev\\templates\\event\\index.html.twig");
     }
 }

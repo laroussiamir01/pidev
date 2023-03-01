@@ -74,10 +74,10 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     ";
         // line 19
         $this->displayBlock('stylesheet', $context, $blocks);
-        // line 32
+        // line 34
         echo " ";
         $this->displayBlock('JavaScript', $context, $blocks);
-        // line 46
+        // line 49
         echo "    <!-- =======================================================
   * Template Name: NiceAdmin - v2.5.0
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -94,10 +94,10 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         <div class=\"d-flex align-items-center justify-content-between\">
             <a href=\"\" class=\"logo d-flex align-items-center\">
                 <img src=\"";
-        // line 61
+        // line 64
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/logo.png"), "html", null, true);
         echo "\" alt=\"\">
-                <span class=\"d-none d-lg-block\">NiceAdmin</span>
+                <span class=\"d-none d-lg-block\">Admin SauVies</span>
             </a>
             <i class=\"bi bi-list toggle-sidebar-btn\"></i>
         </div>
@@ -219,7 +219,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         <li class=\"message-item\">
                             <a href=\"#\">
                                 <img src=\"";
-        // line 183
+        // line 186
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/messages-1.jpg"), "html", null, true);
         echo "\" alt=\"\" class=\"rounded-circle\">
                                 <div>
@@ -236,7 +236,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         <li class=\"message-item\">
                             <a href=\"#\">
                                 <img src=\"";
-        // line 197
+        // line 200
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/messages-2.jpg"), "html", null, true);
         echo "\" alt=\"\" class=\"rounded-circle\">
                                 <div>
@@ -253,7 +253,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         <li class=\"message-item\">
                             <a href=\"#\">
                                 <img src=\"";
-        // line 211
+        // line 214
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/messages-3.jpg"), "html", null, true);
         echo "\" alt=\"\" class=\"rounded-circle\">
                                 <div>
@@ -281,7 +281,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
                     <a class=\"nav-link nav-profile d-flex align-items-center pe-0\" href=\"#\" data-bs-toggle=\"dropdown\">
                         <img src=\"";
-        // line 236
+        // line 239
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/profile-img.jpg"), "html", null, true);
         echo "\" alt=\"Profile\" class=\"rounded-circle\">
                         <span class=\"d-none d-md-block dropdown-toggle ps-2\">K. Anderson</span>
@@ -366,13 +366,13 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                 <ul id=\"components-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
                     <li>
                         <a href=\"";
-        // line 318
+        // line 321
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_event_index");
         echo "\">
                             <i class=\"bi bi-circle\"></i><span>Evenement</span>
                         </a>
                         <a href=\"";
-        // line 321
+        // line 324
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_don_index");
         echo "\">
                             <i class=\"bi bi-circle\"></i><span>Dons</span>
@@ -479,9 +479,9 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         
                
               ";
-        // line 425
+        // line 428
         $this->displayBlock('body', $context, $blocks);
-        // line 426
+        // line 429
         echo "  
 
            
@@ -580,11 +580,13 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/simple-datatables/style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
 
+
     <!-- Template Main CSS File -->
     <link href=\"";
-        // line 30
+        // line 31
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
+     <link rel=\"stylesheet\" href=\"https://kit.fontawesome.com/323c9d21e1.css\" crossorigin=\"anonymous\">
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -594,7 +596,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     }
 
-    // line 32
+    // line 34
     public function block_JavaScript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -604,44 +606,45 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "JavaScript"));
 
-        // line 33
+        // line 35
         echo "    <!-- Vendor JS Files -->
     <script src=\"";
-        // line 34
+        // line 36
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/apexcharts/apexcharts.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 35
+        // line 37
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 36
+        // line 38
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/chart.js/chart.umd.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 37
+        // line 39
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/echarts/echarts.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 38
+        // line 40
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/quill/quill.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 39
+        // line 41
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/simple-datatables/simple-datatables.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 40
+        // line 42
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/tinymce/tinymce.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 41
+        // line 43
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/php-email-form/validate.js"), "html", null, true);
         echo "\"></script>
+     <script src=\"https://kit.fontawesome.com/323c9d21e1.js\" crossorigin=\"anonymous\"></script>
 
     <!-- Template Main JS File -->
     <script src=\"";
-        // line 44
+        // line 47
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/main.js"), "html", null, true);
         echo "\"></script>
 ";
@@ -653,7 +656,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     }
 
-    // line 425
+    // line 428
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -683,7 +686,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     public function getDebugInfo()
     {
-        return array (  657 => 425,  645 => 44,  639 => 41,  635 => 40,  631 => 39,  627 => 38,  623 => 37,  619 => 36,  615 => 35,  611 => 34,  608 => 33,  598 => 32,  586 => 30,  580 => 27,  576 => 26,  572 => 25,  568 => 24,  564 => 23,  560 => 22,  556 => 21,  553 => 20,  543 => 19,  524 => 8,  485 => 426,  483 => 425,  376 => 321,  370 => 318,  285 => 236,  257 => 211,  240 => 197,  223 => 183,  98 => 61,  81 => 46,  78 => 32,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
+        return array (  660 => 428,  648 => 47,  641 => 43,  637 => 42,  633 => 41,  629 => 40,  625 => 39,  621 => 38,  617 => 37,  613 => 36,  610 => 35,  600 => 34,  587 => 31,  580 => 27,  576 => 26,  572 => 25,  568 => 24,  564 => 23,  560 => 22,  556 => 21,  553 => 20,  543 => 19,  524 => 8,  485 => 429,  483 => 428,  376 => 324,  370 => 321,  285 => 239,  257 => 214,  240 => 200,  223 => 186,  98 => 64,  81 => 49,  78 => 34,  76 => 19,  68 => 14,  64 => 13,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -716,8 +719,10 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     <link href=\"{{asset('assets/vendor/remixicon/remixicon.css')}}\" rel=\"stylesheet\">
     <link href=\"{{asset('assets/vendor/simple-datatables/style.css')}}\" rel=\"stylesheet\">
 
+
     <!-- Template Main CSS File -->
     <link href=\"{{asset('assets/css/style.css')}}\" rel=\"stylesheet\">
+     <link rel=\"stylesheet\" href=\"https://kit.fontawesome.com/323c9d21e1.css\" crossorigin=\"anonymous\">
 {% endblock %}
  {% block JavaScript %}
     <!-- Vendor JS Files -->
@@ -729,6 +734,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     <script src=\"{{asset('assets/vendor/simple-datatables/simple-datatables.js')}}\"></script>
     <script src=\"{{asset('assets/vendor/tinymce/tinymce.min.js')}}\"></script>
     <script src=\"{{asset('assets/vendor/php-email-form/validate.js')}}\"></script>
+     <script src=\"https://kit.fontawesome.com/323c9d21e1.js\" crossorigin=\"anonymous\"></script>
 
     <!-- Template Main JS File -->
     <script src=\"{{asset('assets/js/main.js')}}\"></script>
@@ -749,7 +755,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         <div class=\"d-flex align-items-center justify-content-between\">
             <a href=\"\" class=\"logo d-flex align-items-center\">
                 <img src=\"{{asset('assets/img/logo.png')}}\" alt=\"\">
-                <span class=\"d-none d-lg-block\">NiceAdmin</span>
+                <span class=\"d-none d-lg-block\">Admin SauVies</span>
             </a>
             <i class=\"bi bi-list toggle-sidebar-btn\"></i>
         </div>
@@ -1142,6 +1148,6 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
 </body>
 
-</html>", "base.html.twig", "C:\\Users\\tasnim\\Documents\\GitHub\\pidev\\templates\\base.html.twig");
+</html>", "base.html.twig", "D:\\Downloads\\pidev\\pidev\\templates\\base.html.twig");
     }
 }

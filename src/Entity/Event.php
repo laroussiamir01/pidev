@@ -21,6 +21,10 @@ class Event
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message:" entrer le NOM de l'evenement" )] 
     #[Assert\Length(min:3 , minMessage : "Le nom doit contenir au moins {{ limit }} caractères")]
+    #[Assert\Regex(
+        pattern:"/^[a-zA-Z]+$/i",
+        message:"Nom dois etre des lettres"
+        )]
    
     private ?string $nom = null;
 
@@ -37,9 +41,13 @@ class Event
     #[ORM\OneToMany(mappedBy: 'Events', targetEntity: Don::class, orphanRemoval:true)]
     private Collection $dons;
 
+    #[ORM\OneToMany(mappedBy: 'event', targetEntity: EvenLike::class)]
+    private Collection $likes;
+
     public function __construct()
     {
         $this->dons = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -107,6 +115,36 @@ class Event
             // set the owning side to null (unless already changed)
             if ($don->getEvents() === $this) {
                 $don->setEvents(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EvenLike>
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(EvenLike $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes->add($like);
+            $like->setEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(EvenLike $like): self
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getEvent() === $this) {
+                $like->setEvent(null);
             }
         }
 

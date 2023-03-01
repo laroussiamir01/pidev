@@ -17,6 +17,10 @@ class Don
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message:" entrer le NOM du don " )] 
     #[Assert\Length(min:3 , minMessage : "Le nom doit contenir au moins {{ limit }} caractères")]
+    #[Assert\Regex(
+        pattern:"/^[a-zA-Z]+$/i",
+        message:"Nom dois etre des lettres"
+        )]
    
     private ?string $nom = null;
 
@@ -26,7 +30,7 @@ class Don
     #[ORM\Column]
     #[Assert\NotBlank(message:" entrer le montant " )] 
 
-    #[Assert\GreaterThan(0, message: "le montant doit etre positif ")]
+    #[Assert\GreaterThanOrEqual(0, message: "le montant doit etre positif ")]
 
     private ?int $montant = null;
 

@@ -3,6 +3,8 @@
 {% block title %}Event index{% endblock %}
 
 {% block body %}
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <h1>Evenement</h1>
 
     <table class="table">
@@ -25,6 +27,13 @@
                 <td>
                     <a href="{{ path('app_event_show', {'id': event.id}) }}">show</a>
                     <a href="{{ path('app_event_edit', {'id': event.id}) }}">edit</a>
+                    <td>
+                        <a href="{{ path('event_like', {'id': event.id}) }}" class="btn btn-link js-like">
+                            <i class="far fa-thumbs-up"></i>
+                            <span class="js-likes">{{ event.likes | length }}</span>
+                            <span class="js-label">j'aime</span>
+                        </a>
+                    </td>
                 </td>
             </tr>
         {% else %}
@@ -34,6 +43,30 @@
         {% endfor %}
         </tbody>
     </table>
+  <script>
+        $(function() {
+            $('a.js-like').on('click', function(e) {
+                e.preventDefault();
+                var $link = $(this);
+
+                $.ajax({
+                    url: $link.attr('href'),
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        $link.find('.js-likes').html(data.likes);
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
 
     <a href="{{ path('app_event_new') }}">Create new</a>
 {% endblock %}
+
+
+  
+
