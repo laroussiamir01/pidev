@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Controller;
-use App\Entity\Fournisseur;
 use App\Entity\Materiel;
+use App\Form\SearchType;
 use App\Form\MaterielType;
+use App\Entity\Fournisseur;
 use App\Repository\MaterielRepository;
 use Symfony\Component\HttpFoundation\Request;
+use MercurySeries\FlashyBundle\FlashyNotifier;
 use Symfony\Component\HttpFoundation\Response;
+
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
-use App\Form\SearchType;
 
 
 #[Route('/materiel')]
@@ -21,7 +22,7 @@ class MaterielController extends AbstractController
     {            $materiel= $materielRepository->findAll();
 
         
-       
+        
         return $this->render('materiel/index.html.twig', [
             'materiels' => $materiel,
         ]);
@@ -59,7 +60,7 @@ class MaterielController extends AbstractController
     }
 
     #[Route('/new', name: 'app_materiel_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, MaterielRepository $materielRepository): Response
+    public function new(Request $request, MaterielRepository $materielRepository,FlashyNotifier $flashy): Response
     {
         $materiel = new Materiel();
         $form = $this->createForm(MaterielType::class, $materiel);
@@ -67,10 +68,11 @@ class MaterielController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $materielRepository->save($materiel, true);
+            $flashy->success('Materiel ajoutée !');
 
             return $this->redirectToRoute('app_materiel_index', [], Response::HTTP_SEE_OTHER);
         }
-
+        $flashy->error('Uh Oh') ;
         return $this->renderForm('materiel/new.html.twig', [
             'materiel' => $materiel,
             'form' => $form,
