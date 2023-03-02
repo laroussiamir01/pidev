@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CalendarRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CalendarRepository::class)]
 class Calendar
@@ -18,9 +19,13 @@ class Calendar
     private ?string $title = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Assert\NotBlank(message:"date is required")]
+    #[Assert\GreaterThanOrEqual("today", message: "Veuillez saisir une date supérieure à la date d'aujourd'hui ")]
     private ?\DateTimeInterface $start = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Assert\NotBlank(message:"date fin name is required")]
+    #[Assert\GreaterThanOrEqual(propertyPath:"start", message: "Veuillez saisir une date supérieure à la date debut ")]
     private ?\DateTimeInterface $end = null;
 
     #[ORM\Column(type: Types::TEXT)]

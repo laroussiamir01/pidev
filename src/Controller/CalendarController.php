@@ -78,19 +78,10 @@ class CalendarController extends AbstractController
         ]);
     }
 
-<<<<<<< HEAD
     #[Route('/{id}', name: 'calendar_delete', methods: ['GET', "POST"])]
     public function delete(Request $request, Calendar $calendar): Response
     {
         if ($this->isCsrfTokenValid('delete' . $calendar->getId(), $request->request->get('_token'))) {
-=======
-    /**
-     * @Route("/{id}", name="calendar_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Calendar $calendar): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$calendar->getId(), $request->request->get('_token'))) {
->>>>>>> d7a82847de653d43f02fab05c8bdf8c4ee7382c6
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($calendar);
             $entityManager->flush();

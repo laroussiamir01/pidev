@@ -82,7 +82,6 @@ class EventController extends AbstractController
     }
 
 
-<<<<<<< HEAD
     /**
      * @Route("/{id}/like", name="event_like")
      * 
@@ -106,31 +105,4 @@ class EventController extends AbstractController
             'likes' => $likesCount,
         ]);
     }
-=======
-  /**
- * @Route("/{id}/like", name="event_like")
- * 
- * @param Event $event
- * @param EntityManagerInterface $manager
- * @param EvenLikeRepository $likesRepo
- */
-public function like(Event $event, EntityManagerInterface $manager, EvenLikeRepository $likesRepo): Response
-{
-    $like = new EvenLike();
-    $like->setEvent($event);
-
-    $manager->persist($like);
-    $manager->flush();
-
-    $likesCount = $likesRepo->count(['event' => $event]);
-
-    return $this->json([
-        'code' => 200,
-        'message' => 'Like bien ajouté',
-        'likes' => $likesCount,
-    ]);
-}
-
-
->>>>>>> d7a82847de653d43f02fab05c8bdf8c4ee7382c6
 }
