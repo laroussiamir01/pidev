@@ -74,7 +74,7 @@ class EventController extends AbstractController
     #[Route('/{id}', name: 'app_event_delete', methods: ['POST'])]
     public function delete(Request $request, Event $event, EventRepository $eventRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$event->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $event->getId(), $request->request->get('_token'))) {
             $eventRepository->remove($event, true);
         }
 
@@ -82,6 +82,31 @@ class EventController extends AbstractController
     }
 
 
+<<<<<<< HEAD
+    /**
+     * @Route("/{id}/like", name="event_like")
+     * 
+     * @param Event $event
+     * @param EntityManagerInterface $manager
+     * @param EvenLikeRepository $likesRepo
+     */
+    public function like(Event $event, EntityManagerInterface $manager, EvenLikeRepository $likesRepo): Response
+    {
+        $like = new EvenLike();
+        $like->setEvent($event);
+
+        $manager->persist($like);
+        $manager->flush();
+
+        $likesCount = $likesRepo->count(['event' => $event]);
+
+        return $this->json([
+            'code' => 200,
+            'message' => 'Like bien ajouté',
+            'likes' => $likesCount,
+        ]);
+    }
+=======
   /**
  * @Route("/{id}/like", name="event_like")
  * 
@@ -107,4 +132,5 @@ public function like(Event $event, EntityManagerInterface $manager, EvenLikeRepo
 }
 
 
+>>>>>>> d7a82847de653d43f02fab05c8bdf8c4ee7382c6
 }

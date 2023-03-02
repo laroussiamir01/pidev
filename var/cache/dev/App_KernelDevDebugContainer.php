@@ -16,6 +16,11 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerNKKGMHi\App_KernelDevDebugContainer([
     'container.build_hash' => 'NKKGMHi',
+<<<<<<< HEAD
+    'container.build_id' => '7326ccb5',
+    'container.build_time' => 1677712303,
+=======
     'container.build_id' => 'bc84410d',
     'container.build_time' => 1677596924,
+>>>>>>> d7a82847de653d43f02fab05c8bdf8c4ee7382c6
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerNKKGMHi');
