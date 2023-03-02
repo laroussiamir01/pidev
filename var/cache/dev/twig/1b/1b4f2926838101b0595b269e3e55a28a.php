@@ -1220,10 +1220,12 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
         // line 1006
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets1/vendor/php-email-form/validate.js"), "html", null, true);
         echo "\"></script>
+  <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+
 
   <!-- Template Main JS File -->
   <script src=\"";
-        // line 1009
+        // line 1011
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets1/js/main.js"), "html", null, true);
         echo "\"></script>
 
@@ -1291,7 +1293,7 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
 
     public function getDebugInfo()
     {
-        return array (  1271 => 143,  1261 => 142,  1242 => 8,  1227 => 1009,  1221 => 1006,  1217 => 1005,  1213 => 1004,  1209 => 1003,  1205 => 1002,  1201 => 1001,  876 => 681,  870 => 680,  864 => 679,  858 => 678,  852 => 677,  846 => 676,  840 => 675,  834 => 674,  800 => 643,  779 => 625,  758 => 607,  737 => 589,  707 => 562,  691 => 549,  675 => 536,  659 => 523,  643 => 510,  611 => 481,  602 => 475,  593 => 469,  584 => 463,  430 => 312,  328 => 213,  258 => 145,  256 => 142,  230 => 119,  218 => 110,  206 => 101,  183 => 80,  178 => 78,  173 => 77,  167 => 74,  163 => 73,  160 => 72,  158 => 71,  144 => 59,  140 => 58,  109 => 30,  103 => 27,  99 => 26,  95 => 25,  91 => 24,  87 => 23,  83 => 22,  79 => 21,  75 => 20,  66 => 14,  62 => 13,  54 => 8,  45 => 1,);
+        return array (  1273 => 143,  1263 => 142,  1244 => 8,  1229 => 1011,  1221 => 1006,  1217 => 1005,  1213 => 1004,  1209 => 1003,  1205 => 1002,  1201 => 1001,  876 => 681,  870 => 680,  864 => 679,  858 => 678,  852 => 677,  846 => 676,  840 => 675,  834 => 674,  800 => 643,  779 => 625,  758 => 607,  737 => 589,  707 => 562,  691 => 549,  675 => 536,  659 => 523,  643 => 510,  611 => 481,  602 => 475,  593 => 469,  584 => 463,  430 => 312,  328 => 213,  258 => 145,  256 => 142,  230 => 119,  218 => 110,  206 => 101,  183 => 80,  178 => 78,  173 => 77,  167 => 74,  163 => 73,  160 => 72,  158 => 71,  144 => 59,  140 => 58,  109 => 30,  103 => 27,  99 => 26,  95 => 25,  91 => 24,  87 => 23,  83 => 22,  79 => 21,  75 => 20,  66 => 14,  62 => 13,  54 => 8,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -2302,6 +2304,8 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
   <script src=\"{{asset('assets1/vendor/glightbox/js/glightbox.min.js')}}\"></script>
   <script src=\"{{asset('assets1/vendor/swiper/swiper-bundle.min.js')}}\"></script>
   <script src=\"{{asset('assets1/vendor/php-email-form/validate.js')}}\"></script>
+  <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+
 
   <!-- Template Main JS File -->
   <script src=\"{{asset('assets1/js/main.js')}}\"></script>

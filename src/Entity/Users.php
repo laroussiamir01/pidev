@@ -60,9 +60,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->reclamations = new ArrayCollection();
     }
-
    
-
     public function getId(): ?int
     {
         return $this->id;
@@ -151,6 +149,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
+  
     public function getNomUser(): ?string
     {
         return $this->Nom_user;

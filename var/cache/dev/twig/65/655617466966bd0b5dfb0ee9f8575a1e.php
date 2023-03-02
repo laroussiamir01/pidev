@@ -133,15 +133,19 @@ class __TwigTemplate_935239c32f4d0edb9b281ff7c5062c75 extends Template
         // line 26
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 26, $this->source); })()), "agreeTerms", [], "any", false, false, false, 26), 'row');
         echo "
+        ";
+        // line 28
+        echo "        <div class=\"g-recaptcha\" data-sitekey=\"6LeF5MQkAAAAAE-sBpuBdu29b1VFUOvQS1VaejNr\"></div>
+
 
         <button type=\"submit\" class=\"btn btn-primary my-3\">M'inscrir</button>
         <a href=\"";
-        // line 29
+        // line 32
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
         echo "\" class=\"btn btn-seconday my-3\">Me connecté</a></li>
     ";
-        // line 30
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 30, $this->source); })()), 'form_end');
+        // line 33
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 33, $this->source); })()), 'form_end');
         echo "
 
       </div>
@@ -169,7 +173,7 @@ class __TwigTemplate_935239c32f4d0edb9b281ff7c5062c75 extends Template
 
     public function getDebugInfo()
     {
-        return array (  144 => 30,  140 => 29,  134 => 26,  131 => 25,  129 => 23,  124 => 21,  120 => 20,  116 => 19,  110 => 16,  107 => 15,  99 => 12,  96 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  148 => 33,  144 => 32,  138 => 28,  134 => 26,  131 => 25,  129 => 23,  124 => 21,  120 => 20,  116 => 19,  110 => 16,  107 => 15,  99 => 12,  96 => 11,  94 => 10,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -200,6 +204,9 @@ class __TwigTemplate_935239c32f4d0edb9b281ff7c5062c75 extends Template
             label: 'Password'
         }) }}   
         {{ form_row(registrationForm.agreeTerms) }}
+        {#}recaptcha {#}
+        <div class=\"g-recaptcha\" data-sitekey=\"6LeF5MQkAAAAAE-sBpuBdu29b1VFUOvQS1VaejNr\"></div>
+
 
         <button type=\"submit\" class=\"btn btn-primary my-3\">M'inscrir</button>
         <a href=\"{{path('app_login')}}\" class=\"btn btn-seconday my-3\">Me connecté</a></li>

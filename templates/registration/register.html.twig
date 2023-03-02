@@ -24,6 +24,9 @@
             label: 'Password'
         }) }}   
         {{ form_row(registrationForm.agreeTerms) }}
+        {#}recaptcha {#}
+        <div class="g-recaptcha" data-sitekey="6LeF5MQkAAAAAE-sBpuBdu29b1VFUOvQS1VaejNr"></div>
+
 
         <button type="submit" class="btn btn-primary my-3">M'inscrir</button>
         <a href="{{path('app_login')}}" class="btn btn-seconday my-3">Me connecté</a></li>
