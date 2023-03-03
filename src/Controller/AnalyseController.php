@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-//
+
 #[Route('/analyse')]
 class AnalyseController extends AbstractController
 {
@@ -59,7 +59,7 @@ class AnalyseController extends AbstractController
 
             return $this->redirectToRoute('app_analyse_index', [], Response::HTTP_SEE_OTHER);
         }
-
+//
         return $this->renderForm('analyse/edit.html.twig', [
             'analyse' => $analyse,
             'form' => $form,
