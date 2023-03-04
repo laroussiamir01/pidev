@@ -1,0 +1,38 @@
+{% extends 'front.html.twig' %}
+
+{% block labo %}
+    <h4 style="color:Teal;">Ajouter Commentaire</h4>
+
+    {{ include('comment/_form.html.twig') }}
+
+<br>
+<br>
+    <h4 style="color:Teal;">Lire tous les commentaires :</h4>
+
+    <table class="table">
+     {% for comment in comments %}
+        <tbody>
+        <thead>
+            <tr>
+                <th>Commentaire de {{ comment.auteur }} Pubilie le {{ comment.dateC ? comment.dateC|date('Y-m-d') : '' }}  </th>
+               
+            </tr>
+        </thead>
+     
+            <tr>
+                <td>{{ comment.comment }}</td>
+            </tr>
+            <td>
+           <h7 style="color:Teal;"> reponse pour commentaire  {{ comment.auteur }} :</h7> {% for reponse in comment.reponse %}
+                {{reponse.getReponse()}}
+                {% endfor %}
+            </td>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+   
+{% endblock %}

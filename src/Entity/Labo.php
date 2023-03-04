@@ -52,9 +52,16 @@ class Labo
     #[ORM\OneToMany(mappedBy: 'laboo', targetEntity: Analyse::class)]
     private Collection $analyses;
 
+    #[ORM\OneToMany(mappedBy: 'labo', targetEntity: Rating::class)]
+    private Collection $ratings;
+
+    #[ORM\Column]
+    private ?float $averageRating = null;
+
     public function __construct()
     {
         $this->analyses = new ArrayCollection();
+        $this->ratings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -167,4 +174,59 @@ class Labo
     {
         return $this->nom;
     }
+
+    /**
+     * @return Collection<int, Rating>
+     */
+    public function getRatings(): Collection
+    {
+        return $this->ratings;
+    }
+
+    public function addRating(Rating $rating): self
+    {
+        if (!$this->ratings->contains($rating)) {
+            $this->ratings->add($rating);
+            $rating->setLabo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRating(Rating $rating): self
+    {
+        if ($this->ratings->removeElement($rating)) {
+            // set the owning side to null (unless already changed)
+            if ($rating->getLabo() === $this) {
+                $rating->setLabo(null);
+            }
+        }
+
+        return $this;
+    }
+
+    
+
+   public function setAverageRating(float $averageRating): self
+    {
+        $this->averageRating = $averageRating;
+        return $this;
+    }
+
+    public function getAverageRating()
+    {
+        $total = 0;
+        $count = count($this->ratings);
+
+        foreach ($this->ratings as $rating) {
+            $total += $rating->getValue();
+        }
+
+        if ($count > 0) {
+            return round($total / $count, 1);
+        } else {
+            return 0;
+        }
+    }
+
 }
