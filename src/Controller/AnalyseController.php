@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Knp\Component\Pager\PaginatorInterface;
+use App\Form\ProductSearchType;
 
 
 
@@ -34,16 +35,32 @@ class AnalyseController extends AbstractController
     public function index(AnalyseRepository $analyseRepository,PaginatorInterface $paginator,
     Request $request): Response
     {
-        $data = $analyseRepository->findAll();
+        $form = $this->createForm(ProductSearchType::class);
+        $form->handleRequest($request);
+    
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $min = $data['priceRange'][0];
+            $max = $data['priceRange'][1];
+    
+            $qb = $analyseRepository->createQueryBuilder('p')
+                ->where('p.prix >= :min')
+                ->andWhere('p.prix <= :max')
+                ->setParameter('min', $min)
+                ->setParameter('max', $max);
+    
+            $analyses = $qb->getQuery()->getResult();
+            
+        } else {
+            $analyses = $analyseRepository->findAll();
+        }
+    
+        
 
-        $analyses = $paginator->paginate(
-            $data,
-            $request->query->getInt('page', 1),
-            1
-        );
         return $this->render('analyse/index.html.twig', [
-            'analyses' => $analyses ,
-        ]);
+            'form' => $form->createView(),
+            'analyses' => $analyses,
+         ]);
     }
 
 

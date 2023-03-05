@@ -23,14 +23,16 @@
                 <td>{{ comment.comment }}</td>
             </tr>
             <td>
-           <h7 style="color:Teal;"> reponse pour commentaire  {{ comment.auteur }} :</h7> {% for reponse in comment.reponse %}
+            {% if comment.reponse is not null %}
+  
+           {% for reponse in comment.reponse %}
+            <h7 style="color:Teal;"> reponse pour commentaire  {{ comment.auteur }} :</h7>
                 {{reponse.getReponse()}}
                 {% endfor %}
             </td>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
+        {% endif %}
+          
+            
         {% endfor %}
         </tbody>
     </table>

@@ -90,7 +90,38 @@
 
   <a href="{{ path('app_analyse_new') }}">Créer un nouveau</a>
 
-    {{ knp_pagination_render(analyses) }}
+   
+
+<br>
+<br>
+
+
+ <h7>Rechercher des analyses selon leurs prix :</h7>
+
+<p>Price range: <span id="price-range"></span></p>
+
+{{ form_start(form) }}
+
+<div>
+    <label for="{{ form.priceRange.vars.id }}">Price Range</label>
+    <input type="range"
+           id="{{ form.priceRange.vars.id }}"
+           name="{{ form.priceRange.vars.full_name }}"
+           min="{{ form.priceRange.vars.attr.min }}"
+           max="{{ form.priceRange.vars.attr.max }}"
+           step="{{ form.priceRange.vars.attr.step }}"
+           value="{{ form.priceRange.vars.value }}"
+           onchange="updatePriceRange(this.value)">
+</div>
+
+<button classe="button1" type="submit">filtrer</button>
+
+<script>
+    function updatePriceRange(value) {
+        document.getElementById("price-range").innerHTML = value;
+    }
+</script>
+
 
 
 {% endblock %}
