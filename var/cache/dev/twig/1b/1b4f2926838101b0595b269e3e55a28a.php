@@ -164,7 +164,7 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
             echo "\">Me deconnecter</a></li>
             <li><a href=\"";
             // line 74
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_index");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_new");
             echo "\">Reclamation</a></li>
        
             ";
@@ -1371,7 +1371,7 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
             {% if app.user %}
             <li><a href=\"#\">Mon compte</a></li>
             <li><a href=\"{{path('app_logout')}}\">Me deconnecter</a></li>
-            <li><a href=\"{{path('app_reclamation_index')}}\">Reclamation</a></li>
+            <li><a href=\"{{path('app_reclamation_new')}}\">Reclamation</a></li>
        
             {% else %}
               <li><a href=\"{{path('app_register')}}\">M'inscrir</a></li>

@@ -208,6 +208,6 @@ class __TwigTemplate_94aa58c7abad335b7a6035d0f6e8b6ef extends Template
 {{form_end(form)}}
 
 {% endblock %}
-", "student/add.html.twig", "C:\\Users\\Asus store\\form\\templates\\student\\add.html.twig");
+", "student/add.html.twig", "C:\\Users\\Asus store\\Documents\\GitHub\\pidev\\templates\\student\\add.html.twig");
     }
 }

@@ -24,6 +24,7 @@ class ReclamationController extends AbstractController
     #[Route('/new', name: 'app_reclamation_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ReclamationRepository $reclamationRepository, ): Response
     {
+        $reclamationRepository->sms();
         $reclamation = new Reclamation();
         $form = $this->createForm(ReclamationType::class, $reclamation);
         $form->handleRequest($request);
@@ -40,6 +41,7 @@ class ReclamationController extends AbstractController
             'form' => $form,
         ]);
     }
+    
 
 
     #[Route('/{id}', name: 'app_reclamation_show', methods: ['GET'])]

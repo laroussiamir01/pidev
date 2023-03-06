@@ -42,7 +42,7 @@ class __TwigTemplate_91b931be77e443f1a1758c72439d424f extends Template
         // line 1
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 1, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate"]]);
         echo "
-    ";
+  ";
         // line 2
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 2, $this->source); })()), 'widget');
         echo "
@@ -81,7 +81,7 @@ class __TwigTemplate_91b931be77e443f1a1758c72439d424f extends Template
     public function getSourceContext()
     {
         return new Source("{{form_start(form,{'attr':{'novalidate' : 'novalidate'}} )}}
-    {{ form_widget(form) }}
+  {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 ", "reclamation/_form.html.twig", "C:\\Users\\Asus store\\Documents\\GitHub\\pidev\\templates\\reclamation\\_form.html.twig");

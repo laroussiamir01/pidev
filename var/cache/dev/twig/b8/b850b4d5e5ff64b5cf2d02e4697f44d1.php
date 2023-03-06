@@ -154,6 +154,6 @@ class __TwigTemplate_9a39cb9b07372f31cccf5736cf9876a9 extends Template
     </ul>
 </div>
 {% endblock %}
-", "student/index.html.twig", "C:\\Users\\Asus store\\form\\templates\\student\\index.html.twig");
+", "student/index.html.twig", "C:\\Users\\Asus store\\Documents\\GitHub\\pidev\\templates\\student\\index.html.twig");
     }
 }

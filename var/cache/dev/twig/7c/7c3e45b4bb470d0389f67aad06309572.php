@@ -148,11 +148,7 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
         echo "        </tbody>
     </table>
 
-    <a href=\"";
-        // line 39
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_reclamation_new");
-        echo "\">Create new</a>
-";
+   ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -173,7 +169,7 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
 
     public function getDebugInfo()
     {
-        return array (  153 => 39,  148 => 36,  139 => 32,  131 => 29,  126 => 27,  122 => 26,  116 => 23,  112 => 22,  109 => 21,  104 => 20,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  148 => 36,  139 => 32,  131 => 29,  126 => 27,  122 => 26,  116 => 23,  112 => 22,  109 => 21,  104 => 20,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -216,7 +212,7 @@ class __TwigTemplate_5d5356a7048fafec9183d9466fbb1323 extends Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_reclamation_new') }}\">Create new</a>
+   {#  <a href=\"{{ path('app_reclamation_new') }}\">Create new</a> #}
 {% endblock %}
 ", "reclamation/index.html.twig", "C:\\Users\\Asus store\\Documents\\GitHub\\pidev\\templates\\reclamation\\index.html.twig");
     }
