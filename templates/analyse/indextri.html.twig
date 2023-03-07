@@ -3,13 +3,16 @@
 
 
 {% block labo %}
+
   <h1 style="color:DarkBlue;">
     Analyses
   </h1>
- <h7>options :</h7>
+  
 
-  <a href="{{ path('analyse_tri') }}">trier liste analyses</a>
-  <a href="{{ path('filtre') }}">filtrer liste analyses</a>
+
+{{ form_start(formt) }}
+
+{{ form_end(formt) }}
 
   <table class="table">
     <thead>
@@ -60,26 +63,8 @@
             {{ analyse.laboo }}
           </td>
           <td>
-            <a  class="button2" href="{{
-              path(
-                'app_analyse_show',
-                {
-                  id: analyse.id
-                }
-              )
-              }}">
-              Details
-            </a>
-            <a class="button1" href="{{
-              path(
-                'app_analyse_edit',
-                {
-                  id: analyse.id
-                }
-              )
-              }}" >
-              Modifier
-            </a>
+            
+            
           </td>
         </tr>
       {% else %}
@@ -92,14 +77,13 @@
     </tbody>
   </table>
 
-  <a href="{{ path('app_analyse_new') }}">Créer un nouveau</a>
+  <a href="{{ path('app_analyse_new') }}">Créer un nouveau </a>
 
-   
+
+
 
 <br>
 <br>
-
-
 
 
 

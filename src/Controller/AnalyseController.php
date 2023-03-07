@@ -15,6 +15,8 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Knp\Component\Pager\PaginatorInterface;
 use App\Form\ProductSearchType;
 
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
 #[Route('/analyse')]
@@ -27,12 +29,61 @@ class AnalyseController extends AbstractController
             'analyses' => $analyseRepository->findAll(),
         ]);
     }
+    #[Route('/tria', name: 'analyse_tri', methods: ['GET','POST'])]
+
+    public function trier(Request $request, AnalyseRepository $analyseRepository): Response
+    {
+        $formt = $this->createformBuilder()
+        ->add('tri', ChoiceType::class, [
+            'choices' => [
+                'prix ascendant' => 'prixA',
+                'date ascendant' => 'dateA',
+                'prix descendant' => 'prixD',
+                'date descendant' => 'dateD',
+            ],
+            'expanded' => true,
+            'multiple' => false,
+            'label' => 'Trier par',
+        ])
+        ->add('trier', SubmitType::class)
+        ->getForm();
+
+        $formt->handleRequest($request);
+
+        if ($formt->isSubmitted() && $formt->isValid()) {
+            $data = $formt->getData();
+
+            $orderBy = [];
+            if ($data['tri'] == 'prixA') {
+                $orderBy['prix'] = 'ASC';
+            }
+            if ($data['tri'] == 'dateA') {
+                $orderBy['date'] = 'ASC';
+            }
+            if ($data['tri'] == 'prixD') {
+                $orderBy['prix'] = 'DESC';
+            }
+            if ($data['tri'] == 'dateD') {
+                $orderBy['date'] = 'DESC';
+            }
+            $analyses = $analyseRepository->findBy([], $orderBy);
+
+            return $this->render('analyse/indextri.html.twig', [
+                'formt' => $formt->createView(),
+                'analyses' => $analyses,
+            ]);
+        }
+
+        return $this->render('analyse/indextri.html.twig', [
+            'analyses'=>$analyseRepository->findAll(),
+            'formt' => $formt->createView(),
+        ]);
+    }
     
     
     
-    
-    #[Route('/', name: 'app_analyse_index', methods: ['GET'])]
-    public function index(AnalyseRepository $analyseRepository,PaginatorInterface $paginator,
+    #[Route('/filtre', name: 'filtre', methods: ['GET'])]
+    public function filtre(AnalyseRepository $analyseRepository,PaginatorInterface $paginator,
     Request $request): Response
     {
         $form = $this->createForm(ProductSearchType::class);
@@ -57,12 +108,21 @@ class AnalyseController extends AbstractController
     
         
 
-        return $this->render('analyse/index.html.twig', [
+        return $this->render('analyse/indexfiltre.html.twig', [
             'form' => $form->createView(),
             'analyses' => $analyses,
          ]);
     }
-
+    
+    #[Route('/', name: 'app_analyse_index', methods: ['GET'])]
+    public function index(AnalyseRepository $analyseRepository,PaginatorInterface $paginator,
+    Request $request): Response
+    {
+      
+        return $this->render('analyse/index.html.twig', [
+            'analyses' => $analyseRepository->findAll()
+        ]);
+    }
 
     #[Route('/new', name: 'app_analyse_new', methods: ['GET', 'POST'])]
     public function new(Request $request, AnalyseRepository $analyseRepository,SluggerInterface $slugger): Response

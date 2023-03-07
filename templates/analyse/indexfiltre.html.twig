@@ -3,13 +3,39 @@
 
 
 {% block labo %}
+
   <h1 style="color:DarkBlue;">
     Analyses
   </h1>
- <h7>options :</h7>
 
-  <a href="{{ path('analyse_tri') }}">trier liste analyses</a>
-  <a href="{{ path('filtre') }}">filtrer liste analyses</a>
+
+<h10>Price range: <span id="price-range"></span></h10>
+
+{{ form_start(form) }}
+
+<div>
+    <label for="{{ form.priceRange.vars.id }}">Price Range</label>
+    <input type="range"
+           id="{{ form.priceRange.vars.id }}"
+           name="{{ form.priceRange.vars.full_name }}"
+           min="{{ form.priceRange.vars.attr.min }}"
+           max="{{ form.priceRange.vars.attr.max }}"
+           step="{{ form.priceRange.vars.attr.step }}"
+           value="{{ form.priceRange.vars.value }}"
+           onchange="updatePriceRange(this.value)">
+</div>
+
+<button classe="button1" type="submit">filtrer</button>
+
+<script>
+    function updatePriceRange(value) {
+        document.getElementById("price-range").innerHTML = value;
+    }
+</script>
+
+
+
+
 
   <table class="table">
     <thead>
@@ -60,26 +86,8 @@
             {{ analyse.laboo }}
           </td>
           <td>
-            <a  class="button2" href="{{
-              path(
-                'app_analyse_show',
-                {
-                  id: analyse.id
-                }
-              )
-              }}">
-              Details
-            </a>
-            <a class="button1" href="{{
-              path(
-                'app_analyse_edit',
-                {
-                  id: analyse.id
-                }
-              )
-              }}" >
-              Modifier
-            </a>
+            
+            
           </td>
         </tr>
       {% else %}
@@ -92,15 +100,9 @@
     </tbody>
   </table>
 
-  <a href="{{ path('app_analyse_new') }}">Créer un nouveau</a>
+  <a href="{{ path('app_analyse_new') }}">Créer un nouveau </a>
 
-   
-
-<br>
-<br>
-
-
-
+  
 
 
 {% endblock %}
