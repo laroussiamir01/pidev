@@ -33,6 +33,7 @@ class Hospitalisation
 
     #[ORM\Column]
     #[Assert\NotNull(message:"id   is required")]
+    #[Assert\Regex(pattern:"/^\d+(\.\d{1,2})?$/", message:"Price must be a valid decimal number")]
     private ?int $idHospitalisation = null;
 
     #[ORM\ManyToOne(inversedBy: 'hospitalisations')]

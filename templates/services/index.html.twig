@@ -4,6 +4,8 @@
 {% block stylesheets %}
   {{ parent() }}
   <link rel="stylesheet" href="{{ asset('front_office/css/services.css') }}">
+
+  
 {% endblock %}
 
 {% block department %}
@@ -31,10 +33,10 @@
                 <td>{{ service.ChefService}}</td>
                 <td>{{ service.prix}}</td>
                 <td>
-                    <a href="{{ path('app_services_show', {'id': service.id}) }}">show</a>
-                    <a href="{{ path('app_services_edit', {'id': service.id}) }}">edit</a>
-                    <a href="{{ path('app_services_delete', {'id': service.id}) }}">Delete</a>
-                    <a href="{{ path('app_hospitalisation_new', {'id': service.id}) }}">Hospitalisation</a>
+                    <a href="{{ path('app_services_show', {'id': service.id}) }}"><button type="submit" class="btn btn-primary btn-lg">Afficher</button></a>
+                
+                    
+                    <a href="{{ path('app_hospitalisation_new', {'id': service.id}) }}"><button type="submit" class="btn btn-primary btn-lg">Hospitalisation</button></a>
 
                 </td>
             </tr>
@@ -46,6 +48,54 @@
         </tbody>
     </table>
 
-     <a href="{{ path('app_services_new') }}">Create new</a>
+     <section class="s-crossfit">
+                    <div class="container">
+
+                        <div class="sidebar-search">
+
+                            <div class="input-group custom-search-form">
+
+                                <input type="text" id="search" class="form-control" placeholder="Recherche">
+                            </div>
+                            <!-- /input-group -->
+                        </div>
+
+                        <div class="row" id="search">
+
+                        </div>
+
+                    </div>
+ </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script>
+                    $( document ).ready(function() {
+                        var currentRequest = null;
+                        $("#search").keyup(function(e){
+                            /* La variable value va prendre la valeur insérer dans le champ de texte
+                            afin d’effectuer la recherche */
+                            var value = $(this).val();
+                            if(currentRequest != null) {
+                                currentRequest.abort();
+                            }
+                            /* Ajax est lancé lors du remplissage du champ texte dont l’id est
+                            « search » pour faire la recherche */
+                            currentRequest = $.ajax({
+                                url : "{{ path('offreajax') }}",
+                                type : 'GET',
+                                data: {
+                                    'searchValue' : value
+                                },
+                                success : function(retour)
+                                {
+                                    $('#all').html(retour);
+                                },
+                            });
+                            return false;
+                        });
+                    });
+    </script>
+   <a href="{{ path('app_appreciation_new') }}"><button type="submit" class="btn btn-primary btn-lg">Appreciation</button></a>
+     
 {% endblock %}
 

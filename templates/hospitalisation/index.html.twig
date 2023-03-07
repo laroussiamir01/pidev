@@ -36,8 +36,8 @@
                 <td>{{ hospitalisation.idHospitalisation }}</td>
                 
                 <td>
-                    <a href="{{ path('app_hospitalisation_show', {'id': hospitalisation.id}) }}">show</a>
-                    <a href="{{ path('app_hospitalisation_edit', {'id': hospitalisation.id}) }}">edit</a>
+                    <a href="{{ path('app_hospitalisation_show', {'id': hospitalisation.id}) }}"><button type="submit" class="btn btn-primary btn-lg">Afficher</button></a>
+                    <a href="{{ path('app_hospitalisation_edit', {'id': hospitalisation.id}) }}"><button type="submit" class="btn btn-primary btn-lg">Editer</button></a>
                 </td>
             </tr>
         {% else %}
@@ -48,5 +48,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_hospitalisation_new') }}">Create new</a>
+    <a href="{{ path('app_hospitalisation_new') }}"><button type="submit" class="btn btn-primary btn-lg">Ajouter</button></a>
 {% endblock %}

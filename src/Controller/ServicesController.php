@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Services;
 use App\Form\ServicesType;
 use App\Repository\ServicesRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\BrowserKit\Response as BrowserKitResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ServicesController extends AbstractController
 {
     #[Route('/', name: 'app_services_index', methods: ['GET'])]
-    public function index(ServicesRepository $servicesRepository): Response
+    public function index(ServicesRepository $servicesRepository): Response 
     {
         return $this->render('services/index.html.twig', [
             'services' => $servicesRepository->findAll(),
@@ -75,4 +77,18 @@ class ServicesController extends AbstractController
 
         return $this->redirectToRoute('app_services_index', [], Response::HTTP_SEE_OTHER);
     }
+    /**
+     * @Route("/search/back", name="offreajax", methods={"GET"})
+     */
+
+     public function searchoffreajax(Request $request, ServicesRepository $ServicesRepository): Response
+     {
+         $ServicesRepository = $this->getDoctrine()->getRepository(Services::class);
+         $requestString = $request->get('searchValue');
+         $services = $ServicesRepository->findServicebyType($requestString);
+ 
+         return $this->render('services/index.html.twig', [
+             'services' => $services
+         ]);
+     }
 }

@@ -38,6 +38,14 @@ class ServicesRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function findServicebyType($type)
+    {
+        return $this->createQueryBuilder('Services')
+            ->where('Services.type LIKE :type')
+            ->setParameter('type', '%'.$type.'%')
+            ->getQuery()
+            ->getResult();
+    }
 
 //    /**
 //     * @return Services[] Returns an array of Services objects

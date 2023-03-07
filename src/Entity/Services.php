@@ -5,7 +5,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use App\Repository\ServicesRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Mime\Message;
+
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ServicesRepository::class)]
@@ -35,12 +35,22 @@ class Services
     #[Assert\NotNull(message:"prix is required")]
     private ?float $prix = null;
 
-    #[ORM\OneToMany(mappedBy: 'service', targetEntity: Hospitalisation::class)]
+    #[ORM\OneToMany(mappedBy: 'service', targetEntity: Hospitalisation::class, orphanRemoval:true)]
     private Collection $hospitalisations;
+
+    #[ORM\OneToMany(mappedBy: 'sujet', targetEntity: Appreciation::class,orphanRemoval:true)]
+    private Collection $appreciations;
+
+   
+
+   
 
     public function __construct()
     {
         $this->hospitalisations = new ArrayCollection();
+        $this->appreciations = new ArrayCollection();
+      
+        
     }
 
    
@@ -136,5 +146,34 @@ class Services
         return $this->type;
     }
 
+    /**
+     * @return Collection<int, Appreciation>
+     */
+    public function getAppreciations(): Collection
+    {
+        return $this->appreciations;
+    }
+
+    public function addAppreciation(Appreciation $appreciation): self
+    {
+        if (!$this->appreciations->contains($appreciation)) {
+            $this->appreciations->add($appreciation);
+            $appreciation->setSujet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAppreciation(Appreciation $appreciation): self
+    {
+        if ($this->appreciations->removeElement($appreciation)) {
+            // set the owning side to null (unless already changed)
+            if ($appreciation->getSujet() === $this) {
+                $appreciation->setSujet(null);
+            }
+        }
+
+        return $this;
+    }
 
 }
