@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 use App\Repository\AppreciationRepository;
 use Doctrine\DBAL\Types\Types;
@@ -15,19 +16,25 @@ class Appreciation
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message:"message is required")]
     private ?string $message = null;
 
     #[ORM\ManyToOne(inversedBy: 'appreciations')]
+    #[Assert\NotBlank(message:"subject is required")]
     private ?Services $sujet = null;
 
     #[ORM\Column(length: 50)]
+    
     private ?string $auteur = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Assert\NotBlank(message:"dATE is required")]
     private ?\DateTimeInterface $dateCreation = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message:"THIS  is required")]
     private ?int $nbOccurences = null;
+    
 
     public function getId(): ?int
     {
