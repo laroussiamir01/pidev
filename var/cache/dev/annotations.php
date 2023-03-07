@@ -62,6 +62,222 @@ return [[
 '[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23addLink' => 1,
 'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%24container' => 0,
 '[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%24container' => 1,
+'App%5CController%5CApiController' => 0,
+'[C]App%5CController%5CApiController' => 1,
+'App%5CController%5CApiController%23index' => 2,
+'[C]App%5CController%5CApiController%23index' => 1,
+'App%5CController%5CApiController%23majEvent' => 3,
+'[C]App%5CController%5CApiController%23majEvent' => 1,
+'App%5CController%5CCalendarController' => 4,
+'[C]App%5CController%5CCalendarController' => 1,
+'App%5CController%5CCalendarController%23index' => 5,
+'[C]App%5CController%5CCalendarController%23index' => 1,
+'App%5CController%5CCalendarController%23new' => 6,
+'[C]App%5CController%5CCalendarController%23new' => 1,
+'App%5CController%5CCalendarController%23show' => 7,
+'[C]App%5CController%5CCalendarController%23show' => 1,
+'App%5CController%5CCalendarController%23edit' => 8,
+'[C]App%5CController%5CCalendarController%23edit' => 1,
+'App%5CController%5CCalendarController%23delete' => 0,
+'[C]App%5CController%5CCalendarController%23delete' => 1,
+'App%5CController%5CDonApiController' => 0,
+'[C]App%5CController%5CDonApiController' => 1,
+'App%5CController%5CDonApiController%23index' => 0,
+'[C]App%5CController%5CDonApiController%23index' => 1,
+'App%5CController%5CDonApiController%23addDonJSON' => 0,
+'[C]App%5CController%5CDonApiController%23addDonJSON' => 1,
+'App%5CController%5CDonApiController%23getDon' => 0,
+'[C]App%5CController%5CDonApiController%23getDon' => 1,
+'App%5CController%5CDonController' => 0,
+'[C]App%5CController%5CDonController' => 1,
+'App%5CController%5CDonController%23index' => 0,
+'[C]App%5CController%5CDonController%23index' => 1,
+'App%5CController%5CDonController%23new' => 0,
+'[C]App%5CController%5CDonController%23new' => 1,
+'App%5CController%5CDonController%23show' => 0,
+'[C]App%5CController%5CDonController%23show' => 1,
+'App%5CController%5CDonController%23edit' => 0,
+'[C]App%5CController%5CDonController%23edit' => 1,
+'App%5CController%5CDonController%23delete' => 0,
+'[C]App%5CController%5CDonController%23delete' => 1,
+'App%5CController%5CEventApiController' => 0,
+'[C]App%5CController%5CEventApiController' => 1,
+'App%5CController%5CEventApiController%23__construct' => 0,
+'[C]App%5CController%5CEventApiController%23__construct' => 1,
+'App%5CController%5CEventApiController%23addEventJSON' => 0,
+'[C]App%5CController%5CEventApiController%23addEventJSON' => 1,
+'App%5CController%5CEventApiController%23getEVent' => 0,
+'[C]App%5CController%5CEventApiController%23getEVent' => 1,
+'App%5CController%5CEventApiController%23show' => 9,
+'[C]App%5CController%5CEventApiController%23show' => 1,
+'App%5CController%5CEventApiController%23create' => 0,
+'[C]App%5CController%5CEventApiController%23create' => 1,
+'App%5CController%5CEventApiController%23update' => 10,
+'[C]App%5CController%5CEventApiController%23update' => 1,
+'App%5CController%5CEventApiController%23delete' => 11,
+'[C]App%5CController%5CEventApiController%23delete' => 1,
+'App%5CController%5CEventApiController%24entityManager' => 0,
+'[C]App%5CController%5CEventApiController%24entityManager' => 1,
+'App%5CController%5CEventApiController%24eventRepository' => 0,
+'[C]App%5CController%5CEventApiController%24eventRepository' => 1,
+'App%5CController%5CEventController' => 0,
+'[C]App%5CController%5CEventController' => 1,
+'App%5CController%5CEventController%23index' => 0,
+'[C]App%5CController%5CEventController%23index' => 1,
+'App%5CController%5CEventController%23new' => 0,
+'[C]App%5CController%5CEventController%23new' => 1,
+'App%5CController%5CEventController%23show' => 0,
+'[C]App%5CController%5CEventController%23show' => 1,
+'App%5CController%5CEventController%23edit' => 0,
+'[C]App%5CController%5CEventController%23edit' => 1,
+'App%5CController%5CEventController%23delete' => 0,
+'[C]App%5CController%5CEventController%23delete' => 1,
+'App%5CController%5CEventController%23like' => 12,
+'[C]App%5CController%5CEventController%23like' => 1,
+'App%5CController%5CFrontController' => 0,
+'[C]App%5CController%5CFrontController' => 1,
+'App%5CController%5CFrontController%23index' => 0,
+'[C]App%5CController%5CFrontController%23index' => 1,
+'App%5CController%5CMainController' => 0,
+'[C]App%5CController%5CMainController' => 1,
+'App%5CController%5CMainController%23index' => 13,
+'[C]App%5CController%5CMainController%23index' => 1,
+'App%5CController%5CStatController' => 0,
+'[C]App%5CController%5CStatController' => 1,
+'App%5CController%5CStatController%23stat' => 0,
+'[C]App%5CController%5CStatController%23stat' => 1,
+'App%5CEntity%5CCalendar' => 0,
+'[C]App%5CEntity%5CCalendar' => 1,
+'App%5CEntity%5CCalendar%23getId' => 0,
+'[C]App%5CEntity%5CCalendar%23getId' => 1,
+'App%5CEntity%5CCalendar%23getTitle' => 0,
+'[C]App%5CEntity%5CCalendar%23getTitle' => 1,
+'App%5CEntity%5CCalendar%23setTitle' => 0,
+'[C]App%5CEntity%5CCalendar%23setTitle' => 1,
+'App%5CEntity%5CCalendar%23getStart' => 0,
+'[C]App%5CEntity%5CCalendar%23getStart' => 1,
+'App%5CEntity%5CCalendar%23setStart' => 0,
+'[C]App%5CEntity%5CCalendar%23setStart' => 1,
+'App%5CEntity%5CCalendar%23getEnd' => 0,
+'[C]App%5CEntity%5CCalendar%23getEnd' => 1,
+'App%5CEntity%5CCalendar%23setEnd' => 0,
+'[C]App%5CEntity%5CCalendar%23setEnd' => 1,
+'App%5CEntity%5CCalendar%23getDescription' => 0,
+'[C]App%5CEntity%5CCalendar%23getDescription' => 1,
+'App%5CEntity%5CCalendar%23setDescription' => 0,
+'[C]App%5CEntity%5CCalendar%23setDescription' => 1,
+'App%5CEntity%5CCalendar%23getAllDay' => 0,
+'[C]App%5CEntity%5CCalendar%23getAllDay' => 1,
+'App%5CEntity%5CCalendar%23setAllDay' => 0,
+'[C]App%5CEntity%5CCalendar%23setAllDay' => 1,
+'App%5CEntity%5CCalendar%23getBackgroundColor' => 0,
+'[C]App%5CEntity%5CCalendar%23getBackgroundColor' => 1,
+'App%5CEntity%5CCalendar%23setBackgroundColor' => 0,
+'[C]App%5CEntity%5CCalendar%23setBackgroundColor' => 1,
+'App%5CEntity%5CCalendar%23getBorderColor' => 0,
+'[C]App%5CEntity%5CCalendar%23getBorderColor' => 1,
+'App%5CEntity%5CCalendar%23setBorderColor' => 0,
+'[C]App%5CEntity%5CCalendar%23setBorderColor' => 1,
+'App%5CEntity%5CCalendar%23getTextColor' => 0,
+'[C]App%5CEntity%5CCalendar%23getTextColor' => 1,
+'App%5CEntity%5CCalendar%23setTextColor' => 0,
+'[C]App%5CEntity%5CCalendar%23setTextColor' => 1,
+'App%5CEntity%5CCalendar%24id' => 0,
+'[C]App%5CEntity%5CCalendar%24id' => 1,
+'App%5CEntity%5CCalendar%24title' => 0,
+'[C]App%5CEntity%5CCalendar%24title' => 1,
+'App%5CEntity%5CCalendar%24start' => 0,
+'[C]App%5CEntity%5CCalendar%24start' => 1,
+'App%5CEntity%5CCalendar%24end' => 0,
+'[C]App%5CEntity%5CCalendar%24end' => 1,
+'App%5CEntity%5CCalendar%24description' => 0,
+'[C]App%5CEntity%5CCalendar%24description' => 1,
+'App%5CEntity%5CCalendar%24all_day' => 0,
+'[C]App%5CEntity%5CCalendar%24all_day' => 1,
+'App%5CEntity%5CCalendar%24background_color' => 0,
+'[C]App%5CEntity%5CCalendar%24background_color' => 1,
+'App%5CEntity%5CCalendar%24border_color' => 0,
+'[C]App%5CEntity%5CCalendar%24border_color' => 1,
+'App%5CEntity%5CCalendar%24text_color' => 0,
+'[C]App%5CEntity%5CCalendar%24text_color' => 1,
+'App%5CEntity%5CDon' => 0,
+'[C]App%5CEntity%5CDon' => 1,
+'App%5CEntity%5CDon%23getId' => 0,
+'[C]App%5CEntity%5CDon%23getId' => 1,
+'App%5CEntity%5CDon%23getNom' => 0,
+'[C]App%5CEntity%5CDon%23getNom' => 1,
+'App%5CEntity%5CDon%23setNom' => 0,
+'[C]App%5CEntity%5CDon%23setNom' => 1,
+'App%5CEntity%5CDon%23getEvents' => 0,
+'[C]App%5CEntity%5CDon%23getEvents' => 1,
+'App%5CEntity%5CDon%23setEvents' => 0,
+'[C]App%5CEntity%5CDon%23setEvents' => 1,
+'App%5CEntity%5CDon%23getMontant' => 0,
+'[C]App%5CEntity%5CDon%23getMontant' => 1,
+'App%5CEntity%5CDon%23setMontant' => 0,
+'[C]App%5CEntity%5CDon%23setMontant' => 1,
+'App%5CEntity%5CDon%24id' => 0,
+'[C]App%5CEntity%5CDon%24id' => 1,
+'App%5CEntity%5CDon%24nom' => 0,
+'[C]App%5CEntity%5CDon%24nom' => 1,
+'App%5CEntity%5CDon%24Events' => 0,
+'[C]App%5CEntity%5CDon%24Events' => 1,
+'App%5CEntity%5CDon%24montant' => 0,
+'[C]App%5CEntity%5CDon%24montant' => 1,
+'App%5CEntity%5CEvenLike' => 0,
+'[C]App%5CEntity%5CEvenLike' => 1,
+'App%5CEntity%5CEvenLike%23getId' => 0,
+'[C]App%5CEntity%5CEvenLike%23getId' => 1,
+'App%5CEntity%5CEvenLike%23getEvent' => 0,
+'[C]App%5CEntity%5CEvenLike%23getEvent' => 1,
+'App%5CEntity%5CEvenLike%23setEvent' => 0,
+'[C]App%5CEntity%5CEvenLike%23setEvent' => 1,
+'App%5CEntity%5CEvenLike%24id' => 0,
+'[C]App%5CEntity%5CEvenLike%24id' => 1,
+'App%5CEntity%5CEvenLike%24event' => 0,
+'[C]App%5CEntity%5CEvenLike%24event' => 1,
+'App%5CEntity%5CEvent' => 0,
+'[C]App%5CEntity%5CEvent' => 1,
+'App%5CEntity%5CEvent%23__construct' => 0,
+'[C]App%5CEntity%5CEvent%23__construct' => 1,
+'App%5CEntity%5CEvent%23getId' => 0,
+'[C]App%5CEntity%5CEvent%23getId' => 1,
+'App%5CEntity%5CEvent%23getNom' => 0,
+'[C]App%5CEntity%5CEvent%23getNom' => 1,
+'App%5CEntity%5CEvent%23setNom' => 0,
+'[C]App%5CEntity%5CEvent%23setNom' => 1,
+'App%5CEntity%5CEvent%23getDateDebut' => 0,
+'[C]App%5CEntity%5CEvent%23getDateDebut' => 1,
+'App%5CEntity%5CEvent%23setDateDebut' => 0,
+'[C]App%5CEntity%5CEvent%23setDateDebut' => 1,
+'App%5CEntity%5CEvent%23getDateFin' => 0,
+'[C]App%5CEntity%5CEvent%23getDateFin' => 1,
+'App%5CEntity%5CEvent%23setDateFin' => 0,
+'[C]App%5CEntity%5CEvent%23setDateFin' => 1,
+'App%5CEntity%5CEvent%23getDons' => 0,
+'[C]App%5CEntity%5CEvent%23getDons' => 1,
+'App%5CEntity%5CEvent%23addDon' => 0,
+'[C]App%5CEntity%5CEvent%23addDon' => 1,
+'App%5CEntity%5CEvent%23removeDon' => 0,
+'[C]App%5CEntity%5CEvent%23removeDon' => 1,
+'App%5CEntity%5CEvent%23getLikes' => 0,
+'[C]App%5CEntity%5CEvent%23getLikes' => 1,
+'App%5CEntity%5CEvent%23addLike' => 0,
+'[C]App%5CEntity%5CEvent%23addLike' => 1,
+'App%5CEntity%5CEvent%23removeLike' => 0,
+'[C]App%5CEntity%5CEvent%23removeLike' => 1,
+'App%5CEntity%5CEvent%24id' => 0,
+'[C]App%5CEntity%5CEvent%24id' => 1,
+'App%5CEntity%5CEvent%24nom' => 0,
+'[C]App%5CEntity%5CEvent%24nom' => 1,
+'App%5CEntity%5CEvent%24DateDebut' => 0,
+'[C]App%5CEntity%5CEvent%24DateDebut' => 1,
+'App%5CEntity%5CEvent%24DateFin' => 0,
+'[C]App%5CEntity%5CEvent%24DateFin' => 1,
+'App%5CEntity%5CEvent%24dons' => 0,
+'[C]App%5CEntity%5CEvent%24dons' => 1,
+'App%5CEntity%5CEvent%24likes' => 0,
+'[C]App%5CEntity%5CEvent%24likes' => 1,
 'Doctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController' => 0,
 '[C]Doctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController' => 1,
 'Doctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController%23__construct' => 0,
@@ -608,6 +824,309 @@ return [[
 ], [
 
 0 => [],
-1 => 1677059527,
+1 => 1678200614,
+2 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/api',
+                ],
+                'name' => [
+                    'api',
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+3 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/api/{id}/edit',
+                ],
+                'name' => [
+                    'api_event_edit',
+                ],
+                'methods' => [
+                    [
+                        'PUT',
+                    ],
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+4 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/calendar',
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+5 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/',
+                ],
+                'name' => [
+                    'calendar_index',
+                ],
+                'methods' => [
+                    [
+                        'GET',
+                    ],
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+6 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/new',
+                ],
+                'name' => [
+                    'calendar_new',
+                ],
+                'methods' => [
+                    [
+                        'GET',
+                        'POST',
+                    ],
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+7 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/{id}',
+                ],
+                'name' => [
+                    'calendar_show',
+                ],
+                'methods' => [
+                    [
+                        'GET',
+                    ],
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+8 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/{id}/edit',
+                ],
+                'name' => [
+                    'calendar_edit',
+                ],
+                'methods' => [
+                    [
+                        'GET',
+                        'POST',
+                    ],
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+9 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/apii/{id}',
+                ],
+                'name' => [
+                    'show',
+                ],
+                'methods' => [
+                    [
+                        'GET',
+                    ],
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+10 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/cr/{id}',
+                ],
+                'name' => [
+                    'update',
+                ],
+                'methods' => [
+                    [
+                        'PUT',
+                    ],
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+11 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    'cr/{id}',
+                ],
+                'name' => [
+                    'delete',
+                ],
+                'methods' => [
+                    [
+                        'DELETE',
+                    ],
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+12 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/{id}/like',
+                ],
+                'name' => [
+                    'event_like',
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+13 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/main',
+                ],
+                'name' => [
+                    'main',
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
 
 ]];

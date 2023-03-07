@@ -1,14 +1,23 @@
 <?php
 
 namespace App\Controller;
-
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarCharts;
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarChart;
 use App\Entity\Don;
+use App\Entity\Event;
 use App\Form\DonType;
 use App\Repository\DonRepository;
+use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
+
+
+
+
+
 
 #[Route('/don')]
 class DonController extends AbstractController
@@ -20,6 +29,14 @@ class DonController extends AbstractController
             'dons' => $donRepository->findAll(),
         ]);
     }
+    
+
+
+
+
+
+
+    
 
     #[Route('/new', name: 'app_don_new', methods: ['GET', 'POST'])]
     public function new(Request $request, DonRepository $donRepository): Response
@@ -75,4 +92,11 @@ class DonController extends AbstractController
 
         return $this->redirectToRoute('app_don_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+   
+
+
+
+
 }

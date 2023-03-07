@@ -20,6 +20,7 @@
       <parameter key="MonologBundle">Symfony\Bundle\MonologBundle\MonologBundle</parameter>
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
+      <parameter key="CMENGoogleChartsBundle">CMEN\GoogleChartsBundle\CMENGoogleChartsBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -65,6 +66,10 @@
       <parameter key="SensioFrameworkExtraBundle" type="collection">
         <parameter key="path">C:\Users\tasnim\Documents\GitHub\pidev\vendor\sensio\framework-extra-bundle\src</parameter>
         <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
+      </parameter>
+      <parameter key="CMENGoogleChartsBundle" type="collection">
+        <parameter key="path">C:\Users\tasnim\Documents\GitHub\pidev\vendor\cmen\google-charts-bundle</parameter>
+        <parameter key="namespace">CMEN\GoogleChartsBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -236,6 +241,8 @@
         </parameter>
       </parameter>
     </parameter>
+    <parameter key="cmen_google_charts.version">current</parameter>
+    <parameter key="cmen_google_charts.language"></parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -344,11 +351,27 @@
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\CalendarController"/>
       </call>
     </service>
+    <service id="App\Controller\DonApiController" class="App\Controller\DonApiController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\DonApiController"/>
+      </call>
+    </service>
     <service id="App\Controller\DonController" class="App\Controller\DonController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\DonController"/>
+      </call>
+    </service>
+    <service id="App\Controller\EventApiController" class="App\Controller\EventApiController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="App\Repository\EventRepository"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\EventApiController"/>
       </call>
     </service>
     <service id="App\Controller\EventController" class="App\Controller\EventController" public="true" autowire="true" autoconfigure="true">
@@ -370,6 +393,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\MainController"/>
+      </call>
+    </service>
+    <service id="App\Controller\StatController" class="App\Controller\StatController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\StatController"/>
       </call>
     </service>
     <service id="App\Controller\TestController" class="App\Controller\TestController" public="true" autowire="true" autoconfigure="true">
@@ -1935,6 +1965,7 @@
           <argument>C:\Users\tasnim\Documents\GitHub\pidev\vendor\symfony\monolog-bundle/translations</argument>
           <argument>C:\Users\tasnim\Documents\GitHub\pidev\vendor\symfony\maker-bundle\src/translations</argument>
           <argument>C:\Users\tasnim\Documents\GitHub\pidev\vendor\sensio\framework-extra-bundle\src/translations</argument>
+          <argument>C:\Users\tasnim\Documents\GitHub\pidev\vendor\cmen\google-charts-bundle/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -1953,6 +1984,7 @@
             <argument>C:\Users\tasnim\Documents\GitHub\pidev\vendor\symfony\monolog-bundle/translations</argument>
             <argument>C:\Users\tasnim\Documents\GitHub\pidev\vendor\symfony\maker-bundle\src/translations</argument>
             <argument>C:\Users\tasnim\Documents\GitHub\pidev\vendor\sensio\framework-extra-bundle\src/translations</argument>
+            <argument>C:\Users\tasnim\Documents\GitHub\pidev\vendor\cmen\google-charts-bundle/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -4828,6 +4860,9 @@
       <call method="addExtension">
         <argument type="service" id="twig.extension.webprofiler"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="CMEN\GoogleChartsBundle\Twig\GoogleChartsExtension"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -5611,6 +5646,7 @@
       <argument type="abstract">Authenticators</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument>true</argument>
+      <argument type="service" id="security.token_storage"/>
       <deprecated package="symfony/security-bundle" version="5.3">The "%service_id%" service is deprecated, use the new authenticator system instead.</deprecated>
     </service>
     <service id="debug.security.access.decision_manager" class="Symfony\Component\Security\Core\Authorization\TraceableAccessDecisionManager">
@@ -6163,15 +6199,40 @@
     <service id="framework_extra_bundle.argument_name_convertor" class="Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentNameConverter">
       <argument type="service" id="argument_metadata_factory"/>
     </service>
+    <service id="CMEN\GoogleChartsBundle\Output\Javascript\DateOutput" class="CMEN\GoogleChartsBundle\Output\Javascript\DateOutput"/>
+    <service id="CMEN\GoogleChartsBundle\Output\Javascript\OptionsOutput" class="CMEN\GoogleChartsBundle\Output\Javascript\OptionsOutput">
+      <argument type="service" id="CMEN\GoogleChartsBundle\Output\Javascript\DateOutput"/>
+    </service>
+    <service id="CMEN\GoogleChartsBundle\Output\Javascript\DataOutput" class="CMEN\GoogleChartsBundle\Output\Javascript\DataOutput">
+      <argument type="service" id="CMEN\GoogleChartsBundle\Output\Javascript\DateOutput"/>
+    </service>
+    <service id="CMEN\GoogleChartsBundle\Output\Javascript\EventsOutput" class="CMEN\GoogleChartsBundle\Output\Javascript\EventsOutput"/>
+    <service id="CMEN\GoogleChartsBundle\Output\Javascript\ChartOutput" class="CMEN\GoogleChartsBundle\Output\Javascript\ChartOutput">
+      <argument>current</argument>
+      <argument></argument>
+      <argument type="service" id="CMEN\GoogleChartsBundle\Output\Javascript\OptionsOutput"/>
+      <argument type="service" id="CMEN\GoogleChartsBundle\Output\Javascript\DataOutput"/>
+      <argument type="service" id="CMEN\GoogleChartsBundle\Output\Javascript\EventsOutput"/>
+    </service>
+    <service id="CMEN\GoogleChartsBundle\Twig\GoogleChartsExtension" class="CMEN\GoogleChartsBundle\Twig\GoogleChartsExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="CMEN\GoogleChartsBundle\Output\Javascript\ChartOutput"/>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CalendarController" class="App\Controller\CalendarController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CalendarController" class="App\Controller\CalendarController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CalendarController" class="App\Controller\CalendarController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DonApiController" class="App\Controller\DonApiController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DonApiController" class="App\Controller\DonApiController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\DonApiController" class="App\Controller\DonApiController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DonController" class="App\Controller\DonController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DonController" class="App\Controller\DonController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DonController" class="App\Controller\DonController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EventApiController" class="App\Controller\EventApiController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EventApiController" class="App\Controller\EventApiController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\EventApiController" class="App\Controller\EventApiController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EventController" class="App\Controller\EventController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EventController" class="App\Controller\EventController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\EventController" class="App\Controller\EventController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6181,6 +6242,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MainController" class="App\Controller\MainController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\StatController" class="App\Controller\StatController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\StatController" class="App\Controller\StatController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\StatController" class="App\Controller\StatController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TestController" class="App\Controller\TestController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TestController" class="App\Controller\TestController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\TestController" class="App\Controller\TestController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6549,6 +6613,12 @@
         <argument key="calendar" type="service_closure" id=".errored..service_locator.8_BVbXm.App\Entity\Calendar"/>
       </argument>
     </service>
+    <service id=".service_locator.wr9s5g4" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="normalizer" type="service_closure" id="serializer"/>
+      </argument>
+    </service>
     <service id=".service_locator.Y4tyF1G" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6568,16 +6638,47 @@
         <argument key="donRepository" type="service_closure" id="App\Repository\DonRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.Qim_sWz" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator._hVllD9" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="eventRepository" type="service_closure" id="App\Repository\EventRepository"/>
+        <argument key="event" type="service_closure" id=".errored..service_locator._hVllD9.App\Entity\Event"/>
+        <argument key="serializer" type="service_closure" id="serializer"/>
+      </argument>
+    </service>
+    <service id=".service_locator.RUZybES" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="serializer" type="service_closure" id="serializer"/>
+        <argument key="validator" type="service_closure" id="debug.validator"/>
+      </argument>
+    </service>
+    <service id=".service_locator..DUkETc" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="event" type="service_closure" id=".errored..service_locator..DUkETc.App\Entity\Event"/>
+        <argument key="serializer" type="service_closure" id="serializer"/>
+        <argument key="validator" type="service_closure" id="debug.validator"/>
       </argument>
     </service>
     <service id=".service_locator.wLYTQQR" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="event" type="service_closure" id=".errored..service_locator.wLYTQQR.App\Entity\Event"/>
+      </argument>
+    </service>
+    <service id=".errored.XMj8CDk" class="Knp\Component\Pager\PaginatorInterface"/>
+    <service id=".service_locator.XuFS3.b" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="eventRepository" type="service_closure" id="App\Repository\EventRepository"/>
+        <argument key="paginator" type="service_closure" id=".errored.XMj8CDk"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Qim_sWz" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="eventRepository" type="service_closure" id="App\Repository\EventRepository"/>
       </argument>
     </service>
     <service id=".service_locator.fFHahJ8" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6601,26 +6702,39 @@
         <argument key="calendar" type="service_closure" id="App\Repository\CalendarRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.9DFqzit" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.wTMzREB" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repository" type="service_closure" id="App\Repository\DonRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.440ZLmL" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CalendarController::delete" type="service_closure" id=".service_locator.8_BVbXm"/>
         <argument key="App\Controller\CalendarController::edit" type="service_closure" id=".service_locator.8_BVbXm"/>
         <argument key="App\Controller\CalendarController::index" type="service_closure" id=".service_locator.F_DYhqA"/>
         <argument key="App\Controller\CalendarController::show" type="service_closure" id=".service_locator.8_BVbXm"/>
+        <argument key="App\Controller\DonApiController::addDonJSON" type="service_closure" id=".service_locator.wr9s5g4"/>
         <argument key="App\Controller\DonController::delete" type="service_closure" id=".service_locator.MkxWkwo"/>
         <argument key="App\Controller\DonController::edit" type="service_closure" id=".service_locator.MkxWkwo"/>
         <argument key="App\Controller\DonController::index" type="service_closure" id=".service_locator.Y4tyF1G"/>
         <argument key="App\Controller\DonController::new" type="service_closure" id=".service_locator.Y4tyF1G"/>
         <argument key="App\Controller\DonController::show" type="service_closure" id=".service_locator.hcYskd1"/>
+        <argument key="App\Controller\EventApiController::addEventJSON" type="service_closure" id=".service_locator.wr9s5g4"/>
+        <argument key="App\Controller\EventApiController::create" type="service_closure" id=".service_locator.RUZybES"/>
+        <argument key="App\Controller\EventApiController::delete" type="service_closure" id=".service_locator.wLYTQQR"/>
+        <argument key="App\Controller\EventApiController::show" type="service_closure" id=".service_locator._hVllD9"/>
+        <argument key="App\Controller\EventApiController::update" type="service_closure" id=".service_locator..DUkETc"/>
         <argument key="App\Controller\EventController::delete" type="service_closure" id=".service_locator.fFHahJ8"/>
         <argument key="App\Controller\EventController::edit" type="service_closure" id=".service_locator.fFHahJ8"/>
-        <argument key="App\Controller\EventController::index" type="service_closure" id=".service_locator.Qim_sWz"/>
+        <argument key="App\Controller\EventController::index" type="service_closure" id=".service_locator.XuFS3.b"/>
         <argument key="App\Controller\EventController::like" type="service_closure" id=".service_locator.XEJl6z6"/>
         <argument key="App\Controller\EventController::new" type="service_closure" id=".service_locator.Qim_sWz"/>
         <argument key="App\Controller\EventController::show" type="service_closure" id=".service_locator.wLYTQQR"/>
         <argument key="App\Controller\FrontController::index" type="service_closure" id=".service_locator.Y4tyF1G"/>
         <argument key="App\Controller\MainController::index" type="service_closure" id=".service_locator.hnulalD"/>
+        <argument key="App\Controller\StatController::stat" type="service_closure" id=".service_locator.wTMzREB"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
@@ -6629,19 +6743,26 @@
         <argument key="App\Controller\CalendarController:edit" type="service_closure" id=".service_locator.8_BVbXm"/>
         <argument key="App\Controller\CalendarController:index" type="service_closure" id=".service_locator.F_DYhqA"/>
         <argument key="App\Controller\CalendarController:show" type="service_closure" id=".service_locator.8_BVbXm"/>
+        <argument key="App\Controller\DonApiController:addDonJSON" type="service_closure" id=".service_locator.wr9s5g4"/>
         <argument key="App\Controller\DonController:delete" type="service_closure" id=".service_locator.MkxWkwo"/>
         <argument key="App\Controller\DonController:edit" type="service_closure" id=".service_locator.MkxWkwo"/>
         <argument key="App\Controller\DonController:index" type="service_closure" id=".service_locator.Y4tyF1G"/>
         <argument key="App\Controller\DonController:new" type="service_closure" id=".service_locator.Y4tyF1G"/>
         <argument key="App\Controller\DonController:show" type="service_closure" id=".service_locator.hcYskd1"/>
+        <argument key="App\Controller\EventApiController:addEventJSON" type="service_closure" id=".service_locator.wr9s5g4"/>
+        <argument key="App\Controller\EventApiController:create" type="service_closure" id=".service_locator.RUZybES"/>
+        <argument key="App\Controller\EventApiController:delete" type="service_closure" id=".service_locator.wLYTQQR"/>
+        <argument key="App\Controller\EventApiController:show" type="service_closure" id=".service_locator._hVllD9"/>
+        <argument key="App\Controller\EventApiController:update" type="service_closure" id=".service_locator..DUkETc"/>
         <argument key="App\Controller\EventController:delete" type="service_closure" id=".service_locator.fFHahJ8"/>
         <argument key="App\Controller\EventController:edit" type="service_closure" id=".service_locator.fFHahJ8"/>
-        <argument key="App\Controller\EventController:index" type="service_closure" id=".service_locator.Qim_sWz"/>
+        <argument key="App\Controller\EventController:index" type="service_closure" id=".service_locator.XuFS3.b"/>
         <argument key="App\Controller\EventController:like" type="service_closure" id=".service_locator.XEJl6z6"/>
         <argument key="App\Controller\EventController:new" type="service_closure" id=".service_locator.Qim_sWz"/>
         <argument key="App\Controller\EventController:show" type="service_closure" id=".service_locator.wLYTQQR"/>
         <argument key="App\Controller\FrontController:index" type="service_closure" id=".service_locator.Y4tyF1G"/>
         <argument key="App\Controller\MainController:index" type="service_closure" id=".service_locator.hnulalD"/>
+        <argument key="App\Controller\StatController:stat" type="service_closure" id=".service_locator.wTMzREB"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
       </argument>
@@ -7083,9 +7204,21 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\DonApiController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\DonApiController"/>
+      <argument>App\Controller\DonApiController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
     <service id=".service_locator.mx0UMmY.App\Controller\DonController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\DonController"/>
       <argument>App\Controller\DonController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\EventApiController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\EventApiController"/>
+      <argument>App\Controller\EventApiController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
@@ -7104,6 +7237,12 @@
     <service id=".service_locator.mx0UMmY.App\Controller\MainController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\MainController"/>
       <argument>App\Controller\MainController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\StatController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\StatController"/>
+      <argument>App\Controller\StatController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
@@ -7295,12 +7434,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.9DFqzit"/>
+      <argument type="service" id=".service_locator.440ZLmL"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.9DFqzit"/>
+      <argument type="service" id=".service_locator.440ZLmL"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -7323,6 +7462,8 @@
     <service id=".errored..service_locator.8_BVbXm.App\Entity\Calendar" class="App\Entity\Calendar"/>
     <service id=".errored..service_locator.hcYskd1.App\Entity\Don" class="App\Entity\Don"/>
     <service id=".errored..service_locator.MkxWkwo.App\Entity\Don" class="App\Entity\Don"/>
+    <service id=".errored..service_locator._hVllD9.App\Entity\Event" class="App\Entity\Event"/>
+    <service id=".errored..service_locator..DUkETc.App\Entity\Event" class="App\Entity\Event"/>
     <service id=".errored..service_locator.wLYTQQR.App\Entity\Event" class="App\Entity\Event"/>
     <service id=".errored..service_locator.fFHahJ8.App\Entity\Event" class="App\Entity\Event"/>
     <service id=".errored..service_locator.XEJl6z6.App\Entity\Event" class="App\Entity\Event"/>
@@ -8271,7 +8412,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.9DFqzit"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.440ZLmL"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -8295,8 +8436,10 @@
     <service id=".service_locator.80edgLI" alias="messenger.receiver_locator"/>
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
+    <service id=".service_locator.R0cQlJI" alias=".service_locator.RUZybES"/>
+    <service id=".service_locator.ljXn3ZH" alias=".service_locator..DUkETc"/>
     <service id=".service_locator.0QuvG7C" alias=".service_locator.XEJl6z6"/>
-    <service id=".service_locator.60dVHv1" alias=".service_locator.9DFqzit"/>
+    <service id=".service_locator.mZrRc9Q" alias=".service_locator.440ZLmL"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.DysbjDP" alias=".service_locator.W6EnlB7"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
@@ -8326,14 +8469,20 @@
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
     <service id=".service_locator.hNlq4ZS" alias=".service_locator.F_DYhqA"/>
     <service id=".service_locator.dmc_kdQ" alias=".service_locator.8_BVbXm"/>
+    <service id=".service_locator.R192xRJ" alias=".service_locator.wr9s5g4"/>
     <service id=".service_locator.5KNe6wV" alias=".service_locator.Y4tyF1G"/>
     <service id=".service_locator.CnUkJo6" alias=".service_locator.hcYskd1"/>
     <service id=".service_locator.eDLSFNm" alias=".service_locator.MkxWkwo"/>
-    <service id=".service_locator.Z5dKctx" alias=".service_locator.Qim_sWz"/>
+    <service id=".service_locator.hauZH7u" alias=".service_locator._hVllD9"/>
+    <service id=".service_locator.mBN7nOS" alias=".service_locator.RUZybES"/>
+    <service id=".service_locator.YuzjAAq" alias=".service_locator..DUkETc"/>
     <service id=".service_locator.uHuTfZX" alias=".service_locator.wLYTQQR"/>
+    <service id=".service_locator.rTMLoxT" alias=".service_locator.XuFS3.b"/>
+    <service id=".service_locator.Z5dKctx" alias=".service_locator.Qim_sWz"/>
     <service id=".service_locator.aM6V7Wn" alias=".service_locator.fFHahJ8"/>
     <service id=".service_locator.Qdu_xgA" alias=".service_locator.XEJl6z6"/>
     <service id=".service_locator.lFfadWW" alias=".service_locator.hnulalD"/>
+    <service id=".service_locator.PiIFcpF" alias=".service_locator.wTMzREB"/>
     <service id=".service_locator.A740LBW" alias=".service_locator.mx0UMmY"/>
     <service id=".service_locator.L0rFhJm" alias=".service_locator.GVyCdgr"/>
     <service id=".service_locator.pFwChgS" alias=".service_locator.UkE3SaZ"/>
