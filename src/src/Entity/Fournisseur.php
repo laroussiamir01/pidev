@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Entity;
-
+use App\Entity\Materiel;
 use App\Repository\FournisseurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+
 #[ORM\Entity(repositoryClass: FournisseurRepository::class)]
 class Fournisseur
 {
@@ -26,7 +27,7 @@ class Fournisseur
    
     private ?string $nom = null;
 
-    #[ORM\OneToMany(mappedBy: 'fournisseur', targetEntity: Materiel::class)]
+    #[ORM\OneToMany(mappedBy: 'Fournisseur', targetEntity: Materiel::class)]
     private Collection $Materiels;
 
     public function __construct()

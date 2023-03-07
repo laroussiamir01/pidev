@@ -16,13 +16,13 @@
             </tr>
         </thead>
         <tbody>
-        {% for materiel in materiels %}
+        {% for materiel in resultOfSearch %}
             <tr>
               
                 <td>{{ materiel.libelle }}</td>
                 <td>{{ materiel.type }}</td>
                 <td>{{ materiel.prix }}</td>
-                <td>{{ materiel.fournisseur.nom }}</td>
+                <td>{{ materiel.fournisseur.getnom() }}</td>
                 <td>
                     <a href="{{ path('app_materiel_show', {'id': materiel.id}) }}">Afficher  |</a>
                     <a href="{{ path('app_materiel_edit', {'id': materiel.id}) }}">Mise a jour  |</a>
@@ -37,7 +37,5 @@
     </table>
 
     <a href="{{ path('app_materiel_new') }}">Ajouter un nouveau  |</a>
-         <a href="{{ path('app_materiel_rech') }}">Recherche</a>
-
-    
+    <a href="{{ path('app_materiel_rech') }}">Recherche</a>
 {% endblock %}

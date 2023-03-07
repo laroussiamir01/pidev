@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use App\Entity\Fournisseur;
 use App\Repository\MaterielRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -36,7 +36,7 @@ class Materiel
 
     #[ORM\Column]
     #[Assert\NotBlank(message:"veuillez ecrire le prix")]
-    #[ Assert\GreaterThan(0)]
+    #[ Assert\GreaterThanOrEqual(0, message:"le prix doit etre positif")]
     private ?int $prix = null;
 
     #[ORM\ManyToOne(inversedBy: 'Materiels')]
