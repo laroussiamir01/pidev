@@ -14,11 +14,55 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Knp\Component\Pager\PaginatorInterface;
 
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 
 #[Route('/labo')]
 class LaboController extends AbstractController
 {
+
+    #[Route('/pdf', name: 'labo_pdf', methods: ['GET','POST'])]
+    public function usersDataDownload(LaboRepository $laboRepository): Response
+        {  
+            $data = $laboRepository->findAll();
+            // On définit les options du PDF
+            $pdfOptions = new Options();
+            // Police par défaut
+            $pdfOptions->set('defaultFont', 'Arial');
+            $pdfOptions->setIsRemoteEnabled(true);
+    
+            // On instancie Dompdf
+            $dompdf = new Dompdf($pdfOptions);
+            $context = stream_context_create([
+                'ssl' => [
+                    'verify_peer' => FALSE,
+                    'verify_peer_name' => FALSE,
+                    'allow_self_signed' => TRUE
+                ]
+            ]);
+            $dompdf->setHttpContext($context);
+    
+            // On génère le html
+            $html = $this->renderView('labo/pdf.html.twig', [
+                'labos' => $data,
+            ]);
+    
+            $dompdf->loadHtml($html);
+            $dompdf->setPaper('A4', 'portrait');
+            $dompdf->render();
+    
+            // On génère un nom de fichier
+            $fichier = 'labos.pdf';
+    
+            // On envoie le PDF au navigateur
+            $dompdf->stream($fichier, [
+                'Attachment' => true
+            ]);
+            
+            return new Response();
+        }
+
     #[Route('/', name: 'app_labo_index', methods: ['GET'])]
     public function index(
         LaboRepository $laboRepository,): Response {
