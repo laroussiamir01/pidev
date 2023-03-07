@@ -63,4 +63,20 @@ class MedecinRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+public function triernom1()
+{
+    return $this->createQueryBuilder('Medecin')
+        ->orderBy('Medecin.nom_med', 'ASC')
+        ->getQuery()
+        ->getResult();
+}
+
+public function triernom2()
+    {
+        return $this->createQueryBuilder('Medecin')
+            ->orderBy('Medecin.nom_med', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }

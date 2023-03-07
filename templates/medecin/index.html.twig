@@ -1,9 +1,9 @@
 {% extends 'back.html.twig' %}
 {% block edit %}
-{% block title %}Medecin index{% endblock %}
+{% block title %}les medecins{% endblock %}
 
 
-    <h1>Medecin index</h1>
+    <h1>MEDECINS</h1>
 
     <table class="table">
         <thead>
@@ -42,11 +42,11 @@
                 }
               )
               }}">
-              operations
+              
             </a>
           </td>
                 <td>
-                    <a href="{{ path('app_medecin_show', {'id': medecin.id}) }}">show</a>
+                   
                     <a href="{{ path('app_medecin_edit', {'id': medecin.id}) }}">edit</a>
                 </td>
             </tr>
@@ -55,8 +55,19 @@
                 <td colspan="9">no records found</td>
             </tr>
         {% endfor %}
+        <br> <a href="{{ path('stats') }}">Statistiques</a>
+          <br> <a href="{{ path('app_favoris_index') }}">Afficher la liste des favoris</a>
         </tbody>
+
+        <a href="{{path('trie') }}"class="text-danger"><i class="btn btn-danger" data-feather="arrow-up"s></i>ASC Nom</a>
+        <a href="{{path('triee') }}"><i class="btn btn-primary" data-feather="arrow-up"></i>DSC Nom</a>
+    
     </table>
+{% for message in app.flashes('info') %}
+        <div class="alert alert-success">
+        {{message}}
+    {% endfor %}
 
     <a href="{{ path('app_medecin_new') }}">Create new</a>
+    <a href="{{ path('map') }}">Maps</a>
 {% endblock %}

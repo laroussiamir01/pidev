@@ -30,7 +30,7 @@ class Medecin
     #[Assert\NotBlank(message:"le prenom est obligatoire")]
     #[Assert\Positive(message:"le num doit etre positif")]
     #[Assert\Length(max:8,maxMessage:"le numéro de téléphone doit contenir 8 caractères.")] 
-    #[Assert\Length(min:8,minMessage:"Votre mot de passe ne contient pas 8 caractères.")]
+    #[Assert\Length(min:8,minMessage:"Votre numéro contient pas 8 caractères.")]
     private ?int $tel_med = null;
 
     #[ORM\Column(length: 255)]
@@ -50,12 +50,16 @@ class Medecin
 
     private ?string $photo = null;
 
-    #[ORM\OneToMany(mappedBy: 'medecin', targetEntity: Operations::class)]
+    #[ORM\OneToMany(mappedBy: 'medecin', targetEntity: Operations::class , orphanRemoval:true)]
     private Collection $operation;
+
+    #[ORM\OneToMany(mappedBy: 'medecin', targetEntity: Favoris::class)]
+    private Collection $aafavori;
 
     public function __construct()
     {
         $this->operation = new ArrayCollection();
+        $this->aafavori = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -180,4 +184,39 @@ class Medecin
     {
         return $this->nom_med;
     }
+
+    /**
+     * @return Collection<int, favoris>
+     */
+    public function getAafavori(): Collection
+    {
+        return $this->aafavori;
+    }
+
+    public function addAafavori(favoris $aafavori): self
+    {
+        if (!$this->aafavori->contains($aafavori)) {
+            $this->aafavori->add($aafavori);
+            $aafavori->setMedecin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAafavori(favoris $aafavori): self
+    {
+        if ($this->aafavori->removeElement($aafavori)) {
+            // set the owning side to null (unless already changed)
+            if ($aafavori->getMedecin() === $this) {
+                $aafavori->setMedecin(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toStringg()
+    {
+        return $this->nom_med;
+    }
+
 }

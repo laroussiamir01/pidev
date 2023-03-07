@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Favoris;
 use App\Entity\Medecin;
 use App\Form\MedecinType;
 use App\Repository\MedecinRepository;
@@ -11,6 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Doctrine\ORM\EntityManagerInterface; 
 
 #[Route('/medecin')]
 class MedecinController extends AbstractController
@@ -52,7 +55,13 @@ class MedecinController extends AbstractController
             $medecinRepository->save($medecin, true);
 
 
-            $medecinRepository->save($medecin, true);
+            
+
+            $this->addFlash(
+                'info',
+                'Medecin ajoutée avec succés!'
+            );
+
 
             return $this->redirectToRoute('app_medecin_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -69,6 +78,7 @@ class MedecinController extends AbstractController
         return $this->render('medecin/listdoctors.html.twig', [
             'medecins' => $medecinRepository->findAll(),
         ]);
+      
     }
 
 
@@ -76,7 +86,10 @@ class MedecinController extends AbstractController
 
     #[Route('/{id}', name: 'app_medecin_show', methods: ['GET'])]
     public function show(Medecin $medecin): Response
-    {
+    {  $this->addFlash(
+        'info',
+        'Medecin ajoutée avec succés!'
+    );
         return $this->render('medecin/show.html.twig', [
             'medecin' => $medecin,
         ]);
@@ -134,5 +147,31 @@ class MedecinController extends AbstractController
         }
 
         return $this->redirectToRoute('app_medecin_index', [], Response::HTTP_SEE_OTHER);
+    }
+   
+    
+    
+      #[Route('/TriernomASC/back', name:'trie',methods:['GET'])]
+     
+    public function Triernom1(Request $request, MedecinRepository $MedRepository): Response
+    {
+        $MedRepository = $this->getDoctrine()->getRepository(Medecin::class);
+        $medecin = $MedRepository->triernom1();
+
+        return $this->render('medecin/index.html.twig', [
+            'medecins' => $medecin,
+        ]);
+    }
+  
+    
+    #[Route('/TriernomDESC/back', name:'triee',methods:['GET'])]
+    public function Triernom2(Request $request, MedecinRepository $MedRepository): Response
+    {
+        $MedRepository = $this->getDoctrine()->getRepository(Medecin::class);
+        $medecin = $MedRepository->triernom2();
+
+        return $this->render('medecin/index.html.twig', [
+            'medecins' => $medecin,
+        ]);
     }
 }
