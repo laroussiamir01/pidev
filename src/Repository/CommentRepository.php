@@ -6,6 +6,8 @@ use App\Entity\Comment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+use App\Service\CommentFilter;
+
 /**
  * @extends ServiceEntityRepository<Comment>
  *
@@ -16,18 +18,19 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class CommentRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private CommentFilter $filter;
+
+    public function __construct(ManagerRegistry $registry, CommentFilter $filter)
     {
         parent::__construct($registry, Comment::class);
+        $this->filter = $filter;
     }
 
-    public function save(Comment $entity, bool $flush = false): void
+    public function save(Comment $comment): void
     {
-        $this->getEntityManager()->persist($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+        $comment->setComment($this->filter->filter($comment->getComment()));
+        $this->_em->persist($comment);
+        $this->_em->flush();
     }
 
     public function remove(Comment $entity, bool $flush = false): void
