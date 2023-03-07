@@ -6,6 +6,7 @@ use App\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -52,9 +53,17 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         )] 
     private ?string $Prenom_user = null;
 
+
+    
+
     #[ORM\OneToMany(mappedBy: 'users', targetEntity: Reclamation::class, orphanRemoval: true)]
     
     private Collection $reclamations;
+
+    #[ORM\Column]
+    private ?bool $isBlocked = false;
+
+    
 
     public function __construct()
     {
@@ -208,5 +217,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->email;
     } */
+
+    public function isIsBlocked(): ?bool
+    {
+        return $this->isBlocked;
+    }
+
+    public function setIsBlocked(bool $isBlocked): self
+    {
+        $this->isBlocked = $isBlocked;
+
+        return $this;
+    }
+
     
 }

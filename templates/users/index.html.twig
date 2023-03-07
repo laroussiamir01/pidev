@@ -49,6 +49,8 @@
                 <td>
                     <a href="{{ path('app_users_show', {'id': user.id}) }}">show</a>
                     <a href="{{ path('app_users_edit', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('block_user', {'id': user.id}) }}">bloquer</a>
+                    <a href="{{ path('unblock_user', {'id': user.id}) }}">debloquer</a>
                 </td>
             </tr>
         {% else %}

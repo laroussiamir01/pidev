@@ -155,7 +155,7 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
             <ul>
             ";
         // line 71
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 71, $this->source); })()), "user", [], "any", false, false, false, 71)) {
+        if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 71, $this->source); })()), "user", [], "any", false, false, false, 71) &&  !twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 71, $this->source); })()), "user", [], "any", false, false, false, 71), "isBlocked", [], "any", false, false, false, 71))) {
             // line 72
             echo "            <li><a href=\"#\">Mon compte</a></li>
             <li><a href=\"";
@@ -1368,7 +1368,7 @@ class __TwigTemplate_0031ea8c70d92fdda5e9c3dc586fb01b extends Template
           <li><a class=\"nav-link scrollto\" href=\"#doctors\">Doctors</a></li>
           <li class=\"dropdown\"><a href=\"#\"><span>Account</span> <i class=\"bi bi-chevron-down\"></i></a>
             <ul>
-            {% if app.user %}
+            {% if app.user and not app.user.isBlocked %}
             <li><a href=\"#\">Mon compte</a></li>
             <li><a href=\"{{path('app_logout')}}\">Me deconnecter</a></li>
             <li><a href=\"{{path('app_reclamation_new')}}\">Reclamation</a></li>

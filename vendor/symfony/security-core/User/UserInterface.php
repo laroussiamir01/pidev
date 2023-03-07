@@ -85,4 +85,6 @@ interface UserInterface
      * @deprecated since Symfony 5.3, use getUserIdentifier() instead
      */
     public function getUsername();
+
+
 }

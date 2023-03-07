@@ -45,25 +45,29 @@ return [
                         .'|/edit(*:135)'
                         .'|(*:143)'
                     .')'
-                    .'|s/([^/]++)(?'
-                        .'|(*:165)'
-                        .'|/edit(*:178)'
-                        .'|(*:186)'
+                    .'|s/(?'
+                        .'|([^/]++)(?'
+                            .'|(*:168)'
+                            .'|/edit(*:181)'
+                            .'|(*:189)'
+                        .')'
+                        .'|block/([^/]++)(*:212)'
+                        .'|unblock/([^/]++)(*:236)'
                     .')'
                 .')'
                 .'|/_(?'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:227)'
-                    .'|wdt/([^/]++)(*:247)'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:277)'
+                    .'|wdt/([^/]++)(*:297)'
                     .'|profiler/([^/]++)(?'
                         .'|/(?'
-                            .'|search/results(*:293)'
-                            .'|router(*:307)'
+                            .'|search/results(*:343)'
+                            .'|router(*:357)'
                             .'|exception(?'
-                                .'|(*:327)'
-                                .'|\\.css(*:340)'
+                                .'|(*:377)'
+                                .'|\\.css(*:390)'
                             .')'
                         .')'
-                        .'|(*:350)'
+                        .'|(*:400)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -76,16 +80,18 @@ return [
         122 => [[['_route' => 'app_user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         135 => [[['_route' => 'app_user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         143 => [[['_route' => 'app_user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        165 => [[['_route' => 'app_users_show', '_controller' => 'App\\Controller\\UsersController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        178 => [[['_route' => 'app_users_edit', '_controller' => 'App\\Controller\\UsersController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        186 => [[['_route' => 'app_users_delete', '_controller' => 'App\\Controller\\UsersController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        227 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        247 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        293 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        307 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        327 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        340 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        350 => [
+        168 => [[['_route' => 'app_users_show', '_controller' => 'App\\Controller\\UsersController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        181 => [[['_route' => 'app_users_edit', '_controller' => 'App\\Controller\\UsersController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        189 => [[['_route' => 'app_users_delete', '_controller' => 'App\\Controller\\UsersController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        212 => [[['_route' => 'block_user', '_controller' => 'App\\Controller\\UsersController::blockUser'], ['id'], null, null, false, true, null]],
+        236 => [[['_route' => 'unblock_user', '_controller' => 'App\\Controller\\UsersController::unblockUser'], ['id'], null, null, false, true, null]],
+        277 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        297 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        343 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        357 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        377 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        390 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        400 => [
             [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

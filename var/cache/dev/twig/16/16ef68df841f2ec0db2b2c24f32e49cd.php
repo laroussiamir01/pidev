@@ -185,13 +185,21 @@ $context["role"] == "ROLE_ADMIN")) {
             // line 51
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_users_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 51)]), "html", null, true);
             echo "\">edit</a>
+                    <a href=\"";
+            // line 52
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("block_user", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 52)]), "html", null, true);
+            echo "\">bloquer</a>
+                    <a href=\"";
+            // line 53
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("unblock_user", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 53)]), "html", null, true);
+            echo "\">debloquer</a>
                 </td>
             </tr>
         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 55
+            // line 57
             echo "            <tr>
                 <td colspan=\"7\">no records found</td>
             </tr>
@@ -200,15 +208,15 @@ $context["role"] == "ROLE_ADMIN")) {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 59
+        // line 61
         echo "        </tbody>
     </table>
    
    ";
-        // line 62
+        // line 64
         echo " 
    ";
-        // line 64
+        // line 66
         echo "   <a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_users_rech");
         echo "\">Recherche</a>
@@ -234,7 +242,7 @@ $context["role"] == "ROLE_ADMIN")) {
 
     public function getDebugInfo()
     {
-        return array (  212 => 64,  209 => 62,  204 => 59,  195 => 55,  186 => 51,  182 => 50,  177 => 48,  173 => 47,  169 => 46,  165 => 44,  159 => 43,  155 => 41,  153 => 40,  150 => 39,  148 => 38,  145 => 37,  142 => 36,  138 => 35,  135 => 34,  131 => 32,  127 => 31,  124 => 30,  119 => 29,  103 => 15,  101 => 14,  98 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  220 => 66,  217 => 64,  212 => 61,  203 => 57,  194 => 53,  190 => 52,  186 => 51,  182 => 50,  177 => 48,  173 => 47,  169 => 46,  165 => 44,  159 => 43,  155 => 41,  153 => 40,  150 => 39,  148 => 38,  145 => 37,  142 => 36,  138 => 35,  135 => 34,  131 => 32,  127 => 31,  124 => 30,  119 => 29,  103 => 15,  101 => 14,  98 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -290,6 +298,8 @@ $context["role"] == "ROLE_ADMIN")) {
                 <td>
                     <a href=\"{{ path('app_users_show', {'id': user.id}) }}\">show</a>
                     <a href=\"{{ path('app_users_edit', {'id': user.id}) }}\">edit</a>
+                    <a href=\"{{ path('block_user', {'id': user.id}) }}\">bloquer</a>
+                    <a href=\"{{ path('unblock_user', {'id': user.id}) }}\">debloquer</a>
                 </td>
             </tr>
         {% else %}

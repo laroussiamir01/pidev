@@ -4,13 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Users;
 use App\Form\UsersType;
+use App\Form\SearchType;
 use App\Repository\UsersRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Form\SearchType;
 
 #[Route('/users')]
 class UsersController extends AbstractController
@@ -105,6 +106,46 @@ class UsersController extends AbstractController
 
         return $this->redirectToRoute('app_users_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+ * @Route("/block/{id}", name="block_user")
+ */
+public function blockUser(Request $request, EntityManagerInterface $entityManager, UsersRepository $userRepository, int $id): Response
+{
+    $user = $userRepository->find($id);
+
+    if (!$user) {
+        throw $this->createNotFoundException('The user does not exist');
+    }
+
+    $user->setIsBlocked(true);
+    $entityManager->flush();
+
+    $this->addFlash('success', 'User has been blocked');
+
+    return $this->redirectToRoute('app_users_index');
+}
+
+/**
+ * @Route("/unblock/{id}", name="unblock_user")
+ */
+public function unblockUser(Request $request, EntityManagerInterface $entityManager, UsersRepository $userRepository, int $id): Response
+{
+    $user = $userRepository->find($id);
+
+    if (!$user) {
+        throw $this->createNotFoundException('The user does not exist');
+    }
+
+    $user->setIsBlocked(false);
+    $entityManager->flush();
+
+    $this->addFlash('success', 'User has been unblocked');
+
+    return $this->redirectToRoute('app_users_index');
+}
+
+
 
    
 }
