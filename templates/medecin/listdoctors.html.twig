@@ -1,12 +1,16 @@
 {% extends 'front.html.twig' %}            
 
-{% block title %}Medecin index{% endblock %}
+{% block title %}liste des medecins {% endblock %}
 
 {% block list %}
+{% for message in app.flashes('info') %}
+        <div class="alert alert-success">
+        {{message}}
+    {% endfor %}
 
     <h1>Medecins disponibles</h1>
     
-
+    
     <table class="table">
         <thead>
             <tr>
@@ -62,8 +66,10 @@
         </tbody>
     </table>
      <a href="{{ path('app_favoris_new') }}">Ajouter un medecin a une liste de favoris</a>  
-    {% for message in app.flashes('info') %}
+   {% for message in app.flashes('info') %}
         <div class="alert alert-success">
         {{message}}
     {% endfor %}
+    <br> <a href="{{ path('stats') }}">Statistiques de liste de favoris</a>
+    <a href="{{ path('map') }}">Maps</a>
 {% endblock %}

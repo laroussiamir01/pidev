@@ -1,7 +1,9 @@
-{% block body %}
+{% extends 'front.html.twig' %}
+{% block stat %}
 
     <div class="container">
-        <h1> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp     Pourcentage par Listes Favoris  <a href="{{ path('app_favoris_index') }}">Afficher la liste des favoris</a></h1>
+        <h1> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp     Pourcentage par Listes Favoris  <a href="{{ path('app_favoris_index') }}">  
+        Afficher la liste des favoris</a></h1>
         <canvas id="matchs" width="2000" height="500"></canvas>
 
     </div>

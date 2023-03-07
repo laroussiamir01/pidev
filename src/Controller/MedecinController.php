@@ -13,7 +13,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Doctrine\ORM\EntityManagerInterface; 
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Messenger\Transport\Serialization\Serializer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 #[Route('/medecin')]
 class MedecinController extends AbstractController
@@ -62,7 +64,7 @@ class MedecinController extends AbstractController
                 'Medecin ajoutée avec succés!'
             );
 
-
+        
             return $this->redirectToRoute('app_medecin_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -80,9 +82,6 @@ class MedecinController extends AbstractController
         ]);
       
     }
-
-
-
 
     #[Route('/{id}', name: 'app_medecin_show', methods: ['GET'])]
     public function show(Medecin $medecin): Response

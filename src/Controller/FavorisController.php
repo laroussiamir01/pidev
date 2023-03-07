@@ -32,7 +32,7 @@ class FavorisController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $favorisRepository->save($favori, true);
 
-            return $this->redirectToRoute('app_favoris_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_medecin_listdoctors', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('favoris/new.html.twig', [

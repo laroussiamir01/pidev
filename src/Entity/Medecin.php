@@ -53,7 +53,7 @@ class Medecin
     #[ORM\OneToMany(mappedBy: 'medecin', targetEntity: Operations::class , orphanRemoval:true)]
     private Collection $operation;
 
-    #[ORM\OneToMany(mappedBy: 'medecin', targetEntity: Favoris::class)]
+    #[ORM\OneToMany(mappedBy: 'medecin', targetEntity: Favoris::class, orphanRemoval:true)]
     private Collection $aafavori;
 
     public function __construct()
