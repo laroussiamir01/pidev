@@ -3,7 +3,7 @@
 
     <div class="container">
         <h1> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp     Pourcentage par Listes Favoris  <a href="{{ path('app_favoris_index') }}">  
-        Afficher la liste des favoris</a></h1>
+        </a></h1>
         <canvas id="matchs" width="2000" height="500"></canvas>
 
     </div>
@@ -14,7 +14,7 @@
         let matchGraph = new Chart(liv, {
             type: "pie",
             data: {
-                labels:  ['bien','Excelent'],
+                labels:  ['bien','Excellent'],
                 datasets: [{
                     label: "Répartition des catégories",
                     data: ['{{ liv }}', {{ cl }}],

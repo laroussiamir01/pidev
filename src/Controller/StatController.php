@@ -35,14 +35,14 @@ class StatController extends AbstractController
         $chahra = $FavorisRepository->createQueryBuilder('a')
             ->select('count(a.id)')
             ->Where('a.note= :note')
-            ->setParameter('note',"10")
+            ->setParameter('note',"bien")
             ->getQuery()
             ->getSingleScalarResult();
 
         $oui = $FavorisRepository->createQueryBuilder('a')
             ->select('count(a.id)')
             ->Where('a.note= :note')
-            ->setParameter('note',"20")
+            ->setParameter('note',"Excellent")
             ->getQuery()
             ->getSingleScalarResult();
 
