@@ -1,0 +1,41 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Materiel {% endblock %}
+
+{% block body %}
+    <h1>Liste Materiel </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Libelle</th>
+                <th>Type</th>
+                <th>Prix</th>
+                <th>Fournisseur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for materiel in resultOfSearch %}
+            <tr>
+              
+                <td>{{ materiel.libelle }}</td>
+                <td>{{ materiel.type }}</td>
+                <td>{{ materiel.prix }}</td>
+                <td>{{ materiel.fournisseur.getnom() }}</td>
+                <td>
+                    <a href="{{ path('app_materiel_show', {'id': materiel.id}) }}">Afficher  |</a>
+                    <a href="{{ path('app_materiel_edit', {'id': materiel.id}) }}">Mise a jour  |</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_materiel_new') }}">Ajouter un nouveau  |</a>
+    <a href="{{ path('app_materiel_rech') }}">Recherche</a>
+{% endblock %}

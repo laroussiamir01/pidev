@@ -1,0 +1,37 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Don {% endblock %}
+
+{% block body %}
+    <h1>Liste des dons par Evenement </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom don</th>
+                <th>Montant</th>
+                <th>Nom Evenement</th>
+                <th>Date debut Evenement</th>
+                <th>Date fin Evenement</th>
+           
+            </tr>
+        </thead>
+        <tbody>
+        {% for don in done %}
+            <tr>
+                <td>{{ don.nom }}</td>
+                <td>{{ don.montant }}</td>
+                <td>{{ don.events.nom }}</td>
+                <td>{{ don.events.DateDebut|date('Y-m-d')}}</td>
+                <td>{{ don.events.DateFin|date('Y-m-d') }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Materiel {% endblock %}
+
+{% block body %}
+    <h1>Liste Materiel </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Prix</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for materiel in materiels %}
+            <tr>
+                
+                <td>{{ materiel.libelle }}</td>
+                <td>{{ materiel.type }}</td>
+                <td>{{ materiel.prix }}</td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

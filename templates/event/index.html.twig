@@ -1,0 +1,78 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Event index{% endblock %}
+
+{% block body %}
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+ 
+ 
+
+    <h1>Evenement</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.id }}</td>
+                <td>{{ event.nom }}</td>
+                <td>{{ event.DateDebut ? event.DateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ event.DateFin ? event.DateFin|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_event_show', {'id': event.id}) }}">show</a>
+                    <a href="{{ path('app_event_edit', {'id': event.id}) }}">edit</a>
+                    <td>
+                        <a href="{{ path('event_like', {'id': event.id}) }}" class="btn btn-link js-like">
+                            <i class="far fa-thumbs-up"></i>
+                            <span class="js-likes">{{ event.likes | length }}</span>
+                            <span class="js-label">j'aime</span>
+                        </a>
+                    </td>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+                 <h4 style="display:inline-block; background-color:#542167; color:black; float:left; padding:8px 16px;
+                  text-decoration:none; transition:background-color .3s; border-radius:5px;" > {{ knp_pagination_render(events) }}</h4>
+  <script>
+        $(function() {
+            $('a.js-like').on('click', function(e) {
+                e.preventDefault();
+                var $link = $(this);
+
+                $.ajax({
+                    url: $link.attr('href'),
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        $link.find('.js-likes').html(data.likes);
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <a href="{{ path('app_event_new') }}">Create new</a>
+{% endblock %}
+
+
+  
+

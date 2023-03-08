@@ -1,0 +1,13 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Mise a jour Fournisseur{% endblock %}
+
+{% block body %}
+    <h1>Mise a jour Fournisseur</h1>
+
+    {{ include('fournisseur/_form.html.twig', {'button_label': 'Mise a jour'}) }}
+
+    <a href="{{ path('app_fournisseur_index') }}">Retour a la liste</a>
+
+    {{ include('fournisseur/_delete_form.html.twig') }}
+{% endblock %}
