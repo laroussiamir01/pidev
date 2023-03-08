@@ -100,11 +100,13 @@ class __TwigTemplate_0cb383db55d045fe57f8ca897bc4fd9e extends Template
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["SearchF"]) || array_key_exists("SearchF", $context) ? $context["SearchF"] : (function () { throw new RuntimeError('Variable "SearchF" does not exist.', 23, $this->source); })()), "email", [], "any", false, false, false, 23), 'row');
         echo "
     </div>
+
+    
     
     ";
-        // line 30
+        // line 32
         echo "    ";
-        // line 34
+        // line 36
         echo "    
    
    
@@ -112,8 +114,8 @@ class __TwigTemplate_0cb383db55d045fe57f8ca897bc4fd9e extends Template
         
      
 ";
-        // line 40
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["SearchF"]) || array_key_exists("SearchF", $context) ? $context["SearchF"] : (function () { throw new RuntimeError('Variable "SearchF" does not exist.', 40, $this->source); })()), 'form_end');
+        // line 42
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["SearchF"]) || array_key_exists("SearchF", $context) ? $context["SearchF"] : (function () { throw new RuntimeError('Variable "SearchF" does not exist.', 42, $this->source); })()), 'form_end');
         echo "
 
 </center>
@@ -141,7 +143,7 @@ class __TwigTemplate_0cb383db55d045fe57f8ca897bc4fd9e extends Template
 
     public function getDebugInfo()
     {
-        return array (  116 => 40,  108 => 34,  106 => 30,  100 => 23,  93 => 19,  87 => 16,  81 => 13,  75 => 10,  68 => 5,  58 => 4,  35 => 1,);
+        return array (  118 => 42,  110 => 36,  108 => 32,  100 => 23,  93 => 19,  87 => 16,  81 => 13,  75 => 10,  68 => 5,  58 => 4,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -170,15 +172,17 @@ class __TwigTemplate_0cb383db55d045fe57f8ca897bc4fd9e extends Template
     <div class=\"col-lg-8\">
         {{ form_row(SearchF.email) }}
     </div>
+
+    
     
     {# <div class=\"col-lg-8\">
 
         {{ form_row(SearchF.id) }}
     </div> #}
-    {# <div class=\"col-lg-8\">
+    {#  <div class=\"col-lg-8\">
 
         {{ form_row(SearchF.reclamations) }}
-    </div> #}
+    </div>  #}
     
    
    

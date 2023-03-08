@@ -213,10 +213,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /* public function __toString()
-    {
-        return $this->email;
-    } */
+   
 
     public function isIsBlocked(): ?bool
     {
@@ -229,6 +226,19 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+     /* public function __toString()
+    {
+        return $this->email;
+    } */
+    public function __toString()
+{
+    $items = [];
+    foreach ($this as $item) {
+        $items[] = (string) $item;
+    }
+    return implode(', ', $items);
+}
 
     
 }

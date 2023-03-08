@@ -14,6 +14,7 @@ return array(
     'App\\Controller\\StudentController' => $baseDir . '/src/Controller/StudentController.php',
     'App\\Controller\\UserController' => $baseDir . '/src/Controller/UserController.php',
     'App\\Controller\\UsersController' => $baseDir . '/src/Controller/UsersController.php',
+    'App\\Controller\\UtilisateurApiController' => $baseDir . '/src/Controller/UtilisateurApiController.php',
     'App\\Entity\\Reclamation' => $baseDir . '/src/Entity/Reclamation.php',
     'App\\Entity\\ResetPasswordRequest' => $baseDir . '/src/Entity/ResetPasswordRequest.php',
     'App\\Entity\\Student' => $baseDir . '/src/Entity/Student.php',

@@ -613,6 +613,7 @@ class ComposerStaticInite48e74a627bcd24b533039c6c9f5b6e9
         'App\\Controller\\StudentController' => __DIR__ . '/../..' . '/src/Controller/StudentController.php',
         'App\\Controller\\UserController' => __DIR__ . '/../..' . '/src/Controller/UserController.php',
         'App\\Controller\\UsersController' => __DIR__ . '/../..' . '/src/Controller/UsersController.php',
+        'App\\Controller\\UtilisateurApiController' => __DIR__ . '/../..' . '/src/Controller/UtilisateurApiController.php',
         'App\\Entity\\Reclamation' => __DIR__ . '/../..' . '/src/Entity/Reclamation.php',
         'App\\Entity\\ResetPasswordRequest' => __DIR__ . '/../..' . '/src/Entity/ResetPasswordRequest.php',
         'App\\Entity\\Student' => __DIR__ . '/../..' . '/src/Entity/Student.php',

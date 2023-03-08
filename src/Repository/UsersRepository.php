@@ -57,20 +57,34 @@ class UsersRepository extends ServiceEntityRepository implements PasswordUpgrade
         $this->save($user, true);
     }
 
-//    /**
-//     * @return Users[] Returns an array of Users objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('u.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Users[] Returns an array of Users objects
+     */
+    public function findByExampleField($value): array
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('u.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findByUsersReclamation($value): array
+{
+    return $this->createQueryBuilder('u')
+        ->innerJoin('u.reclamations', 'r')
+        ->andWhere('r.id = :val')
+        ->setParameter('val', $value)
+        ->getQuery()
+        ->getResult();
+}
+
+
+
+    
 
 //    public function findOneBySomeField($value): ?Users
 //    {

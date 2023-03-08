@@ -1,0 +1,3 @@
+<?php //%5BC%5DCircularReferenceHandler
+
+return [PHP_INT_MAX, 1678227528];

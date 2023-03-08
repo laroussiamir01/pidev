@@ -1,0 +1,3 @@
+<?php //CircularReferenceHandler
+
+return [PHP_INT_MAX, []];

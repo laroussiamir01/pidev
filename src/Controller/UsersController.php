@@ -51,6 +51,31 @@ class UsersController extends AbstractController
         ]);
     }
 
+    #[Route('/search1', name: 'app_users_rech1')]
+    public function search1(UsersRepository $usersRepository,Request $request): Response
+    {            $materiel= $usersRepository->findAll();
+
+        $form=$this->createForm(SearchType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+                      
+            $result = $usersRepository->findByUsersReclamation($form->getData());
+            return $this->render(
+                'users/resultatRech.html.twig', array(
+                    "resultOfSearch" => $result,
+                   
+
+                    ));
+        }
+        return $this->render('users/search.html.twig', [
+            'users' => $usersRepository->findAll(),
+            "SearchF" => $form->createView() 
+        ]);
+    }
+
+
+
     #[Route('/new', name: 'app_users_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UsersRepository $usersRepository): Response
     {
