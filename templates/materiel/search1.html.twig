@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+   
+
+
+    
+
+ {{ form_start(SearchF,{'attr':{'novalidate':'novalidate'}}) }}
+<center >
+
+{% form_theme SearchF 'bootstrap_5_horizontal_layout.html.twig' %} 
+
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(SearchF) }}
+    </div>
+    <div class="col-lg-8">
+        {{ form_row(SearchF.libelle) }}
+    </div> 
+    
+    <div class="col-lg-8">
+        {{ form_row(SearchF.type) }}
+    </div>
+    
+    <div class="col-lg-8">
+
+        {{ form_row(SearchF.prix) }}
+    </div>
+    <div class="col-lg-8">
+
+        {{ form_row(SearchF.fournisseur) }}
+    </div>
+    
+   
+   
+   
+        
+     
+{{ form_end(SearchF) }}
+
+</center>
+
+    
+
+{% endblock %}
+
