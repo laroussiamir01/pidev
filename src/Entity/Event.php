@@ -2,12 +2,13 @@
 
 namespace App\Entity;
 
+use App\Entity\Users;
+use App\Entity\EvenLike;
 use App\Repository\EventRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
@@ -17,11 +18,9 @@ class Event
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups("Evenments")]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups("Evenments")]
     #[Assert\NotBlank(message: " entrer le NOM de l'evenement")]
     #[Assert\Length(min: 3, minMessage: "Le nom doit contenir au moins {{ limit }} caractères")]
     #[Assert\Regex(
@@ -32,13 +31,11 @@ class Event
     private ?string $nom = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    #[Groups("Evenments")]
     #[Assert\NotBlank(message: "date is required")]
     #[Assert\GreaterThanOrEqual("today", message: "Veuillez saisir une date supérieure à la date d'aujourd'hui ")]
     private ?\DateTimeInterface $DateDebut = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    #[Groups("Evenments")]
     #[Assert\NotBlank(message: "date fin name is required")]
     #[Assert\GreaterThanOrEqual(propertyPath: "DateDebut", message: "Veuillez saisir une date supérieure à la date debut ")]
     private ?\DateTimeInterface $DateFin = null;
@@ -95,18 +92,7 @@ class Event
 
         return $this;
     }
-    public function __toString()
-    {
-        return $this->getNom();
-    }
-    public function __toString2()
-    {
-        return $this->getDateDebut();
-    }
-    public function __toString1()
-    {
-        return $this->getDateFin();
-    }
+
     /**
      * @return Collection<int, Don>
      */
@@ -165,5 +151,36 @@ class Event
         }
 
         return $this;
+    }
+
+    /**
+     * 
+     * @param Users $user
+     * @return boolean
+     */
+
+    public function isLikedbyUser(Users $user): bool
+    {
+        foreach ($this->likes as $like) {
+
+            if ($like->getUser() === $user) return true;
+        }
+
+        return false;
+    }
+
+
+
+    public function __toString()
+    {
+        return $this->getNom();
+    }
+    public function __toString2()
+    {
+        return $this->getDateDebut();
+    }
+    public function __toString1()
+    {
+        return $this->getDateFin();
     }
 }

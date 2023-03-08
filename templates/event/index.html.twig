@@ -33,10 +33,14 @@
                     <a href="{{ path('app_event_edit', {'id': event.id}) }}">edit</a>
                     <td>
                         <a href="{{ path('event_like', {'id': event.id}) }}" class="btn btn-link js-like">
-                            <i class="far fa-thumbs-up"></i>
-                            <span class="js-likes">{{ event.likes | length }}</span>
-                            <span class="js-label">j'aime</span>
-                        </a>
+                        {% if app.user and event.isLikedByUser(app.user) %}
+                              <i class="fas fa-thumbs-up "></i>
+                    {% else %}
+                        <i class="far fa-thumbs-up"></i>
+                    {% endif %}
+                        <span class="js-likes">{{ event.likes | length }}</span>
+                        <span class="js-label">j'aime</span>
+                    </a>
                     </td>
                 </td>
             </tr>
@@ -47,35 +51,41 @@
         {% endfor %}
         </tbody>
     </table>
-    
                  <h4 style="display:inline-block; background-color:#542167; color:black; float:left; padding:8px 16px;
                   text-decoration:none; transition:background-color .3s; border-radius:5px;" > {{ knp_pagination_render(events) }}</h4>
-  <script>
-        $(function() {
-            $('a.js-like').on('click', function(e) {
-                e.preventDefault();
-                var $link = $(this);
+ <script>
+$(function() {
+  $('a.js-like').on('click', function(e) {
+    e.preventDefault();
+    var $link = $(this);
 
-                $.ajax({
-                    url: $link.attr('href'),
-                    method: 'GET',
-                    dataType: 'json',
-                    success: function(data) {
-                        $link.find('.js-likes').html(data.likes);
-                    },
-                    error: function(xhr, textStatus, errorThrown) {
-                        console.log(xhr.responseText);
-                    }
-                });
-            });
-        });
-    </script>
+    $.ajax({
+      url: $link.attr('href'),
+      method: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        $link.find('.js-likes').html(data.likes);
+        if (data.isLiked) {
+          $link.find('.fa-thumbs-up').removeClass('far').addClass('fas ');
+        } else {
+          $link.find('.fa-thumbs-up').removeClass('fas ').addClass('far');
+        }
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        console.log(xhr.responseText);
+      }
+    });
+    
+    // toggle the liked state on click
+    var $icon = $link.find('.fa-thumbs-up');
+    $icon.toggleClass('fas far');
+    
+  });
+});
+</script>
+
 
     <a href="{{ path('app_event_new') }}">Create new</a>
-    
-       <a href="{{ path('main') }}">Calendar</a>
-    
-
 {% endblock %}
 
 

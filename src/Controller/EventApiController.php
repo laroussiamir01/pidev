@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Entity\Event;
@@ -36,7 +37,7 @@ class EventApiController extends AbstractController
 
 
 
-    
+
     #[Route('/getEVent', name: 'getEVent', methods: ['GET', 'POST'])]
     public function myApi(EntityManagerInterface $entityManager): Response
     {
@@ -50,21 +51,21 @@ class EventApiController extends AbstractController
     }
 
 
-    
-     #[Route('/addEventJSON', name: 'addEventJSON', methods: ['GET', 'POST'])]
-    public function addEventJSON( Request $request ,NormalizerInterface $normalizer ){
-        $em=$this->getDoctrine()->getManager();
-        $event=new Event();
+
+    #[Route('/addEventJSON', name: 'addEventJSON', methods: ['GET', 'POST'])]
+    public function addEventJSON(Request $request, NormalizerInterface $normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $event = new Event();
         $event->setNom($request->get('nom'));
         $event->setDateDebut(new \DateTime($request->get('DateDebut')));
         $event->setDateFin(new \DateTime($request->get('DateFin')));
-        $em -> persist($event);
+        $em->persist($event);
         $em->flush();
-        $jsonContent=$normalizer->normalize($event, 'json', ['circular_reference_handler' => function ($object) {
+        $jsonContent = $normalizer->normalize($event, 'json', ['circular_reference_handler' => function ($object) {
             return $object->getId();
         }, 'max_depth' => 1]);
-        return new Response("event ajoutéé".json_encode($jsonContent));
-
+        return new Response("event ajoutéé" . json_encode($jsonContent));
     }
 
 
@@ -75,17 +76,17 @@ class EventApiController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $id = $request->get('id');
         $event = $em->getRepository(Event::class)->find($id);
-    
+
         if (!$event) {
             return new Response("Event with id $id not found");
         }
-    
+
         $event->setNom($request->get('nom'));
         $event->setDateDebut(new \DateTime($request->get('DateDebut')));
         $event->setDateFin(new \DateTime($request->get('DateFin')));
-        $em -> persist($event);
+        $em->persist($event);
         $em->flush();
-    
+
         $jsonContent = $normalizer->normalize($event, 'json', [
             'circular_reference_handler' => function ($object) {
                 return $object->getId();
@@ -94,8 +95,6 @@ class EventApiController extends AbstractController
         ]);
         return new Response("Event updated" . json_encode($jsonContent));
     }
-    
-
 
 
 
@@ -106,9 +105,9 @@ class EventApiController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $id = $request->get('id');
         $event = $em->getRepository(Event::class)->find($id);
-    
-  
-    
+
+
+
         $action = $request->get('action');
         if ($action == "delete") {
             $em->remove($event);
@@ -126,124 +125,4 @@ class EventApiController extends AbstractController
             return new Response("Event updated" . json_encode($jsonContent));
         }
     }
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// #[Route('/apii', name: 'index', methods: ['GET', 'POST'])]
-//public function index(SerializerInterface $serializer): Response
-//{
-  //  $events = $this->eventRepository->findAll();
-    //$json = $serializer->serialize($events, 'json', ['circular_reference_handler' => function ($object) {
-    //    return $object->getId();
-    //}, 'max_depth' => 1]);
-
-   // return new Response($json, 200, [
-     //   'Content-Type' => 'application/json'
-    //]);
-  // }
-  
-
-
-
-
-
-
-
-
-/**
- * @Route("/apii/{id}", name="show", methods={"GET"})
- */
-public function show(Event $event, SerializerInterface $serializer): Response
-{
-    $json = $serializer->serialize($event, 'json', ['circular_reference_handler' => function ($object) {
-        return $object->getId();
-    }, 'max_depth' => 1]);
-
-    return new Response($json, 200, [
-        'Content-Type' => 'application/json'
-    ]);
 }
-
-
-
-
-
-
-#[Route('/cr', name: 'create', methods: ['GET', 'POST'])]
-public function create(Request $request): Response
-{
-    $data = json_decode($request->getContent(), true);
-
-    $event = new Event();
-    $event->setNom($data['nom'] ?? null);
-    $event->setDateDebut(new \DateTime($data['DateFebut'] ?? null));
-    $event->setDateFin(new \DateTime($data['dateFin'] ?? null));
-
-    $errors = $this->validator->validate($myEntity);
-
-    if (count($errors) > 0) {
-        return $this->json(['errors' => (string) $errors], 400);
-    }
-
-    $this->entityManager->persist($myEntity);
-    $this->entityManager->flush();
-
-    return $this->json($myEntity, 201);
-}
-
-}
-
-
-
-
-
-
-
-
-
-

@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\Users;
 use App\Form\EventType;
 use App\Repository\EventRepository;
+use App\Repository\UsersRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Form\EventSearchType;
+
 use Knp\Component\Pager\PaginatorInterface;
 
 use App\Entity\EvenLike;
@@ -20,13 +23,34 @@ use App\Repository\EvenLikeRepository;
 #[Route('/event')]
 class EventController extends AbstractController
 {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     #[Route('/', name: 'app_event_index', methods: ['GET'])]
-    public function index(EntityManagerInterface $entityManager, Request $request, EventRepository $eventRepository ,PaginatorInterface $paginator): Response
+    public function index(EntityManagerInterface $entityManager, Request $request, EventRepository $eventRepository, PaginatorInterface $paginator): Response
     {
-        
+
         $events = $entityManager
-        ->getRepository(Event::class)
-        ->findAll();
+            ->getRepository(Event::class)
+            ->findAll();
 
         $events = $paginator->paginate(
             $events, // Requête contenant les données à paginer (ici nos articles)
@@ -83,50 +107,72 @@ class EventController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_event_delete', methods: ['GET','POST'])]
+    #[Route('/{id}', name: 'app_event_delete', methods: ['POST'])]
     public function delete(Request $request, Event $event, EventRepository $eventRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$event->getId(), $request->request->get('_token'))) {
-            try {
-                $eventRepository->remove($event, true);
-                $this->addFlash('success', 'Event deleted successfully.');
-            } catch (\Exception $e) {
-                $this->addFlash('error', 'Unable to delete event: ' . $e->getMessage());
-            }
+        if ($this->isCsrfTokenValid('delete' . $event->getId(), $request->request->get('_token'))) {
+            $eventRepository->remove($event, true);
         }
-    
-        return $this->redirectToRoute('app_event_index');
+
+        return $this->redirectToRoute('app_event_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
     
-
-
-  /**
+ /**
  * @Route("/{id}/like", name="event_like")
- * 
+ *
  * @param Event $event
  * @param EntityManagerInterface $manager
- * @param EvenLikeRepository $likesRepo
+ * @param EvenLikeRepository $likeRepo
+ * @return \Symfony\Component\HttpFoundation\Response
  */
-public function like(Event $event, EntityManagerInterface $manager, EvenLikeRepository $likesRepo): Response
+public function likeToggle(Event $event, EntityManagerInterface $manager, EvenLikeRepository $likeRepo): Response
 {
+    $user = $this->getUser();
+    if (!$user) {
+        return $this->json([
+            'code' => 403,
+            'message' => 'Unauthorized'
+        ], 403);
+    }
+
+    $like = $likeRepo->findOneBy(['event' => $event, 'user' => $user]);
+
+    if ($like) {
+        $manager->remove($like);
+        $manager->flush();
+        return $this->json([
+            'code' => 200,
+            'message' => 'Like bien supprimé',
+            'likes' => $likeRepo->count(['event' => $event]),
+        ], 200);
+    }
+
     $like = new EvenLike();
-    $like->setEvent($event);
+    $like->setEvent($event)
+        ->setUser($user);
 
     $manager->persist($like);
     $manager->flush();
 
-    $likesCount = $likesRepo->count(['event' => $event]);
-
     return $this->json([
         'code' => 200,
         'message' => 'Like bien ajouté',
-        'likes' => $likesCount,
-    ]);
+        'likes' => $likeRepo->count(['event' => $event]),
+    ], 200);
 }
 
-
   
-
-  
-
 }

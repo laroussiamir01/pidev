@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block body %}
+    {% if events|length > 0 %}
+        <h1>Search Results</h1>
+        <ul>
+            {% for event in events %}
+                <li>{{ event.nom }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 namespace App\Controller;
+
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarCharts;
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarChart;
 use App\Entity\Don;
@@ -21,30 +22,30 @@ class StatController extends AbstractController
 {
     #[Route('/stat', name: 'stat')]
     public function chartAction()
-{
-    $dons = $this->getDoctrine()->getRepository(Don::class)->findAll();
-    
-    $data = array();
-    
-    foreach ($dons as $blog) {
-        $type = $blog->getNom();
-      
-            
+    {
+        $dons = $this->getDoctrine()->getRepository(Don::class)->findAll();
+
+        $data = array();
+
+        foreach ($dons as $blog) {
+            $type = $blog->getNom();
+
+
             if (!isset($data[$type])) {
                 $data[$type] = array(
                     'count' => 0,
                     'ids' => array()
                 );
             }
-          
-            
+
+
             $data[$type]['count']++;
             $data[$type]['id'][] = $blog->getId();
         }
-    
-    
-    return $this->render('don/stat.html.twig', array(
-        'data' => $data , 'dons' => $dons
-    ));
-}
+
+
+        return $this->render('don/stat.html.twig', array(
+            'data' => $data, 'dons' => $dons
+        ));
+    }
 }

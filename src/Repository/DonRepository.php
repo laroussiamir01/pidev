@@ -39,31 +39,6 @@ class DonRepository extends ServiceEntityRepository
         }
     }
 
-
-      public function statisti()
-    {
-        $qb = $this->createQueryBuilder('v')
-            ->select('COUNT(v.montant) AS rec, SUBSTRING(v.montant, 1, 100000) AS montant')
-            ->groupBy('montant');
-        return $qb->getQuery()
-            ->getResult();
-
-    }
-    
-   /**
-     * @return Competition[] Returns an array of Competition objects
-     */
-    public function findByNom($value): array
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.nom LIKE :val')
-            ->setParameter('val', '%'.$value.'%')
-            ->orderBy('c.id', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
-
-
 //    /**
 //     * @return Don[] Returns an array of Don objects
 //     */

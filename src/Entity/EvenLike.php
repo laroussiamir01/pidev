@@ -16,6 +16,9 @@ class EvenLike
     #[ORM\ManyToOne(inversedBy: 'likes')]
     private ?Event $event = null;
 
+    #[ORM\ManyToOne(inversedBy: 'likes')]
+    private ?Users $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +32,18 @@ class EvenLike
     public function setEvent(?Event $event): self
     {
         $this->event = $event;
+
+        return $this;
+    }
+
+    public function getUser(): ?Users
+    {
+        return $this->user;
+    }
+
+    public function setUser(?Users $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
