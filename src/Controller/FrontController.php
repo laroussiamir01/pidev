@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\DonRepository;
+use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,4 +20,17 @@ class FrontController extends AbstractController
             'done' => $donRepository->findAll(),
         ]);
     }
+
+
+
+
+    #[Route('/eve', name: 'app_eve')]
+    public function indexx(EventRepository $eventRepository): Response
+    {
+        return $this->render('front/indexeve.html.twig', [
+            'events' => $eventRepository->findAll(),
+        ]);
+    }
 }
+
+

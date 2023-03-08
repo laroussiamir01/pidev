@@ -14,7 +14,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Form\EventSearchType;
 use Knp\Component\Pager\PaginatorInterface;
 
-
 use App\Entity\EvenLike;
 use App\Repository\EvenLikeRepository;
 
@@ -22,12 +21,12 @@ use App\Repository\EvenLikeRepository;
 class EventController extends AbstractController
 {
     #[Route('/', name: 'app_event_index', methods: ['GET'])]
-    public function index(EntityManagerInterface $entityManager, Request $request, EventRepository $eventRepository, PaginatorInterface $paginator): Response
+    public function index(EntityManagerInterface $entityManager, Request $request, EventRepository $eventRepository ,PaginatorInterface $paginator): Response
     {
-
+        
         $events = $entityManager
-            ->getRepository(Event::class)
-            ->findAll();
+        ->getRepository(Event::class)
+        ->findAll();
 
         $events = $paginator->paginate(
             $events, // Requête contenant les données à paginer (ici nos articles)
@@ -84,38 +83,50 @@ class EventController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_event_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'app_event_delete', methods: ['GET','POST'])]
     public function delete(Request $request, Event $event, EventRepository $eventRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $event->getId(), $request->request->get('_token'))) {
-            $eventRepository->remove($event, true);
+        if ($this->isCsrfTokenValid('delete'.$event->getId(), $request->request->get('_token'))) {
+            try {
+                $eventRepository->remove($event, true);
+                $this->addFlash('success', 'Event deleted successfully.');
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Unable to delete event: ' . $e->getMessage());
+            }
         }
-
-        return $this->redirectToRoute('app_event_index', [], Response::HTTP_SEE_OTHER);
+    
+        return $this->redirectToRoute('app_event_index');
     }
+    
 
 
-    /**
-     * @Route("/{id}/like", name="event_like")
-     * 
-     * @param Event $event
-     * @param EntityManagerInterface $manager
-     * @param EvenLikeRepository $likesRepo
-     */
-    public function like(Event $event, EntityManagerInterface $manager, EvenLikeRepository $likesRepo): Response
-    {
-        $like = new EvenLike();
-        $like->setEvent($event);
+  /**
+ * @Route("/{id}/like", name="event_like")
+ * 
+ * @param Event $event
+ * @param EntityManagerInterface $manager
+ * @param EvenLikeRepository $likesRepo
+ */
+public function like(Event $event, EntityManagerInterface $manager, EvenLikeRepository $likesRepo): Response
+{
+    $like = new EvenLike();
+    $like->setEvent($event);
 
-        $manager->persist($like);
-        $manager->flush();
+    $manager->persist($like);
+    $manager->flush();
 
-        $likesCount = $likesRepo->count(['event' => $event]);
+    $likesCount = $likesRepo->count(['event' => $event]);
 
-        return $this->json([
-            'code' => 200,
-            'message' => 'Like bien ajouté',
-            'likes' => $likesCount,
-        ]);
-    }
+    return $this->json([
+        'code' => 200,
+        'message' => 'Like bien ajouté',
+        'likes' => $likesCount,
+    ]);
+}
+
+
+  
+
+  
+
 }

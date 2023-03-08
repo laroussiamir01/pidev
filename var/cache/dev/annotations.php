@@ -254,6 +254,10 @@ return [[
 '[C]App%5CEntity%5CEvent%23getDateFin' => 1,
 'App%5CEntity%5CEvent%23setDateFin' => 0,
 '[C]App%5CEntity%5CEvent%23setDateFin' => 1,
+'App%5CEntity%5CEvent%23__toString' => 0,
+'[C]App%5CEntity%5CEvent%23__toString' => 1,
+'App%5CEntity%5CEvent%23__toString1' => 0,
+'[C]App%5CEntity%5CEvent%23__toString1' => 1,
 'App%5CEntity%5CEvent%23getDons' => 0,
 '[C]App%5CEntity%5CEvent%23getDons' => 1,
 'App%5CEntity%5CEvent%23addDon' => 0,
@@ -824,7 +828,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1678200614,
+1 => 1678050132,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [

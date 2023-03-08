@@ -14,17 +14,19 @@ return [
         '/don/api' => [[['_route' => 'app_don_api', '_controller' => 'App\\Controller\\DonApiController::index'], null, null, null, false, false, null]],
         '/addDonJSON' => [[['_route' => 'addDonJSON', '_controller' => 'App\\Controller\\DonApiController::addDonJSON'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/getDon' => [[['_route' => 'getDon', '_controller' => 'App\\Controller\\DonApiController::getDon'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/don' => [[['_route' => 'app_don_index', '_controller' => 'App\\Controller\\DonController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/don' => [[['_route' => 'app_don_index', '_controller' => 'App\\Controller\\DonController::index'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
         '/don/new' => [[['_route' => 'app_don_new', '_controller' => 'App\\Controller\\DonController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/getEVent' => [[['_route' => 'getEVent', '_controller' => 'App\\Controller\\EventApiController::myApi'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/addEventJSON' => [[['_route' => 'addEventJSON', '_controller' => 'App\\Controller\\EventApiController::addEventJSON'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/getEVent' => [[['_route' => 'getEVent', '_controller' => 'App\\Controller\\EventApiController::getEVent'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/editEventJSON' => [[['_route' => 'editEventJSON', '_controller' => 'App\\Controller\\EventApiController::editEventJSON'], null, ['POST' => 0], null, false, false, null]],
+        '/jsondelete' => [[['_route' => 'delete', '_controller' => 'App\\Controller\\EventApiController::deleteEventJSON'], null, ['POST' => 0, 'DELETE' => 1], null, false, false, null]],
         '/cr' => [[['_route' => 'create', '_controller' => 'App\\Controller\\EventApiController::create'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/event' => [[['_route' => 'app_event_index', '_controller' => 'App\\Controller\\EventController::index'], null, ['GET' => 0], null, true, false, null]],
         '/event/new' => [[['_route' => 'app_event_new', '_controller' => 'App\\Controller\\EventController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/front' => [[['_route' => 'app_front', '_controller' => 'App\\Controller\\FrontController::index'], null, null, null, true, false, null]],
+        '/front/eve' => [[['_route' => 'app_eve', '_controller' => 'App\\Controller\\FrontController::indexx'], null, null, null, false, false, null]],
         '/main' => [[['_route' => 'main', '_controller' => 'App\\Controller\\MainController::index'], null, null, null, false, false, null]],
-        '/stat' => [[['_route' => 'stat', '_controller' => 'App\\Controller\\StatController::stat'], null, null, null, false, false, null]],
-        '/test' => [[['_route' => 'app_test', '_controller' => 'App\\Controller\\TestController::index'], null, null, null, false, false, null]],
+        '/stat' => [[['_route' => 'stat', '_controller' => 'App\\Controller\\StatController::chartAction'], null, null, null, false, false, null]],
         '/_profiler' => [[['_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'], null, null, null, true, false, null]],
         '/_profiler/search' => [[['_route' => '_profiler_search', '_controller' => 'web_profiler.controller.profiler::searchAction'], null, null, null, false, false, null]],
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
@@ -38,42 +40,37 @@ return [
                     .'|/([^/]++)/edit(*:28)'
                     .'|i/([^/]++)(*:45)'
                 .')'
-                .'|/c(?'
-                    .'|alendar/([^/]++)(?'
-                        .'|(*:77)'
-                        .'|/edit(*:89)'
-                        .'|(*:96)'
-                    .')'
-                    .'|r/([^/]++)(?'
-                        .'|(*:117)'
-                    .')'
+                .'|/calendar/([^/]++)(?'
+                    .'|(*:74)'
+                    .'|/edit(*:86)'
+                    .'|(*:93)'
                 .')'
                 .'|/don/([^/]++)(?'
-                    .'|(*:143)'
-                    .'|/edit(*:156)'
-                    .'|(*:164)'
+                    .'|(*:117)'
+                    .'|/edit(*:130)'
+                    .'|(*:138)'
                 .')'
                 .'|/event/([^/]++)(?'
-                    .'|(*:191)'
+                    .'|(*:165)'
                     .'|/(?'
-                        .'|edit(*:207)'
-                        .'|like(*:219)'
+                        .'|edit(*:181)'
+                        .'|like(*:193)'
                     .')'
-                    .'|(*:228)'
+                    .'|(*:202)'
                 .')'
                 .'|/_(?'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:268)'
-                    .'|wdt/([^/]++)(*:288)'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:242)'
+                    .'|wdt/([^/]++)(*:262)'
                     .'|profiler/([^/]++)(?'
                         .'|/(?'
-                            .'|search/results(*:334)'
-                            .'|router(*:348)'
+                            .'|search/results(*:308)'
+                            .'|router(*:322)'
                             .'|exception(?'
-                                .'|(*:368)'
-                                .'|\\.css(*:381)'
+                                .'|(*:342)'
+                                .'|\\.css(*:355)'
                             .')'
                         .')'
-                        .'|(*:391)'
+                        .'|(*:365)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -81,27 +78,23 @@ return [
     [ // $dynamicRoutes
         28 => [[['_route' => 'api_event_edit', '_controller' => 'App\\Controller\\ApiController::majEvent'], ['id'], ['PUT' => 0], null, false, false, null]],
         45 => [[['_route' => 'show', '_controller' => 'App\\Controller\\EventApiController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        77 => [[['_route' => 'calendar_show', '_controller' => 'App\\Controller\\CalendarController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        89 => [[['_route' => 'calendar_edit', '_controller' => 'App\\Controller\\CalendarController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        96 => [[['_route' => 'calendar_delete', '_controller' => 'App\\Controller\\CalendarController::delete'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        117 => [
-            [['_route' => 'update', '_controller' => 'App\\Controller\\EventApiController::update'], ['id'], ['PUT' => 0], null, false, true, null],
-            [['_route' => 'delete', '_controller' => 'App\\Controller\\EventApiController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
-        ],
-        143 => [[['_route' => 'app_don_show', '_controller' => 'App\\Controller\\DonController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        156 => [[['_route' => 'app_don_edit', '_controller' => 'App\\Controller\\DonController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        164 => [[['_route' => 'app_don_delete', '_controller' => 'App\\Controller\\DonController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        191 => [[['_route' => 'app_event_show', '_controller' => 'App\\Controller\\EventController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        207 => [[['_route' => 'app_event_edit', '_controller' => 'App\\Controller\\EventController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        219 => [[['_route' => 'event_like', '_controller' => 'App\\Controller\\EventController::like'], ['id'], null, null, false, false, null]],
-        228 => [[['_route' => 'app_event_delete', '_controller' => 'App\\Controller\\EventController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        268 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        288 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        334 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        348 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        368 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        381 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        391 => [
+        74 => [[['_route' => 'calendar_show', '_controller' => 'App\\Controller\\CalendarController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        86 => [[['_route' => 'calendar_edit', '_controller' => 'App\\Controller\\CalendarController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        93 => [[['_route' => 'calendar_delete', '_controller' => 'App\\Controller\\CalendarController::delete'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        117 => [[['_route' => 'app_don_show', '_controller' => 'App\\Controller\\DonController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        130 => [[['_route' => 'app_don_edit', '_controller' => 'App\\Controller\\DonController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        138 => [[['_route' => 'app_don_delete', '_controller' => 'App\\Controller\\DonController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        165 => [[['_route' => 'app_event_show', '_controller' => 'App\\Controller\\EventController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        181 => [[['_route' => 'app_event_edit', '_controller' => 'App\\Controller\\EventController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        193 => [[['_route' => 'event_like', '_controller' => 'App\\Controller\\EventController::like'], ['id'], null, null, false, false, null]],
+        202 => [[['_route' => 'app_event_delete', '_controller' => 'App\\Controller\\EventController::delete'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        242 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        262 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        308 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        322 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        342 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        355 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        365 => [
             [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

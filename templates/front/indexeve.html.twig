@@ -1,6 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-front.html.twig' %}
 
-{% block title %}Event index{% endblock %}
+
+{% block title %}Event{% endblock %}
 
 {% block body %}
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -29,15 +30,13 @@
                 <td>{{ event.DateDebut ? event.DateDebut|date('Y-m-d') : '' }}</td>
                 <td>{{ event.DateFin ? event.DateFin|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_event_show', {'id': event.id}) }}">show</a>
-                    <a href="{{ path('app_event_edit', {'id': event.id}) }}">edit</a>
-                    <td>
+                   
                         <a href="{{ path('event_like', {'id': event.id}) }}" class="btn btn-link js-like">
                             <i class="far fa-thumbs-up"></i>
                             <span class="js-likes">{{ event.likes | length }}</span>
                             <span class="js-label">j'aime</span>
                         </a>
-                    </td>
+                    
                 </td>
             </tr>
         {% else %}
@@ -47,10 +46,7 @@
         {% endfor %}
         </tbody>
     </table>
-    
-                 <h4 style="display:inline-block; background-color:#542167; color:black; float:left; padding:8px 16px;
-                  text-decoration:none; transition:background-color .3s; border-radius:5px;" > {{ knp_pagination_render(events) }}</h4>
-  <script>
+    <script>
         $(function() {
             $('a.js-like').on('click', function(e) {
                 e.preventDefault();
@@ -71,13 +67,9 @@
         });
     </script>
 
-    <a href="{{ path('app_event_new') }}">Create new</a>
+    <a href="{{ path('app_front') }}">Don</a>
     
        <a href="{{ path('main') }}">Calendar</a>
     
 
 {% endblock %}
-
-
-  
-

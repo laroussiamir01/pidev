@@ -19,21 +19,32 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class StatController extends AbstractController
 {
-    #[Route('/stat',name :'stat')]
-    public function stat(DonRepository $repository): Response
-    {
-        $don = $repository->statisti();
-        $data = [['rate', 'event']];
-        foreach ($don as $nb) {
-            $data[] = array($nb['montant'], $nb['rec']);
+    #[Route('/stat', name: 'stat')]
+    public function chartAction()
+{
+    $dons = $this->getDoctrine()->getRepository(Don::class)->findAll();
+    
+    $data = array();
+    
+    foreach ($dons as $blog) {
+        $type = $blog->getNom();
+      
+            
+            if (!isset($data[$type])) {
+                $data[$type] = array(
+                    'count' => 0,
+                    'ids' => array()
+                );
+            }
+          
+            
+            $data[$type]['count']++;
+            $data[$type]['id'][] = $blog->getId();
         }
-        $bar = new BarChart();
-        $bar->getData()->setArrayToDataTable(
-            $data
-        );
-
-        $bar->getOptions()->getTitleTextStyle()->setColor('#07600');
-        $bar->getOptions()->getTitleTextStyle()->setFontSize(50);
-        return $this->render('don/stat.html.twig', array('barchart' => $bar, 'nbr' => $don));
-    }
+    
+    
+    return $this->render('don/stat.html.twig', array(
+        'data' => $data , 'dons' => $dons
+    ));
+}
 }

@@ -6,6 +6,7 @@ use App\Repository\DonRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 #[ORM\Entity(repositoryClass: DonRepository::class)]
 class Don
 {
@@ -32,7 +33,7 @@ class Don
 
     #[Assert\GreaterThanOrEqual(0, message: "le montant doit etre positif ")]
 
-    private ?int $montant = null;
+    private ?float $montant = null;
 
     public function getId(): ?int
     {
@@ -63,15 +64,18 @@ class Don
         return $this;
     }
 
-    public function getMontant(): ?int
+    public function getMontant(): ?float
     {
         return $this->montant;
     }
 
-    public function setMontant(int $montant): self
+    public function setMontant(float $montant): self
     {
         $this->montant = $montant;
 
         return $this;
     }
+
+    
+  
 }

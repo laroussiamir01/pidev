@@ -14,6 +14,10 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use DateTime;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+
 
 
 
@@ -22,6 +26,7 @@ class EventApiController extends AbstractController
 {
     private $entityManager;
     private $eventRepository;
+    private $validator;
 
     public function __construct(EntityManagerInterface $entityManager, EventRepository $eventRepository)
     {
@@ -30,6 +35,19 @@ class EventApiController extends AbstractController
     }
 
 
+
+    
+    #[Route('/getEVent', name: 'getEVent', methods: ['GET', 'POST'])]
+    public function myApi(EntityManagerInterface $entityManager): Response
+    {
+        $repository = $entityManager->getRepository(Event::class);
+        $data = $repository->createQueryBuilder('e')
+            ->select('e.id,e.nom, e.DateDebut, e.DateFin')
+            ->getQuery()
+            ->getArrayResult();
+
+        return $this->json($data);
+    }
 
 
     
@@ -48,6 +66,106 @@ class EventApiController extends AbstractController
         return new Response("event ajoutéé".json_encode($jsonContent));
 
     }
+
+
+
+    #[Route('/editEventJSON', name: 'editEventJSON', methods: ['POST'])]
+    public function editEventJSON(Request $request, NormalizerInterface $normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $id = $request->get('id');
+        $event = $em->getRepository(Event::class)->find($id);
+    
+        if (!$event) {
+            return new Response("Event with id $id not found");
+        }
+    
+        $event->setNom($request->get('nom'));
+        $event->setDateDebut(new \DateTime($request->get('DateDebut')));
+        $event->setDateFin(new \DateTime($request->get('DateFin')));
+        $em -> persist($event);
+        $em->flush();
+    
+        $jsonContent = $normalizer->normalize($event, 'json', [
+            'circular_reference_handler' => function ($object) {
+                return $object->getId();
+            },
+            'max_depth' => 1
+        ]);
+        return new Response("Event updated" . json_encode($jsonContent));
+    }
+    
+
+
+
+
+
+    #[Route('/jsondelete', name: 'delete', methods: ['POST', 'DELETE'])]
+    public function deleteEventJSON(Request $request, NormalizerInterface $normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $id = $request->get('id');
+        $event = $em->getRepository(Event::class)->find($id);
+    
+  
+    
+        $action = $request->get('action');
+        if ($action == "delete") {
+            $em->remove($event);
+            $em->flush();
+            return new Response("Event deleted");
+        } else {
+            $em->persist($event);
+            $em->flush();
+            $jsonContent = $normalizer->normalize($event, 'json', [
+                'circular_reference_handler' => function ($object) {
+                    return $object->getId();
+                },
+                'max_depth' => 1
+            ]);
+            return new Response("Event updated" . json_encode($jsonContent));
+        }
+    }
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -74,28 +192,6 @@ class EventApiController extends AbstractController
 
 
 
-    #[Route('/getEVent', name: 'getEVent', methods: ['GET', 'POST'])]
-    public function getEVent()
-    {
-
-        $event=$this->getDoctrine()->getManager()
-            ->getRepository(Event::class)
-            ->findAll();
-
-        $data =  array();
-        foreach ($event as $key => $p){
-
-            $data[$key]['id']= $p->getId();
-            $data[$key]['DateDebut']= $p->getDateDebut();
-            $data[$key]['DateFin']= $p->getDateFin();
-
-        }
-
-        return new JsonResponse($data);
-
-    }
-
-
 
 
 
@@ -114,78 +210,40 @@ public function show(Event $event, SerializerInterface $serializer): Response
 }
 
 
+
+
+
+
 #[Route('/cr', name: 'create', methods: ['GET', 'POST'])]
-public function create(Request $request, ValidatorInterface $validator, SerializerInterface $serializer): JsonResponse
-{
-    $data = $request->query->all();
-
-    $event = new Event();
-    $event->setNom($data['nom']);
-    $event->setDateDebut(new \DateTime($data['dateDebut']));
-    $event->setDateFin(new \DateTime($data['dateFin']));
-
-    // Validate the entity
-    $errors = $validator->validate($event);
-    if (count($errors) > 0) {
-        return $this->json(['errors' => (string) $errors], 400);
-    }
-
-    $this->entityManager->persist($event);
-    $this->entityManager->flush();
-
-    $json = $serializer->serialize($event, 'json', ['circular_reference_handler' => function ($object) {
-        return $object->getId();
-    }, 'max_depth' => 1]);
-
-    return new JsonResponse($json, JsonResponse::HTTP_CREATED, [], true);
-}
-
-
-
-
-
-
-/**
- * @Route("/cr/{id}", name="update", methods={"PUT"})
- */
-public function update(Event $event, Request $request, ValidatorInterface $validator, SerializerInterface $serializer): JsonResponse
+public function create(Request $request): Response
 {
     $data = json_decode($request->getContent(), true);
 
-    $event->setNom($data['nom']);
-    $event->setDateDebut(new \DateTime($data['dateDebut']));
-    $event->setDateFin(new \DateTime($data['dateFin']));
+    $event = new Event();
+    $event->setNom($data['nom'] ?? null);
+    $event->setDateDebut(new \DateTime($data['DateFebut'] ?? null));
+    $event->setDateFin(new \DateTime($data['dateFin'] ?? null));
 
-    // Validate the entity
-    $errors = $validator->validate($event);
+    $errors = $this->validator->validate($myEntity);
+
     if (count($errors) > 0) {
         return $this->json(['errors' => (string) $errors], 400);
     }
 
+    $this->entityManager->persist($myEntity);
     $this->entityManager->flush();
 
-    $json = $serializer->serialize($event, 'json', ['circular_reference_handler' => function ($object) {
-        return $object->getId();
-    }, 'max_depth' => 1]);
-
-    return new JsonResponse($json, JsonResponse::HTTP_OK, [], true);
-}
-
-
-
-/**
- * @Route("cr/{id}", name="delete", methods={"DELETE"})
- */
-public function delete(Event $event): JsonResponse
-{
-    try {
-        $this->entityManager->remove($event);
-        $this->entityManager->flush();
-    } catch (\Exception $e) {
-        return $this->json(['error' => 'Unable to delete event'], 400);
-    }
-
-    return new JsonResponse(null, JsonResponse::HTTP_NO_CONTENT);
+    return $this->json($myEntity, 201);
 }
 
 }
+
+
+
+
+
+
+
+
+
+
