@@ -11,6 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Entity\EvenLike;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
@@ -63,11 +64,15 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $isBlocked = false;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: EvenLike::class)]
+    private Collection $likes;
+
     
 
     public function __construct()
     {
         $this->reclamations = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
    
     public function getId(): ?int
@@ -239,6 +244,37 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     }
     return implode(', ', $items);
 }
+
+ /**
+     * @return Collection<int, EvenLike>
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(EvenLike $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes->add($like);
+            $like->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(EvenLike $like): self
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getUser() === $this) {
+                $like->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 
     
 }

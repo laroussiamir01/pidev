@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\Users;
 use App\Form\EventType;
 use App\Repository\EventRepository;
+use App\Repository\UsersRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,8 +14,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Form\EventSearchType;
-use Knp\Component\Pager\PaginatorInterface;
 
+use Knp\Component\Pager\PaginatorInterface;
 
 use App\Entity\EvenLike;
 use App\Repository\EvenLikeRepository;
@@ -95,27 +97,61 @@ class EventController extends AbstractController
     }
 
 
-    /**
-     * @Route("/{id}/like", name="event_like")
-     * 
-     * @param Event $event
-     * @param EntityManagerInterface $manager
-     * @param EvenLikeRepository $likesRepo
-     */
-    public function like(Event $event, EntityManagerInterface $manager, EvenLikeRepository $likesRepo): Response
-    {
-        $like = new EvenLike();
-        $like->setEvent($event);
 
-        $manager->persist($like);
+
+
+
+
+
+
+
+
+
+
+    
+ /**
+ * @Route("/{id}/like", name="event_like")
+ *
+ * @param Event $event
+ * @param EntityManagerInterface $manager
+ * @param EvenLikeRepository $likeRepo
+ * @return \Symfony\Component\HttpFoundation\Response
+ */
+public function likeToggle(Event $event, EntityManagerInterface $manager, EvenLikeRepository $likeRepo): Response
+{
+    $user = $this->getUser();
+    if (!$user) {
+        return $this->json([
+            'code' => 403,
+            'message' => 'Unauthorized'
+        ], 403);
+    }
+
+    $like = $likeRepo->findOneBy(['event' => $event, 'user' => $user]);
+
+    if ($like) {
+        $manager->remove($like);
         $manager->flush();
-
-        $likesCount = $likesRepo->count(['event' => $event]);
-
         return $this->json([
             'code' => 200,
-            'message' => 'Like bien ajouté',
-            'likes' => $likesCount,
-        ]);
+            'message' => 'Like bien supprimé',
+            'likes' => $likeRepo->count(['event' => $event]),
+        ], 200);
     }
+
+    $like = new EvenLike();
+    $like->setEvent($event)
+          ->setUser($user);
+
+    $manager->persist($like);
+    $manager->flush();
+
+    return $this->json([
+        'code' => 200,
+        'message' => 'Like bien ajouté',
+        'likes' => $likeRepo->count(['event' => $event]),
+    ], 200);
+}
+
+  
 }

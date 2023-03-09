@@ -3,6 +3,12 @@
 {% block title %}Don index{% endblock %}
 
 {% block body %}
+
+     {{form_start(formSearch)}}
+            
+                {{form_row(formSearch.nom)}}
+         
+        {{form_end(formSearch)}}
     <h1>Dons</h1>
 
     <table class="table">
@@ -21,7 +27,7 @@
                 <td>{{ don.id }}</td>
                 <td>{{ don.nom }}</td>
                 <td>{{ don.montant }}</td>
-                 <td>{{ don.events.nom }}</td>
+                 <td>{{ don.events }}</td>
                 <td>
                     <a href="{{ path('app_don_show', {'id': don.id}) }}">show</a>
                     <a href="{{ path('app_don_edit', {'id': don.id}) }}">edit</a>
@@ -36,4 +42,6 @@
     </table>
 
     <a href="{{ path('app_don_new') }}">Create new</a>
+
+      <a href="{{ path('stat') }}">stats</a>
 {% endblock %}

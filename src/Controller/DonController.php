@@ -12,6 +12,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\PropertySearch;
+use App\Form\PropertySearchType;
 
 
 
@@ -22,15 +24,24 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/don')]
 class DonController extends AbstractController
 {
-    #[Route('/', name: 'app_don_index', methods: ['GET'])]
-    public function index(DonRepository $donRepository): Response
+ 
+    #[Route('/', name: 'app_don_index', methods: ['GET','POST'])]
+    public function index(DonRepository $donRepository,Request $request): Response
     {
-        return $this->render('don/index.html.twig', [
-            'dons' => $donRepository->findAll(),
-        ]);
-    }
-    
+        $propertySearch =new PropertySearch();
+        $form=$this->createForm(PropertySearchType::class,$propertySearch);
+        $form->handleRequest($request);
+        $dons=$this->getDoctrine()->getRepository(Don::class)->findAll();
+        if($form->isSubmitted() && $form->isValid()){
+            $nom = $propertySearch->getNom();
+            if ($nom!= "")
+                $dons= $this->getDoctrine()->getRepository(Don::class)->findByNom($nom);
+            else
 
+                $dons= $this->getDoctrine()->getRepository(Don::class)->findAll();}
+        return
+            $this->render('don/index.html.twig',['formSearch' =>$form->createView(),'dons'=> $dons]);
+    }
 
 
 
