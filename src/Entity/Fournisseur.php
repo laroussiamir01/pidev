@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+
 #[ORM\Entity(repositoryClass: FournisseurRepository::class)]
 class Fournisseur
 {
@@ -43,6 +44,11 @@ class Fournisseur
     {
         return $this->nom;
     }
+    public function __toString()
+    {
+        return $this->getNom();
+    }
+
 
     public function setNom(string $nom): self
     {
@@ -55,6 +61,10 @@ class Fournisseur
      * @return Collection<int, Materiel>
      */
     public function getMateriels(): Collection
+    {
+        return $this->Materiels;
+    }
+    public function setMateriels(): Collection
     {
         return $this->Materiels;
     }

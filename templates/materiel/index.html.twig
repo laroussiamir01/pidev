@@ -22,7 +22,7 @@
                 <td>{{ materiel.libelle }}</td>
                 <td>{{ materiel.type }}</td>
                 <td>{{ materiel.prix }}</td>
-                <td>{{ materiel.fournisseur.nom }}</td>
+                <td>{{ materiel.fournisseur }}</td>
                 <td>
                     <a href="{{ path('app_materiel_show', {'id': materiel.id}) }}">Afficher  |</a>
                     <a href="{{ path('app_materiel_edit', {'id': materiel.id}) }}">Mise a jour  |</a>

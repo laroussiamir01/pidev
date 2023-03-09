@@ -26,6 +26,7 @@
                 <td>
                     <a href="{{ path('app_materiel_show', {'id': materiel.id}) }}">Afficher  |</a>
                     <a href="{{ path('app_materiel_edit', {'id': materiel.id}) }}">Mise a jour  |</a>
+                    
                 </td>
             </tr>
         {% else %}
@@ -37,5 +38,6 @@
     </table>
 
     <a href="{{ path('app_materiel_new') }}">Ajouter un nouveau  |</a>
-    <a href="{{ path('app_materiel_rech') }}">Recherche</a>
+    <a href="{{ path('app_materiel_rech') }}">Recherche  |</a>
+     <a href="{{ path('app_materiel_index') }}">Retour a la liste </a>
 {% endblock %}
