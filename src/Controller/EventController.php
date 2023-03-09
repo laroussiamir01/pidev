@@ -86,14 +86,19 @@ class EventController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_event_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'app_event_delete', methods: ['GET','POST'])]
     public function delete(Request $request, Event $event, EventRepository $eventRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $event->getId(), $request->request->get('_token'))) {
-            $eventRepository->remove($event, true);
+        if ($this->isCsrfTokenValid('delete'.$event->getId(), $request->request->get('_token'))) {
+            try {
+                $eventRepository->remove($event, true);
+                $this->addFlash('success', 'Event deleted successfully.');
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Unable to delete event: ' . $e->getMessage());
+            }
         }
-
-        return $this->redirectToRoute('app_event_index', [], Response::HTTP_SEE_OTHER);
+    
+        return $this->redirectToRoute('app_event_index');
     }
 
 

@@ -38,10 +38,10 @@
           Med
         </th>
         <th>
-          Image
-        </th>
-        <th>
           actions
+        </th>
+         <th>
+          Image
         </th>
       </tr>
     </thead>
@@ -67,10 +67,6 @@
             {{ labo.med }}
           </td>
           <td>
-            <img src="{{ asset('uploads/' ~ labo.img) }}"
-              style="width:100px;height:100px;" />
-          </td>
-          <td>
             <a class="button2"
               href="{{
               path(
@@ -94,6 +90,10 @@
               }}">
               Modifier
             </a>
+          </td>
+          <td>
+            <img src="{{ asset('uploads/' ~ labo.img) }}"
+              style="width:100px;height:100px;" />
           </td>
         </tr>
       {% else %}

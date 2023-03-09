@@ -13,8 +13,9 @@
                 <th>Mail_med</th>
                 <th>Specialite</th>
                 <th>Diplome</th>
-                <th>Photo</th>
                 <th>actions</th>
+                <th>Photo</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -28,14 +29,15 @@
                 <td>{{ medecin.specialite }}</td>
                 <td>{{ medecin.diplome }}</td>
                 <td>
+                <a href="{{ path('app_medecin_edit', {'id': medecin.id}) }}">edit</a> </td>
+                <td>
             <img src="{{ asset('' ~ medecin.Photo) }}"
               style="width:100px;height:100px;" />
           </td>
-          
-                <td>
-                   
-                    <a href="{{ path('app_medecin_edit', {'id': medecin.id}) }}">edit</a>
-                </td>
+         
+                
+                    
+                
             </tr>
         {% else %}
             <tr>
